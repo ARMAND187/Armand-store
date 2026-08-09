@@ -65,14 +65,14 @@ function TgIcon() {
 function TierRow({ label, price, highlight = false }: { label: string; price: string; highlight?: boolean }) {
   return (
     <div
-      className={`flex items-center justify-between rounded-lg sm:rounded-xl px-2 sm:px-4 py-2 sm:py-3 ${
+      className={`flex flex-col xl:flex-row items-start xl:items-center justify-between gap-0.5 xl:gap-0 rounded-lg sm:rounded-xl px-2.5 sm:px-4 py-2 sm:py-3 ${
         highlight
           ? "bg-red-500/10 border border-red-500/20"
           : "bg-white/[0.04] border border-white/[0.06]"
       }`}
     >
       <span className={`text-[10px] sm:text-sm font-medium leading-tight ${highlight ? "text-red-300" : "text-slate-300"}`}>{label}</span>
-      <span className={`text-xs sm:text-sm font-bold ml-1 sm:ml-3 whitespace-nowrap ${highlight ? "text-red-400" : "text-white"}`}>{price}</span>
+      <span className={`text-[11px] sm:text-sm font-bold whitespace-nowrap ${highlight ? "text-red-400" : "text-white"}`}>{price}</span>
     </div>
   );
 }
@@ -160,14 +160,14 @@ function YouTubeCard() {
         <TierRow label={t("yt_tier2_label")} price={t("yt_tier2_price")} />
         {/* BEST OFFER */}
         <div className="relative rounded-xl bg-red-500/10 border border-red-500/30 p-2 sm:p-3">
-          <div className="flex items-start justify-between gap-2">
+          <div className="flex flex-col xl:flex-row items-start xl:items-center justify-between gap-1.5 sm:gap-2">
             <div className="flex-1">
               <span className="inline-flex items-center text-[8px] sm:text-[10px] font-bold text-red-400 bg-red-500/20 px-1.5 sm:px-2 py-0.5 rounded-full mb-1">
                 {t("yt_best_offer")}
               </span>
               <p className="text-[10px] sm:text-xs text-red-300 font-medium leading-tight">{t("yt_tier3_label")}</p>
             </div>
-            <p className="text-sm sm:text-xl font-extrabold text-red-400 whitespace-nowrap">{t("yt_tier3_price")}</p>
+            <p className="text-sm sm:text-xl font-extrabold text-red-400 whitespace-nowrap mt-0.5 xl:mt-0">{t("yt_tier3_price")}</p>
           </div>
         </div>
       </div>
