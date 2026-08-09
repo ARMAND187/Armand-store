@@ -71,20 +71,20 @@ export default function HowToOrder() {
           </h2>
         </div>
 
-        <div ref={ref} className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        <div ref={ref} className="grid grid-cols-3 gap-2 sm:gap-6">
           {STEPS.map((step, i) => (
             <div
               key={i}
-              className="glass-card reveal-card flex flex-col items-center text-center p-8 gap-4"
+              className="glass-card reveal-card flex flex-col items-center justify-start text-center p-3 sm:p-8 gap-1.5 sm:gap-4"
               style={{ transitionDelay: `${i * 100}ms` }}
             >
               {/* Number */}
-              <span className="text-4xl font-black text-blue-500/30 leading-none">{step.num}</span>
+              <span className="text-xl sm:text-4xl font-black text-blue-500/30 leading-none">{step.num}</span>
               {/* Icon circle */}
-              <div className="w-14 h-14 rounded-2xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400">
-                {step.icon}
+              <div className="w-8 h-8 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400">
+                <div className="scale-75 sm:scale-100">{step.icon}</div>
               </div>
-              <h3 className="text-sm font-semibold text-slate-200">{t(step.keyTitle)}</h3>
+              <h3 className="text-[9px] sm:text-sm font-semibold text-slate-200 leading-tight">{t(step.keyTitle)}</h3>
             </div>
           ))}
         </div>
