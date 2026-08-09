@@ -32,7 +32,7 @@ function useReveal() {
 function TgButton({
   label,
   id,
-  colorClass = "bg-blue-600 hover:bg-blue-500 shadow-blue-600/25",
+  colorClass = "btn-3d-blue",
 }: {
   label: string;
   id: string;
@@ -44,7 +44,7 @@ function TgButton({
       target="_blank"
       rel="noopener noreferrer"
       id={id}
-      className={`flex items-center justify-center gap-1 sm:gap-2 w-full text-white font-bold text-[10px] sm:text-sm py-2 sm:py-3 rounded-xl sm:rounded-2xl leading-none tracking-wide transition-all hover:-translate-y-0.5 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0D1B2F] ${colorClass}`}
+      className={`flex items-center justify-center gap-1 sm:gap-2 w-full text-white font-bold text-[10px] sm:text-sm py-2 sm:py-3 rounded-xl sm:rounded-2xl leading-none tracking-wide btn-3d-base focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0D1B2F] ${colorClass}`}
       aria-label={`Message us about ${label} on Telegram`}
     >
       <TgIcon />
@@ -132,7 +132,7 @@ function GeminiCard() {
       {/* Price + CTA */}
       <div>
         <p className="text-xl sm:text-3xl font-extrabold text-white mb-1.5 sm:mb-3">{t("gemini_price")}</p>
-        <TgButton label={t("gemini_name")} id="cta-gemini" colorClass="bg-violet-600 hover:bg-violet-500 shadow-violet-600/25" />
+        <TgButton label={t("gemini_name")} id="cta-gemini" colorClass="btn-3d-blue" />
       </div>
     </article>
   );
@@ -172,7 +172,7 @@ function YouTubeCard() {
         </div>
       </div>
 
-      <TgButton label={t("yt_name")} id="cta-youtube" colorClass="bg-red-600 hover:bg-red-500 shadow-red-600/20" />
+      <TgButton label={t("yt_name")} id="cta-youtube" colorClass="btn-3d-red" />
       <p className="text-[9px] sm:text-[11px] text-slate-500 leading-relaxed">{t("yt_disclaimer")}</p>
     </article>
   );
@@ -198,7 +198,7 @@ function TikTokCard() {
         <TierRow label={t("tt_tier3_label")} price={t("tt_tier3_price")} />
       </div>
 
-      <TgButton label={t("tt_name")} id="cta-tiktok" colorClass="bg-white/10 hover:bg-white/15 border border-white/10 shadow-none" />
+      <TgButton label={t("tt_name")} id="cta-tiktok" colorClass="btn-3d-ghost" />
     </article>
   );
 }
@@ -224,7 +224,7 @@ function TelegramCard() {
       </div>
       <p className="text-xs text-slate-500">{t("tg_note")}</p>
 
-      <TgButton label={t("tg_name")} id="cta-telegram-members" colorClass="bg-sky-600 hover:bg-sky-500 shadow-sky-600/20" />
+      <TgButton label={t("tg_name")} id="cta-telegram-members" colorClass="btn-3d-sky" />
     </article>
   );
 }

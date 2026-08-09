@@ -47,7 +47,7 @@ export default function ContactCTA() {
           target="_blank"
           rel="noopener noreferrer"
           id="contact-telegram-cta"
-          className="group inline-flex items-center justify-center gap-3 bg-blue-600 hover:bg-blue-500 text-white font-bold text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-5 rounded-2xl transition-all hover:-translate-y-1 hover:shadow-2xl hover:shadow-blue-600/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#081426]"
+          className="group inline-flex items-center justify-center gap-3 btn-primary text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-5 rounded-2xl"
           aria-label="Message Armand Store on Telegram channel"
         >
           <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
