@@ -88,21 +88,26 @@ function WindowsCard() {
   return (
     <article className="glass-card reveal-card relative p-6 flex flex-col gap-4">
       <AccentBar gradient="bg-gradient-to-r from-blue-500 to-blue-700" />
-      <div className="flex items-center gap-3">
-        <div className="w-11 h-11 rounded-xl bg-blue-500/15 border border-blue-500/20 flex items-center justify-center flex-shrink-0" aria-hidden="true">
-          <svg viewBox="0 0 24 24" className="w-6 h-6 text-blue-400" fill="currentColor">
-            <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801" />
-          </svg>
-        </div>
-        <div>
-          <h3 className="text-base font-bold text-white">{t("win_name")}</h3>
-          <p className="text-xs text-slate-400">{t("win_desc")}</p>
-        </div>
+      {/* Header row */}
+      <div>
+        <h3 className="text-base font-bold text-white">{t("win_name")}</h3>
+        <p className="text-xs text-slate-400">{t("win_desc")}</p>
       </div>
-      <div className="mt-auto">
-        <p className="text-3xl font-extrabold text-white mb-1">{t("win_price")}</p>
+      {/* Product image */}
+      <div className="rounded-xl overflow-hidden flex-1 min-h-[180px] sm:min-h-[200px]">
+        <img
+          src="/windows-key.jpg"
+          alt="Windows 10/11 Activation Key"
+          className="w-full h-full object-contain"
+          loading="lazy"
+          decoding="async"
+        />
       </div>
-      <TgButton label={t("win_name")} id="cta-windows" />
+      {/* Price + CTA */}
+      <div>
+        <p className="text-3xl font-extrabold text-white mb-3">{t("win_price")}</p>
+        <TgButton label={t("win_name")} id="cta-windows" />
+      </div>
     </article>
   );
 }
@@ -113,30 +118,27 @@ function GeminiCard() {
   return (
     <article className="glass-card reveal-card relative p-6 flex flex-col gap-4">
       <AccentBar gradient="bg-gradient-to-r from-violet-500 to-blue-500" />
-      <div className="flex items-center gap-3">
-        <div className="w-11 h-11 rounded-xl bg-violet-500/15 border border-violet-500/20 flex items-center justify-center flex-shrink-0" aria-hidden="true">
-          <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none">
-            <defs>
-              <linearGradient id="gem-v2" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stopColor="#a78bfa" />
-                <stop offset="100%" stopColor="#60a5fa" />
-              </linearGradient>
-            </defs>
-            <path d="M12 2C12 2 14.5 7.5 12 12C9.5 7.5 12 2 12 2Z" fill="url(#gem-v2)" />
-            <path d="M12 22C12 22 9.5 16.5 12 12C14.5 16.5 12 22 12 22Z" fill="url(#gem-v2)" />
-            <path d="M2 12C2 12 7.5 9.5 12 12C7.5 14.5 2 12 2 12Z" fill="url(#gem-v2)" />
-            <path d="M22 12C22 12 16.5 14.5 12 12C16.5 9.5 22 12 22 12Z" fill="url(#gem-v2)" />
-          </svg>
-        </div>
-        <div>
-          <h3 className="text-base font-bold text-white">{t("gemini_name")}</h3>
-          <p className="text-xs text-slate-400">{t("gemini_duration")}</p>
-        </div>
+      {/* Header row — image already contains "GEMINI PRO / 18 MONTHS" text,
+          so we keep the card header brief */}
+      <div>
+        <h3 className="text-base font-bold text-white">{t("gemini_name")}</h3>
+        <p className="text-xs text-slate-400">{t("gemini_duration")}</p>
       </div>
-      <div className="mt-auto">
-        <p className="text-3xl font-extrabold text-white mb-1">{t("gemini_price")}</p>
+      {/* Product image */}
+      <div className="rounded-xl overflow-hidden flex-1 min-h-[180px] sm:min-h-[200px]">
+        <img
+          src="/gemini-18month.jpg"
+          alt="Gemini Pro 18 Months subscription"
+          className="w-full h-full object-contain"
+          loading="lazy"
+          decoding="async"
+        />
       </div>
-      <TgButton label={t("gemini_name")} id="cta-gemini" colorClass="bg-violet-600 hover:bg-violet-500 shadow-violet-600/25" />
+      {/* Price + CTA */}
+      <div>
+        <p className="text-3xl font-extrabold text-white mb-3">{t("gemini_price")}</p>
+        <TgButton label={t("gemini_name")} id="cta-gemini" colorClass="bg-violet-600 hover:bg-violet-500 shadow-violet-600/25" />
+      </div>
     </article>
   );
 }
