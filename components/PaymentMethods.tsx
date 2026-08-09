@@ -20,8 +20,8 @@ const PAYMENT_METHODS = [
     id: "zaincash",
     name: "ZainCash",
     logo: "/logo-zaincash-trans.png",
-    // Increased size significantly (h-20 instead of h-14), removed rounded bg
-    imgClass: "h-20 w-auto", 
+    // Make ZainCash ~2x larger and slightly brighter/higher contrast for readability against dark navy
+    imgClass: "h-32 w-auto scale-[1.3] brightness-[1.4] contrast-125", 
   },
 ];
 
