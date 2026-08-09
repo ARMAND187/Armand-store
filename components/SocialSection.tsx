@@ -1,0 +1,91 @@
+"use client";
+
+import { useLanguage } from "@/components/LanguageProvider";
+import { SOCIAL_LINKS } from "@/config/site";
+
+const SOCIAL_ITEMS = [
+  {
+    key: "telegram" as const,
+    label: "Telegram",
+    ariaLabel: "Follow Armand Store on Telegram",
+    icon: (
+      <svg viewBox="0 0 24 24" className="w-6 h-6" fill="currentColor" aria-hidden="true">
+        <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.069l-2.02 9.52c-.148.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.883.701z" />
+      </svg>
+    ),
+    color: "bg-sky-500 hover:bg-sky-600",
+    ring: "focus-visible:ring-sky-500",
+  },
+  {
+    key: "instagram" as const,
+    label: "Instagram",
+    ariaLabel: "Follow Armand Store on Instagram",
+    icon: (
+      <svg viewBox="0 0 24 24" className="w-6 h-6" fill="currentColor" aria-hidden="true">
+        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+      </svg>
+    ),
+    color: "bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400 hover:opacity-90",
+    ring: "focus-visible:ring-pink-500",
+  },
+  {
+    key: "tiktok" as const,
+    label: "TikTok",
+    ariaLabel: "Follow Armand Store on TikTok",
+    icon: (
+      <svg viewBox="0 0 24 24" className="w-6 h-6" fill="currentColor" aria-hidden="true">
+        <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V9.02a8.16 8.16 0 004.77 1.52V7.1a4.85 4.85 0 01-1-.41z" />
+      </svg>
+    ),
+    color: "bg-gray-900 hover:bg-gray-800",
+    ring: "focus-visible:ring-gray-900",
+  },
+  {
+    key: "facebook" as const,
+    label: "Facebook",
+    ariaLabel: "Follow Armand Store on Facebook",
+    icon: (
+      <svg viewBox="0 0 24 24" className="w-6 h-6" fill="currentColor" aria-hidden="true">
+        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+      </svg>
+    ),
+    color: "bg-blue-600 hover:bg-blue-700",
+    ring: "focus-visible:ring-blue-600",
+  },
+];
+
+export default function SocialSection() {
+  const { t } = useLanguage();
+
+  return (
+    <section
+      className="py-16 sm:py-20 bg-white"
+      aria-labelledby="social-heading"
+    >
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+        <h2
+          id="social-heading"
+          className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight mb-10"
+        >
+          {t("social_heading")}
+        </h2>
+
+        <div className="flex flex-wrap items-center justify-center gap-4">
+          {SOCIAL_ITEMS.map((item) => (
+            <a
+              key={item.key}
+              href={SOCIAL_LINKS[item.key]}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`inline-flex items-center gap-3 ${item.color} text-white font-semibold px-5 py-3 rounded-xl transition-all hover:-translate-y-0.5 shadow-sm focus:outline-none focus-visible:ring-2 ${item.ring} focus-visible:ring-offset-2`}
+              aria-label={item.ariaLabel}
+            >
+              {item.icon}
+              <span>{item.label}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
