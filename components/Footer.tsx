@@ -56,8 +56,30 @@ export default function Footer() {
             className="flex items-center gap-2.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 rounded-lg"
             aria-label="Armand Store Home"
           >
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center shadow-lg shadow-blue-600/30">
-              <span className="text-white font-bold text-sm" aria-hidden="true">A</span>
+            <div className="w-9 h-9 relative flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform duration-300">
+              {/* Outer glowing ring */}
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-blue-700 rounded-xl opacity-20 blur-md group-hover:opacity-40 transition-opacity"></div>
+              {/* Main Logo Container */}
+              <div className="relative w-full h-full bg-gradient-to-br from-[#0a1930] to-[#040914] border border-blue-500/30 rounded-xl flex items-center justify-center shadow-xl shadow-blue-900/20 overflow-hidden">
+                 {/* Shiny glass overlay */}
+                 <div className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-white/10 to-transparent"></div>
+                 {/* The SVG Logo */}
+                 <svg className="w-5 h-5 relative z-10" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                   <path d="M12 2L2 22H7L9.5 17H14.5L17 22H22L12 2Z" fill="url(#blue-grad-footer)" />
+                   <path d="M12 2L2 22H7L12 12L17 22H22L12 2Z" fill="url(#cyan-grad-footer)" opacity="0.8" />
+                   <path d="M10.75 14.5L12 12L13.25 14.5H10.75Z" fill="#ffffff" />
+                   <defs>
+                     <linearGradient id="blue-grad-footer" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
+                       <stop stopColor="#60A5FA" />
+                       <stop offset="1" stopColor="#2563EB" />
+                     </linearGradient>
+                     <linearGradient id="cyan-grad-footer" x1="12" y1="2" x2="12" y2="22" gradientUnits="userSpaceOnUse">
+                       <stop stopColor="#22D3EE" />
+                       <stop offset="1" stopColor="#0284C7" stopOpacity="0" />
+                     </linearGradient>
+                   </defs>
+                 </svg>
+              </div>
             </div>
             <span className="font-bold text-white text-lg tracking-tight">
               ARMAND <span className="text-blue-400">STORE</span>
