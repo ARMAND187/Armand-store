@@ -142,7 +142,7 @@ function GeminiCard() {
 function YouTubeCard() {
   const { t } = useLanguage();
   return (
-    <article className="glass-card reveal-card relative p-3 sm:p-6 flex flex-col gap-2 sm:gap-4 md:col-span-2 lg:col-span-1">
+    <article className="glass-card reveal-card relative p-3 sm:p-6 flex flex-col gap-2 sm:gap-4 col-span-2 md:col-span-2 lg:col-span-1">
       <div className="flex items-center gap-3">
         <div className="w-8 h-8 sm:w-11 sm:h-11 rounded-lg sm:rounded-xl bg-red-500/15 border border-red-500/20 flex items-center justify-center flex-shrink-0" aria-hidden="true">
           <svg viewBox="0 0 24 24" className="w-4 h-4 sm:w-6 sm:h-6 text-red-400" fill="currentColor">
@@ -182,7 +182,7 @@ function YouTubeCard() {
 function TikTokCard() {
   const { t } = useLanguage();
   return (
-    <article className="glass-card reveal-card relative p-3 sm:p-6 flex flex-col gap-2 sm:gap-4">
+    <article className="glass-card reveal-card relative p-3 sm:p-6 flex flex-col gap-2 sm:gap-4 col-span-2 sm:col-span-1">
       <div className="flex items-center gap-3">
         <div className="w-8 h-8 sm:w-11 sm:h-11 rounded-lg sm:rounded-xl bg-white/8 border border-white/10 flex items-center justify-center flex-shrink-0" aria-hidden="true">
           <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 sm:w-5 sm:h-5 text-white" fill="currentColor">
@@ -207,7 +207,7 @@ function TikTokCard() {
 function TelegramCard() {
   const { t } = useLanguage();
   return (
-    <article className="glass-card reveal-card relative p-3 sm:p-6 flex flex-col gap-2 sm:gap-4">
+    <article className="glass-card reveal-card relative p-3 sm:p-6 flex flex-col gap-2 sm:gap-4 col-span-2 sm:col-span-1">
       <div className="flex items-center gap-3">
         <div className="w-8 h-8 sm:w-11 sm:h-11 rounded-lg sm:rounded-xl bg-sky-500/15 border border-sky-500/20 flex items-center justify-center flex-shrink-0" aria-hidden="true">
           <svg viewBox="0 0 24 24" className="w-4 h-4 sm:w-6 sm:h-6 text-sky-400" fill="currentColor">
