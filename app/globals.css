@@ -255,7 +255,7 @@ body {
 /* ═══════════════════════════════════════════════════════
    SCROLLBAR
 ═══════════════════════════════════════════════════════ */
-::-webkit-scrollbar       { width: 100vw; }
+::-webkit-scrollbar       { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--bg-primary); }
 ::-webkit-scrollbar-thumb { background: rgba(59,130,246,0.3); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: rgba(59,130,246,0.5); }
