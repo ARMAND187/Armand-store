@@ -1,12 +1,11 @@
 // ============================================================
 // ARMAND STORE — Site Configuration
 // ============================================================
-// All social URLs are managed here.
-// To update TikTok: change TIKTOK_URL below (one place only).
+// All social URLs are managed here in ONE place.
 // ============================================================
 
-export const TELEGRAM_HANDLE = "armand4";
-export const TELEGRAM_URL = `https://t.me/${TELEGRAM_HANDLE}`;
+// ✅ V2 UPDATE: Telegram destination is now the channel
+export const TELEGRAM_URL = "https://t.me/ArmandStore1";
 
 // ⚠️  TikTok username changing soon from @xeyal_awaz → @armand_store
 // Change only this one variable when the username changes:

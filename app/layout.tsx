@@ -51,10 +51,7 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-    },
+    googleBot: { index: true, follow: true },
   },
   icons: {
     icon: "/favicon.ico",
@@ -69,7 +66,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={inter.variable}>
-      <body className="font-sans antialiased bg-white text-gray-900">
+      <body className="font-sans antialiased">
+        {/* Animated background orbs — fixed, behind everything */}
+        <div aria-hidden="true">
+          <div className="bg-orb bg-orb-1" />
+          <div className="bg-orb bg-orb-2" />
+          <div className="bg-orb bg-orb-3" />
+        </div>
         <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>

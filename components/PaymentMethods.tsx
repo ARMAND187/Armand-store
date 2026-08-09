@@ -5,30 +5,33 @@ import { useLanguage } from "@/components/LanguageProvider";
 const PAYMENT_METHODS = [
   {
     id: "fib",
+    abbr: "FI",
     name: "FIB",
-    fullName: "First Iraqi Bank",
-    color: "from-green-500 to-green-600",
-    bg: "bg-green-50",
-    border: "border-green-100",
-    text: "text-green-700",
+    gradient: "from-emerald-500 to-emerald-600",
+    glow: "shadow-emerald-500/20",
+    border: "border-emerald-500/20",
+    bg: "bg-emerald-500/10",
+    text: "text-emerald-400",
   },
   {
     id: "fastpay",
+    abbr: "FP",
     name: "FastPay",
-    fullName: "FastPay",
-    color: "from-orange-500 to-orange-600",
-    bg: "bg-orange-50",
-    border: "border-orange-100",
-    text: "text-orange-700",
+    gradient: "from-orange-500 to-amber-500",
+    glow: "shadow-orange-500/20",
+    border: "border-orange-500/20",
+    bg: "bg-orange-500/10",
+    text: "text-orange-400",
   },
   {
     id: "zaincash",
+    abbr: "ZC",
     name: "ZainCash",
-    fullName: "ZainCash",
-    color: "from-red-500 to-red-600",
-    bg: "bg-red-50",
-    border: "border-red-100",
-    text: "text-red-700",
+    gradient: "from-red-500 to-rose-600",
+    glow: "shadow-red-500/20",
+    border: "border-red-500/20",
+    bg: "bg-red-500/10",
+    text: "text-red-400",
   },
 ];
 
@@ -37,33 +40,33 @@ export default function PaymentMethods() {
 
   return (
     <section
-      className="py-16 sm:py-20 bg-gray-50"
+      className="py-20 sm:py-24 bg-[#050B18]"
       aria-labelledby="payment-heading"
     >
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
-        <div className="text-center mb-10">
+        <div className="text-center mb-12">
+          <p className="text-blue-400 text-xs font-bold tracking-[0.2em] uppercase mb-3">Local payment</p>
           <h2
             id="payment-heading"
-            className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight"
+            className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight"
           >
             {t("payment_heading")}
           </h2>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          {PAYMENT_METHODS.map((method) => (
+          {PAYMENT_METHODS.map((m) => (
             <div
-              key={method.id}
-              className={`flex flex-col items-center justify-center ${method.bg} border ${method.border} rounded-2xl p-6 transition-transform hover:-translate-y-0.5`}
+              key={m.id}
+              className={`glass-card flex flex-col items-center justify-center gap-3 p-7`}
             >
-              {/* Text logo */}
               <div
-                className={`inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br ${method.color} text-white font-extrabold text-lg shadow-sm mb-3`}
+                className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${m.gradient} text-white font-extrabold text-lg flex items-center justify-center shadow-lg ${m.glow}`}
                 aria-hidden="true"
               >
-                {method.name.slice(0, 2)}
+                {m.abbr}
               </div>
-              <span className={`font-bold text-base ${method.text}`}>{method.name}</span>
+              <span className={`font-bold text-base ${m.text}`}>{m.name}</span>
             </div>
           ))}
         </div>

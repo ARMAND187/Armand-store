@@ -3,21 +3,41 @@
 
 @import "tailwindcss";
 
-/* ── CSS Custom Properties ────────────────────────────── */
+/* ── Design Tokens ────────────────────────────────────── */
 :root {
   --font-inter: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  /* Palette */
+  --bg-primary:   #050B18;
+  --bg-secondary: #081426;
+  --bg-card:      #0D1B2F;
+  --bg-card-hover:#122640;
+
+  --text-primary:   #FFFFFF;
+  --text-secondary: #94A3B8;
+
+  --accent:       #3B82F6;
+  --accent-light: #60A5FA;
+  --glow:         rgba(59, 130, 246, 0.20);
+  --border-card:  rgba(96, 165, 250, 0.12);
+  --border-card-hover: rgba(96, 165, 250, 0.30);
 }
 
 /* ── Base ─────────────────────────────────────────────── */
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+  color-scheme: dark;
 }
 
 body {
   font-family: var(--font-inter);
-  /* Extra bottom padding so sticky mobile CTA doesn't cover content */
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  /* Bottom padding so sticky mobile CTA doesn't cover content */
   padding-bottom: 80px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 @media (min-width: 768px) {
@@ -28,58 +48,214 @@ body {
 
 /* ── Focus Visible ────────────────────────────────────── */
 :focus-visible {
-  outline: 2px solid #3b82f6;
-  outline-offset: 2px;
-  border-radius: 6px;
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 8px;
 }
 
-/* ── Animations ───────────────────────────────────────── */
-@keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+/* ── Selection ────────────────────────────────────────── */
+::selection {
+  background-color: rgba(59, 130, 246, 0.30);
+  color: #fff;
 }
 
-@keyframes fade-in-up {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-in {
-  animation: fade-in 0.5s ease-out forwards;
-}
-
-.animate-fade-in-up {
-  animation: fade-in-up 0.5s ease-out forwards;
-}
-
-.animation-delay-100 {
-  animation-delay: 100ms;
-  opacity: 0;
-}
-
-.animation-delay-200 {
-  animation-delay: 200ms;
-  opacity: 0;
-}
-
-/* ── Scroll Anchor Offset (for sticky header) ──────────── */
+/* ── Scroll Anchor Offset (sticky header) ─────────────── */
 #services,
 #contact {
   scroll-margin-top: 72px;
 }
 
-/* ── Selection ────────────────────────────────────────── */
-::selection {
-  background-color: #dbeafe;
-  color: #1e40af;
+/* ═══════════════════════════════════════════════════════
+   BACKGROUND ORBS — slow animated glows
+═══════════════════════════════════════════════════════ */
+@keyframes orb-drift-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.6; }
+  50%       { transform: translate(40px, -30px) scale(1.08); opacity: 0.9; }
 }
+@keyframes orb-drift-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.5; }
+  50%       { transform: translate(-30px, 20px) scale(1.05); opacity: 0.8; }
+}
+@keyframes orb-drift-3 {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.4; }
+  50%       { transform: translate(20px, 30px) scale(1.06); opacity: 0.7; }
+}
+
+.bg-orb {
+  position: fixed;
+  border-radius: 9999px;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bg-orb-1 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(59,130,246,0.18) 0%, transparent 70%);
+  top: -120px;
+  left: -100px;
+  animation: orb-drift-1 18s ease-in-out infinite;
+}
+
+.bg-orb-2 {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(96,165,250,0.10) 0%, transparent 70%);
+  top: 40%;
+  right: -150px;
+  animation: orb-drift-2 22s ease-in-out infinite;
+}
+
+.bg-orb-3 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(59,130,246,0.12) 0%, transparent 70%);
+  bottom: 10%;
+  left: 20%;
+  animation: orb-drift-3 26s ease-in-out infinite;
+}
+
+/* ═══════════════════════════════════════════════════════
+   HERO ANIMATIONS
+═══════════════════════════════════════════════════════ */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes hero-glow-pulse {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50%       { opacity: 0.8; transform: scale(1.04); }
+}
+
+@keyframes float-badge {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-4px); }
+}
+
+.animate-fade-in     { animation: fade-in 0.6s ease-out forwards; }
+.animate-fade-in-up  { animation: fade-in-up 0.6s ease-out forwards; }
+.animate-hero-glow   { animation: hero-glow-pulse 6s ease-in-out infinite; }
+.animate-float-badge { animation: float-badge 3s ease-in-out infinite; }
+
+.animation-delay-100 { animation-delay: 100ms; opacity: 0; }
+.animation-delay-200 { animation-delay: 200ms; opacity: 0; }
+.animation-delay-300 { animation-delay: 300ms; opacity: 0; }
+.animation-delay-400 { animation-delay: 400ms; opacity: 0; }
+
+/* ═══════════════════════════════════════════════════════
+   CARD REVEAL (Intersection Observer driven)
+═══════════════════════════════════════════════════════ */
+.reveal-card {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.reveal-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger via CSS custom property */
+.reveal-card:nth-child(2) { transition-delay: 80ms; }
+.reveal-card:nth-child(3) { transition-delay: 160ms; }
+.reveal-card:nth-child(4) { transition-delay: 240ms; }
+.reveal-card:nth-child(5) { transition-delay: 320ms; }
+
+/* ═══════════════════════════════════════════════════════
+   GLASS CARD
+═══════════════════════════════════════════════════════ */
+.glass-card {
+  background: rgba(13, 27, 47, 0.75);
+  border: 1px solid var(--border-card);
+  border-radius: 22px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-card-hover);
+  box-shadow: 0 8px 40px rgba(59, 130, 246, 0.12);
+}
+
+/* ═══════════════════════════════════════════════════════
+   BUTTONS
+═══════════════════════════════════════════════════════ */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
+  border-radius: 14px;
+  padding: 14px 28px;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 0 0 0 rgba(59,130,246,0);
+}
+
+.btn-primary:hover {
+  background: var(--accent-light);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 24px rgba(59, 130, 246, 0.40);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.05);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 14px;
+  padding: 14px 28px;
+  border: 1px solid rgba(255,255,255,0.10);
+  transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-ghost:hover {
+  background: rgba(255,255,255,0.10);
+  border-color: rgba(255,255,255,0.20);
+  transform: translateY(-2px);
+}
+
+/* ═══════════════════════════════════════════════════════
+   REDUCE MOTION — accessibility
+═══════════════════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal-card {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .bg-orb {
+    animation: none;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════
+   SCROLLBAR
+═══════════════════════════════════════════════════════ */
+::-webkit-scrollbar       { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: rgba(59,130,246,0.3); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(59,130,246,0.5); }

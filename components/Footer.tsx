@@ -47,32 +47,34 @@ export default function Footer() {
   const { t } = useLanguage();
 
   return (
-    <footer className="bg-gray-900 text-gray-300 py-12">
+    <footer className="bg-[#020812] border-t border-[rgba(96,165,250,0.08)] py-12">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="flex flex-col items-center text-center gap-6">
           {/* Brand */}
           <Link
             href="/"
-            className="flex items-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 rounded-lg"
+            className="flex items-center gap-2.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 rounded-lg"
             aria-label="Armand Store Home"
           >
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center">
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center shadow-lg shadow-blue-600/30">
               <span className="text-white font-bold text-sm" aria-hidden="true">A</span>
             </div>
-            <span className="font-bold text-white text-lg tracking-tight">ARMAND STORE</span>
+            <span className="font-bold text-white text-lg tracking-tight">
+              ARMAND <span className="text-blue-400">STORE</span>
+            </span>
           </Link>
 
-          <p className="text-gray-400 text-sm max-w-xs">{t("footer_tagline")}</p>
+          <p className="text-slate-500 text-sm max-w-xs">{t("footer_tagline")}</p>
 
           {/* Social icons */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3">
             {FOOTER_SOCIAL.map((item) => (
               <a
                 key={item.key}
                 href={SOCIAL_LINKS[item.key]}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-xl bg-gray-800 hover:bg-gray-700 text-gray-400 hover:text-white flex items-center justify-center transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
+                className="w-10 h-10 rounded-xl bg-white/5 hover:bg-blue-500/15 border border-white/8 hover:border-blue-500/30 text-slate-400 hover:text-blue-400 flex items-center justify-center transition-all hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
                 aria-label={`${SITE_CONFIG.name} on ${item.label}`}
               >
                 {item.icon}
@@ -81,9 +83,9 @@ export default function Footer() {
           </div>
 
           {/* Divider */}
-          <div className="w-full h-px bg-gray-800" aria-hidden="true" />
+          <div className="w-full h-px bg-[rgba(96,165,250,0.08)]" aria-hidden="true" />
 
-          <p className="text-gray-500 text-sm">{t("footer_copy")}</p>
+          <p className="text-slate-600 text-sm">{t("footer_copy")}</p>
         </div>
       </div>
     </footer>

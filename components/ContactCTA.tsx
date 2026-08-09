@@ -9,44 +9,64 @@ export default function ContactCTA() {
   return (
     <section
       id="contact"
-      className="py-16 sm:py-20 bg-gradient-to-b from-gray-50 to-white"
+      className="relative py-24 sm:py-32 overflow-hidden"
+      style={{ background: "linear-gradient(180deg, #050B18 0%, #081426 100%)" }}
       aria-labelledby="contact-heading"
     >
-      <div className="max-w-2xl mx-auto px-4 sm:px-6 text-center">
-        {/* Icon */}
-        <div
-          className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-blue-50 text-blue-600 mb-6 mx-auto"
-          aria-hidden="true"
-        >
-          <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
+      {/* Background glow */}
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full pointer-events-none"
+        aria-hidden="true"
+        style={{
+          background: "radial-gradient(ellipse, rgba(59,130,246,0.15) 0%, transparent 70%)",
+          filter: "blur(60px)",
+        }}
+      />
+
+      <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 text-center">
+        {/* Badge */}
+        <div className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold px-4 py-2 rounded-full mb-8 tracking-wide uppercase">
+          <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" aria-hidden="true" />
+          Ready?
         </div>
 
         <h2
           id="contact-heading"
-          className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight mb-4"
+          className="text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tight mb-5"
         >
-          {t("contact_heading")}
+          READY TO ORDER?
         </h2>
 
-        <p className="text-gray-500 text-base sm:text-lg mb-8 max-w-md mx-auto">
+        <p className="text-slate-400 text-base sm:text-lg mb-10 max-w-md mx-auto">
           {t("contact_body")}
         </p>
 
+        {/* Main CTA */}
         <a
           href={TELEGRAM_URL}
           target="_blank"
           rel="noopener noreferrer"
           id="contact-telegram-cta"
-          className="inline-flex items-center justify-center gap-3 bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-bold text-base px-8 py-4 rounded-xl transition-all shadow-lg shadow-blue-600/25 hover:shadow-blue-600/40 hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-          aria-label="Message Armand Store on Telegram"
+          className="group inline-flex items-center justify-center gap-3 bg-blue-600 hover:bg-blue-500 text-white font-bold text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-5 rounded-2xl transition-all hover:-translate-y-1 hover:shadow-2xl hover:shadow-blue-600/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#081426]"
+          aria-label="Message Armand Store on Telegram channel"
         >
           <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.069l-2.02 9.52c-.148.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.883.701z" />
           </svg>
           {t("cta_message_telegram")}
+          <svg
+            className="w-4 h-4 transition-transform group-hover:translate-x-1"
+            fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}
+            aria-hidden="true"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
         </a>
+
+        {/* Sub-note */}
+        <p className="mt-5 text-xs text-slate-600">
+          {t("contact_heading")} — {t("nav_contact")}
+        </p>
       </div>
     </section>
   );
