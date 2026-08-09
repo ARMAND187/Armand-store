@@ -13,13 +13,15 @@ const PAYMENT_METHODS = [
     id: "fastpay",
     name: "FastPay",
     logo: "/logo-fastpay.png",
-    imgClass: "h-8 w-auto",
+    // Increased by ~30% from h-8 to h-10/11 so it is comparable to FIB
+    imgClass: "h-11 w-auto",
   },
   {
     id: "zaincash",
     name: "ZainCash",
-    logo: "/logo-zaincash.jpg",
-    imgClass: "h-14 w-auto rounded-xl", 
+    logo: "/logo-zaincash-trans.png",
+    // Increased size significantly (h-20 instead of h-14), removed rounded bg
+    imgClass: "h-20 w-auto", 
   },
 ];
 
@@ -48,7 +50,7 @@ export default function PaymentMethods() {
               key={m.id}
               className="glass-card flex-1 w-full flex flex-col items-center justify-center gap-5 p-6"
             >
-              <div className="h-16 w-full flex items-center justify-center">
+              <div className="h-20 w-full flex items-center justify-center">
                 <img
                   src={m.logo}
                   alt={`${m.name} logo`}
