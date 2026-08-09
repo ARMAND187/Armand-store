@@ -30,7 +30,7 @@ export default function PaymentMethods() {
 
   return (
     <section
-      className="py-16 sm:py-20 bg-[#050B18]"
+      className="py-16 sm:py-20 bg-transparent"
       aria-labelledby="payment-heading"
     >
       <div className="max-w-4xl mx-auto px-4 sm:px-6">

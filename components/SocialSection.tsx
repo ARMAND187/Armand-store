@@ -55,7 +55,7 @@ export default function SocialSection() {
 
   return (
     <section
-      className="py-20 sm:py-24 bg-[#081426]"
+      className="py-20 sm:py-24 bg-transparent"
       aria-labelledby="social-heading"
     >
       <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">

@@ -238,7 +238,7 @@ export default function ProductSection() {
     <section
       id="services"
       className="relative py-20 sm:py-24"
-      style={{ background: "linear-gradient(180deg, #050B18 0%, #081426 50%, #050B18 100%)" }}
+      
       aria-labelledby="services-heading"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
