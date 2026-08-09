@@ -77,17 +77,13 @@ function TierRow({ label, price, highlight = false }: { label: string; price: st
   );
 }
 
-// ── Card Top Accent Bar ───────────────────────────────────
-function AccentBar({ gradient }: { gradient: string }) {
-  return <div className={`absolute top-0 left-0 right-0 h-[2px] rounded-t-[22px] ${gradient}`} aria-hidden="true" />;
-}
+
 
 // ── Windows Card ──────────────────────────────────────────
 function WindowsCard() {
   const { t } = useLanguage();
   return (
     <article className="glass-card reveal-card relative p-6 flex flex-col gap-4">
-      <AccentBar gradient="bg-gradient-to-r from-blue-500 to-blue-700" />
       {/* Header row */}
       <div>
         <h3 className="text-base font-bold text-white">{t("win_name")}</h3>
@@ -117,7 +113,6 @@ function GeminiCard() {
   const { t } = useLanguage();
   return (
     <article className="glass-card reveal-card relative p-6 flex flex-col gap-4">
-      <AccentBar gradient="bg-gradient-to-r from-violet-500 to-blue-500" />
       {/* Header row — image already contains "GEMINI PRO / 18 MONTHS" text,
           so we keep the card header brief */}
       <div>
@@ -148,7 +143,6 @@ function YouTubeCard() {
   const { t } = useLanguage();
   return (
     <article className="glass-card reveal-card relative p-6 flex flex-col gap-4 md:col-span-2 lg:col-span-1">
-      <AccentBar gradient="bg-gradient-to-r from-red-500 to-red-700" />
       <div className="flex items-center gap-3">
         <div className="w-11 h-11 rounded-xl bg-red-500/15 border border-red-500/20 flex items-center justify-center flex-shrink-0" aria-hidden="true">
           <svg viewBox="0 0 24 24" className="w-6 h-6 text-red-400" fill="currentColor">
@@ -189,7 +183,6 @@ function TikTokCard() {
   const { t } = useLanguage();
   return (
     <article className="glass-card reveal-card relative p-6 flex flex-col gap-4">
-      <AccentBar gradient="bg-gradient-to-r from-slate-400 to-slate-600" />
       <div className="flex items-center gap-3">
         <div className="w-11 h-11 rounded-xl bg-white/8 border border-white/10 flex items-center justify-center flex-shrink-0" aria-hidden="true">
           <svg viewBox="0 0 24 24" className="w-5 h-5 text-white" fill="currentColor">
@@ -215,7 +208,6 @@ function TelegramCard() {
   const { t } = useLanguage();
   return (
     <article className="glass-card reveal-card relative p-6 flex flex-col gap-4">
-      <AccentBar gradient="bg-gradient-to-r from-sky-400 to-blue-500" />
       <div className="flex items-center gap-3">
         <div className="w-11 h-11 rounded-xl bg-sky-500/15 border border-sky-500/20 flex items-center justify-center flex-shrink-0" aria-hidden="true">
           <svg viewBox="0 0 24 24" className="w-6 h-6 text-sky-400" fill="currentColor">
