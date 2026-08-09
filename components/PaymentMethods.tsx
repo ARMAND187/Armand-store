@@ -5,33 +5,18 @@ import { useLanguage } from "@/components/LanguageProvider";
 const PAYMENT_METHODS = [
   {
     id: "fib",
-    abbr: "FI",
     name: "FIB",
-    gradient: "from-emerald-500 to-emerald-600",
-    glow: "shadow-emerald-500/20",
-    border: "border-emerald-500/20",
-    bg: "bg-emerald-500/10",
-    text: "text-emerald-400",
+    logo: "/logo-fib.svg",
   },
   {
     id: "fastpay",
-    abbr: "FP",
     name: "FastPay",
-    gradient: "from-orange-500 to-amber-500",
-    glow: "shadow-orange-500/20",
-    border: "border-orange-500/20",
-    bg: "bg-orange-500/10",
-    text: "text-orange-400",
+    logo: "/logo-fastpay.png",
   },
   {
     id: "zaincash",
-    abbr: "ZC",
     name: "ZainCash",
-    gradient: "from-red-500 to-rose-600",
-    glow: "shadow-red-500/20",
-    border: "border-red-500/20",
-    bg: "bg-red-500/10",
-    text: "text-red-400",
+    logo: "/logo-zaincash.jpg",
   },
 ];
 
@@ -54,19 +39,21 @@ export default function PaymentMethods() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
           {PAYMENT_METHODS.map((m) => (
             <div
               key={m.id}
-              className={`glass-card flex flex-col items-center justify-center gap-3 p-7`}
+              className="glass-card flex flex-col items-center justify-center gap-6 p-8"
             >
-              <div
-                className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${m.gradient} text-white font-extrabold text-lg flex items-center justify-center shadow-lg ${m.glow}`}
-                aria-hidden="true"
-              >
-                {m.abbr}
+              <div className="h-16 w-full flex items-center justify-center">
+                <img
+                  src={m.logo}
+                  alt={`${m.name} logo`}
+                  className="max-h-full max-w-full object-contain drop-shadow-sm"
+                  loading="lazy"
+                />
               </div>
-              <span className={`font-bold text-base ${m.text}`}>{m.name}</span>
+              <span className="font-bold text-base text-white">{m.name}</span>
             </div>
           ))}
         </div>
