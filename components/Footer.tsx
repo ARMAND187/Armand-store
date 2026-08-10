@@ -64,17 +64,20 @@ export default function Footer() {
                  <div className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-white/10 to-transparent"></div>
                  {/* The SVG Logo */}
                  <svg className="w-5 h-5 relative z-10" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                   <path d="M12 2L2 22H7L9.5 17H14.5L17 22H22L12 2Z" fill="url(#violet-grad-footer)" />
-                   <path d="M12 2L2 22H7L12 12L17 22H22L12 2Z" fill="url(#cyan-grad-footer)" opacity="0.85" />
-                   <path d="M10.75 14.5L12 12L13.25 14.5H10.75Z" fill="#ffffff" />
+                   {/* Left diagonal */}
+                   <path d="M12 2L4 21H8.5L12 13V2Z" fill="url(#violet-grad-footer)" />
+                   {/* Right diagonal */}
+                   <path d="M12 2L20 21H15.5L12 13V2Z" fill="url(#cyan-grad-footer)" opacity="0.9" />
+                   {/* Floating Crossbar */}
+                   <rect x="9.5" y="16" width="5" height="2" rx="1" fill="#ffffff" />
                    <defs>
-                     <linearGradient id="violet-grad-footer" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
+                     <linearGradient id="violet-grad-footer" x1="4" y1="2" x2="12" y2="21" gradientUnits="userSpaceOnUse">
                        <stop stopColor="#a78bfa" />
                        <stop offset="1" stopColor="#7c3aed" />
                      </linearGradient>
-                     <linearGradient id="cyan-grad-footer" x1="12" y1="2" x2="12" y2="22" gradientUnits="userSpaceOnUse">
+                     <linearGradient id="cyan-grad-footer" x1="12" y1="2" x2="20" y2="21" gradientUnits="userSpaceOnUse">
                        <stop stopColor="#67e8f9" />
-                       <stop offset="1" stopColor="#06b6d4" stopOpacity="0" />
+                       <stop offset="1" stopColor="#06b6d4" stopOpacity="0.3" />
                      </linearGradient>
                    </defs>
                  </svg>
