@@ -47,7 +47,7 @@ export default function Footer() {
   const { t } = useLanguage();
 
   return (
-    <footer className="bg-transparent pb-12 pt-4 relative z-10">
+    <footer className="bg-transparent pb-10 pt-0 relative z-10">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="flex flex-col items-center text-center gap-6">
           {/* Brand */}
