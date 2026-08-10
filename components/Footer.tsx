@@ -81,7 +81,7 @@ export default function Footer() {
               </div>
             </div>
             <span className="font-bold text-white text-lg tracking-tight">
-              ARMAND <span className="text-violet-400">STORE</span>
+              ARMAND <span className="text-gradient-hero animate-pulse">STORE</span>
             </span>
           </Link>
 

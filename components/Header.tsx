@@ -78,7 +78,7 @@ export default function Header() {
               </div>
             </div>
             <span className="hidden sm:inline-block font-bold text-white text-lg tracking-tight" style={{fontFamily:"var(--font-display)"}}>
-              ARMAND <span className="text-gradient-hero">STORE</span>
+              ARMAND <span className="text-gradient-hero animate-pulse">STORE</span>
             </span>
           </Link>
 
@@ -93,31 +93,6 @@ export default function Header() {
             <Link href="/how-it-works" className="text-[11px] sm:text-xs md:text-sm font-medium text-[#8b8ba8] hover:text-white transition-colors whitespace-nowrap">
               {t("nav_how_it_works") || "How It Works"}
             </Link>
-            
-            {/* Connect Dropdown (Hidden on very small mobile to save space, visible sm+) */}
-            <div className="hidden sm:block relative" ref={connectRef}>
-              <button 
-                onClick={() => setConnectOpen(!connectOpen)}
-                className={`text-sm font-medium transition-colors flex items-center gap-1.5 focus:outline-none ${connectOpen ? "text-violet-400" : "text-[#8b8ba8] hover:text-white"}`}
-                aria-haspopup="true"
-                aria-expanded={connectOpen}
-              >
-                Connect
-                <svg className={`w-4 h-4 transition-transform duration-200 ${connectOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
-              </button>
-              
-              {connectOpen && (
-                <div className="absolute top-full mt-4 right-0 w-56 bg-[#0d0a1e] border border-violet-500/15 rounded-2xl shadow-xl shadow-black/60 p-2 z-50 animate-in fade-in slide-in-from-top-2">
-                  <div className="px-3 py-2.5 mb-1 border-b border-violet-500/10">
-                    <p className="text-[11px] font-bold text-[#55556a] uppercase tracking-wider">Connect With Us</p>
-                  </div>
-                  <SocialMenuItem href={SOCIAL_LINKS.telegram} icon={<TelegramIcon className="w-4 h-4 text-sky-400"/>} label="Telegram" onClick={() => setConnectOpen(false)} />
-                  <SocialMenuItem href={SOCIAL_LINKS.instagram} icon={<InstagramIcon className="w-4 h-4 text-pink-500"/>} label="Instagram" onClick={() => setConnectOpen(false)} />
-                  <SocialMenuItem href={SOCIAL_LINKS.tiktok} icon={<TikTokIcon className="w-4 h-4 text-white"/>} label="TikTok" onClick={() => setConnectOpen(false)} />
-                  <SocialMenuItem href={SOCIAL_LINKS.facebook} icon={<FacebookIcon className="w-4 h-4 text-blue-500"/>} label="Facebook" onClick={() => setConnectOpen(false)} />
-                </div>
-              )}
-            </div>
           </nav>
 
           {/* Right: lang switch */}
