@@ -104,13 +104,6 @@ export default function Hero() {
           ))}
         </div>
       </div>
-
-      {/* Bottom fade */}
-      <div
-        className="absolute bottom-0 left-0 right-0 h-40 pointer-events-none"
-        aria-hidden="true"
-        style={{ background: "linear-gradient(to bottom, transparent, #05000f)" }}
-      />
     </section>
   );
 }

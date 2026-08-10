@@ -1,6 +1,6 @@
 export default function TrustBadges() {
   return (
-    <section className="py-12 border-y border-white/5 bg-[#05000f]/50 backdrop-blur-sm relative z-10">
+    <section className="py-12 border-y border-white/5 relative z-10">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
           
