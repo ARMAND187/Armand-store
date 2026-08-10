@@ -78,7 +78,7 @@ export default function Header() {
               </div>
             </div>
             <span className="font-bold text-white text-lg tracking-tight" style={{fontFamily:"var(--font-display)"}}>
-              ARMAND <span className="text-violet-400">STORE</span>
+              ARMAND <span className="text-gradient-hero">STORE</span>
             </span>
           </Link>
 
