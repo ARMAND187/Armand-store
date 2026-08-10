@@ -1,34 +1,36 @@
 "use client";
 
 import { useState } from "react";
-
-const faqs = [
-  {
-    question: "How long does delivery take?",
-    answer: "Most digital orders are delivered quickly after payment is confirmed. Time may vary depending on the service."
-  },
-  {
-    question: "Is this safe and legal?",
-    answer: "We provide digital products and services. We never ask for your password. You are responsible for using services according to each platform's rules."
-  },
-  {
-    question: "How do I pay?",
-    answer: "We accept FIB, FastPay, and ZainCash. Message us first, then we'll guide you through the payment."
-  },
-  {
-    question: "What if I have an issue with my order?",
-    answer: "Contact us through Telegram and send your order details. We'll check the issue and help you as soon as possible."
-  }
-];
+import { useLanguage } from "@/components/LanguageProvider";
 
 export default function FAQSection() {
+  const { t } = useLanguage();
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const faqs = [
+    {
+      question: t("faq_q1"),
+      answer: t("faq_a1")
+    },
+    {
+      question: t("faq_q2"),
+      answer: t("faq_a2")
+    },
+    {
+      question: t("faq_q3"),
+      answer: t("faq_a3")
+    },
+    {
+      question: t("faq_q4"),
+      answer: t("faq_a4")
+    }
+  ];
 
   return (
     <section className="max-w-3xl mx-auto px-4 sm:px-6 relative z-10">
       <div className="text-center mb-10">
-        <h2 className="text-3xl font-extrabold text-white mb-4">Frequently Asked Questions</h2>
-        <p className="text-[#8b8ba8]">Got a question? We've got answers.</p>
+        <h2 className="text-3xl font-extrabold text-white mb-4">{t("faq_heading")}</h2>
+        <p className="text-[#8b8ba8]">{t("faq_subheading")}</p>
       </div>
 
       <div className="space-y-4">
@@ -54,7 +56,7 @@ export default function FAQSection() {
               <div 
                 className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'}`}
               >
-                <div className="px-6 pb-5 pt-1 text-slate-400 text-sm leading-relaxed">
+                <div className="px-6 pb-5 pt-1 text-slate-400 text-sm leading-relaxed" dir="auto">
                   {faq.answer}
                 </div>
               </div>

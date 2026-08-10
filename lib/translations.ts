@@ -96,6 +96,23 @@ export const translations = {
     // Footer
     footer_tagline: "Premium Digital Products & Social Media Services",
     footer_copy: "© 2026 Armand Store",
+
+    // How It Works Page Header
+    hiw_eyebrow: "Support & Guides",
+    hiw_title: "How It Works",
+    hiw_subtitle: "Everything you need to know about ordering, paying, and reaching our support team.",
+    
+    // FAQ
+    faq_heading: "Frequently Asked Questions",
+    faq_subheading: "Got a question? We've got answers.",
+    faq_q1: "How long does delivery take?",
+    faq_a1: "Most digital orders are delivered quickly after payment is confirmed. Time may vary depending on the service.",
+    faq_q2: "Is this safe and legal?",
+    faq_a2: "We provide digital products and services. We never ask for your password. You are responsible for using services according to each platform's rules.",
+    faq_q3: "How do I pay?",
+    faq_a3: "We accept FIB, FastPay, and ZainCash. Message us first, then we'll guide you through the payment.",
+    faq_q4: "What if I have an issue with my order?",
+    faq_a4: "Contact us through Telegram and send your order details. We'll check the issue and help you as soon as possible.",
   },
 
   ku: {
@@ -186,6 +203,23 @@ export const translations = {
     // Footer
     footer_tagline: "بەرهەمە دیجیتاڵییە پریمیومەکان و خزمەتگوزارییەکانی میدیای کۆمەڵایەتی",
     footer_copy: "© ٢٠٢٦ Armand Store",
+
+    // How It Works Page Header
+    hiw_eyebrow: "پشتگیری و ڕێبەرەکان",
+    hiw_title: "چۆنیەتی کارکردن",
+    hiw_subtitle: "هەموو ئەوەی پێویستە بیزانیت دەربارەی داواکردن، پارەدان، و پەیوەندیکردن بە تیمی پشتگیریمانەوە.",
+    
+    // FAQ
+    faq_heading: "پرسیارە باوەکان",
+    faq_subheading: "پرسیارێکت هەیە؟ ئێمە وەڵاممان هەیە.",
+    faq_q1: "گەیاندن چەند کات دەخایەنێت؟",
+    faq_a1: "زۆربەی داواکارییە دیجیتاڵییەکان بەخێرایی دوای پشتڕاستکردنەوەی پارەدان دەگەیەنرێن. کاتەکە لەوانەیە بەپێی خزمەتگوزارییەکە بگۆڕێت.",
+    faq_q2: "ئایا ئەمە سەلامەت و یاساییە؟",
+    faq_a2: "ئێمە بەرهەم و خزمەتگوزاری دیجیتاڵی دابین دەکەین. هەرگیز داوای پاسۆردەکەت ناکەین. تۆ خۆت بەرپرسیاریت لە بەکارهێنانی خزمەتگوزارییەکان بەپێی یاساکانی هەر پلاتفۆرمێک.",
+    faq_q3: "چۆن پارە بدەم؟",
+    faq_a3: "ئێمە FIB، FastPay و ZainCash وەردەگرین. سەرەتا نامەمان بۆ بنێرە، پاشان ڕێنماییت دەکەین بۆ پارەدانەکە.",
+    faq_q4: "ئەگەر کێشەیەکم لە داواکارییەکەمدا هەبوو چی بکەم؟",
+    faq_a4: "لە ڕێگەی تێلیگرامەوە پەیوەندیمان پێوە بکە و زانیاری داواکارییەکەت بنێرە. بە زووترین کات کێشەکە دەپشکنین و یارمەتیت دەدەین.",
   },
 } as const;
 
