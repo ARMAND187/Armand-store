@@ -56,28 +56,28 @@ export default function Footer() {
             className="flex items-center gap-2.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 rounded-lg"
             aria-label="Armand Store Home"
           >
-            <div className="w-12 h-12 relative flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform duration-300">
+            <div className="w-10 h-10 relative flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform duration-300">
               <div className="absolute inset-0 bg-gradient-to-br from-violet-400 to-violet-700 rounded-xl opacity-30 blur-md group-hover:opacity-50 transition-opacity"></div>
               {/* Main Logo Container */}
               <div className="relative w-full h-full bg-black border border-violet-500/30 rounded-xl flex items-center justify-center shadow-xl shadow-violet-900/20 overflow-hidden">
                  {/* Shiny glass overlay */}
                  <div className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-white/10 to-transparent"></div>
                  {/* The SVG Logo */}
-                 <svg className="w-7 h-7 relative z-10" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                   {/* Full bold chevron A */}
-                   <path d="M12 2L3 22H8.5L12 13L15.5 22H21L12 2Z" fill="url(#violet-grad-footer)" />
-                   {/* Cyan overlay on right leg */}
-                   <path d="M12 2V13L15.5 22H21L12 2Z" fill="url(#cyan-grad-footer)" opacity="0.9" />
-                   {/* Bold rounded crossbar */}
-                   <path d="M9 16H15" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" />
+                 <svg className="w-6 h-6 relative z-10" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                   {/* Left Leg (Blue) */}
+                   <path d="M12 2L3 22H8L12 13Z" fill="url(#blue-grad-footer)" />
+                   {/* Right Leg (Yellow) */}
+                   <path d="M12 2L21 22H16L12 13Z" fill="url(#yellow-grad-footer)" />
+                   {/* Crossbar (White) */}
+                   <path d="M7 16H17" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" />
                    <defs>
-                     <linearGradient id="violet-grad-footer" x1="4" y1="2" x2="12" y2="21" gradientUnits="userSpaceOnUse">
-                       <stop stopColor="#a78bfa" />
-                       <stop offset="1" stopColor="#7c3aed" />
+                     <linearGradient id="blue-grad-footer" x1="3" y1="2" x2="12" y2="22" gradientUnits="userSpaceOnUse">
+                       <stop stopColor="#60a5fa" />
+                       <stop offset="1" stopColor="#2563eb" />
                      </linearGradient>
-                     <linearGradient id="cyan-grad-footer" x1="12" y1="2" x2="20" y2="21" gradientUnits="userSpaceOnUse">
-                       <stop stopColor="#67e8f9" />
-                       <stop offset="1" stopColor="#06b6d4" stopOpacity="0.3" />
+                     <linearGradient id="yellow-grad-footer" x1="12" y1="2" x2="21" y2="22" gradientUnits="userSpaceOnUse">
+                       <stop stopColor="#fde047" />
+                       <stop offset="1" stopColor="#eab308" />
                      </linearGradient>
                    </defs>
                  </svg>
