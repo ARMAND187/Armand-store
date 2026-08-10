@@ -64,20 +64,32 @@ export default function Footer() {
                  <div className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-white/10 to-transparent"></div>
                  {/* The SVG Logo */}
                  <svg className="w-6 h-6 relative z-10" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                   {/* Left Leg (Blue) */}
-                   <path d="M12 2L3 22H8L12 13Z" fill="url(#blue-grad-footer)" />
-                   {/* Right Leg (Yellow) */}
-                   <path d="M12 2L21 22H16L12 13Z" fill="url(#yellow-grad-footer)" />
-                   {/* Crossbar (White) */}
-                   <path d="M7 16H17" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" />
+                   {/* Neon Glow Filter */}
+                   <filter id="neon-glow-footer" x="-20%" y="-20%" width="140%" height="140%">
+                     <feGaussianBlur stdDeviation="1" result="blur" />
+                     <feMerge>
+                       <feMergeNode in="blur" />
+                       <feMergeNode in="SourceGraphic" />
+                     </feMerge>
+                   </filter>
+
+                   {/* Hollow Chevron Outline */}
+                   <path d="M12 2 L3 22 H7.5 L12 12 L16.5 22 H21 Z" 
+                         fill="transparent" 
+                         stroke="url(#neon-blue-footer)" 
+                         strokeWidth="1.5" 
+                         strokeLinejoin="round" 
+                         filter="url(#neon-glow-footer)" />
+
+                   {/* Sweeping Crescent Crossbar */}
+                   <path d="M 3 17 Q 12 17 22 5 Q 15 12 4 15 Z" 
+                         fill="url(#neon-blue-footer)" 
+                         filter="url(#neon-glow-footer)" />
+
                    <defs>
-                     <linearGradient id="blue-grad-footer" x1="3" y1="2" x2="12" y2="22" gradientUnits="userSpaceOnUse">
-                       <stop stopColor="#60a5fa" />
-                       <stop offset="1" stopColor="#2563eb" />
-                     </linearGradient>
-                     <linearGradient id="yellow-grad-footer" x1="12" y1="2" x2="21" y2="22" gradientUnits="userSpaceOnUse">
-                       <stop stopColor="#fde047" />
-                       <stop offset="1" stopColor="#eab308" />
+                     <linearGradient id="neon-blue-footer" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
+                       <stop stopColor="#00f0ff" />
+                       <stop offset="1" stopColor="#0055ff" />
                      </linearGradient>
                    </defs>
                  </svg>
