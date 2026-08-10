@@ -5,19 +5,19 @@ import { useState } from "react";
 const faqs = [
   {
     question: "How long does delivery take?",
-    answer: "Delivery is nearly instant for software keys and subscriptions once payment is confirmed. For social media growth services, it usually begins within 1-12 hours depending on the platform."
+    answer: "Most digital orders are delivered quickly after payment is confirmed. Time may vary depending on the service."
   },
   {
     question: "Is this safe and legal?",
-    answer: "Yes. All our software keys are genuine retail or OEM keys. Subscriptions like Gemini Pro are officially activated on your own account. Social media services are delivered safely."
+    answer: "We provide digital products and services. We never ask for your password. You are responsible for using services according to each platform's rules."
   },
   {
     question: "How do I pay?",
-    answer: "We support ZainCash, FastPay, and FIB. You'll receive the exact payment number or QR code when you contact us on Telegram to finalize your order."
+    answer: "We accept FIB, FastPay, and ZainCash. Message us first, then we'll guide you through the payment."
   },
   {
     question: "What if I have an issue with my order?",
-    answer: "Our Telegram support team is available 24/7 to help you. If a key is invalid or a service isn't delivered as promised, we will replace it or issue a refund immediately."
+    answer: "Contact us through Telegram and send your order details. We'll check the issue and help you as soon as possible."
   }
 ];
 
