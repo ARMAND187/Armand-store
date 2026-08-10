@@ -61,12 +61,12 @@ export default function Header() {
                  <div className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-white/10 to-transparent"></div>
                  {/* The SVG Logo */}
                  <svg className="w-5 h-5 relative z-10" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                   {/* Left diagonal */}
-                   <path d="M12 2L4 21H8.5L12 13V2Z" fill="url(#violet-grad)" />
-                   {/* Right diagonal */}
-                   <path d="M12 2L20 21H15.5L12 13V2Z" fill="url(#cyan-grad-h)" opacity="0.9" />
-                   {/* Floating Crossbar */}
-                   <rect x="9.5" y="16" width="5" height="2" rx="1" fill="#ffffff" />
+                   {/* Full bold chevron A */}
+                   <path d="M12 2L3 22H8.5L12 13L15.5 22H21L12 2Z" fill="url(#violet-grad)" />
+                   {/* Cyan overlay on right leg */}
+                   <path d="M12 2V13L15.5 22H21L12 2Z" fill="url(#cyan-grad-h)" opacity="0.9" />
+                   {/* Bold rounded crossbar */}
+                   <path d="M9 16H15" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" />
                    <defs>
                      <linearGradient id="violet-grad" x1="4" y1="2" x2="12" y2="21" gradientUnits="userSpaceOnUse">
                        <stop stopColor="#a78bfa" />
