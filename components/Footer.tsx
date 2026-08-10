@@ -56,14 +56,14 @@ export default function Footer() {
             className="flex items-center gap-2.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 rounded-lg"
             aria-label="Armand Store Home"
           >
-            <div className="w-9 h-9 relative flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform duration-300">
-              <div className="absolute inset-0 bg-gradient-to-br from-violet-400 to-violet-700 rounded-xl opacity-20 blur-md group-hover:opacity-40 transition-opacity"></div>
+            <div className="w-12 h-12 relative flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform duration-300">
+              <div className="absolute inset-0 bg-gradient-to-br from-violet-400 to-violet-700 rounded-xl opacity-30 blur-md group-hover:opacity-50 transition-opacity"></div>
               {/* Main Logo Container */}
-              <div className="relative w-full h-full bg-gradient-to-br from-[#180a3e] to-[#05000f] border border-violet-500/30 rounded-xl flex items-center justify-center shadow-xl shadow-violet-900/20 overflow-hidden">
+              <div className="relative w-full h-full bg-black border border-violet-500/30 rounded-xl flex items-center justify-center shadow-xl shadow-violet-900/20 overflow-hidden">
                  {/* Shiny glass overlay */}
                  <div className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-white/10 to-transparent"></div>
                  {/* The SVG Logo */}
-                 <svg className="w-5 h-5 relative z-10" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                 <svg className="w-7 h-7 relative z-10" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                    {/* Full bold chevron A */}
                    <path d="M12 2L3 22H8.5L12 13L15.5 22H21L12 2Z" fill="url(#violet-grad-footer)" />
                    {/* Cyan overlay on right leg */}
