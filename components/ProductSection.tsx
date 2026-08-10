@@ -211,38 +211,76 @@ function TelegramCard() {
 }
 
 // ── Main Section ──────────────────────────────────────────
-export default function ProductSection() {
+export default function ProductSection({ featuredOnly = false }: { featuredOnly?: boolean }) {
   const { t } = useLanguage();
   const gridRef = useReveal();
+
+  if (featuredOnly) {
+    return (
+      <section id="services" className="relative py-20 sm:py-24" aria-labelledby="services-heading">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-14">
+            <p className="section-eyebrow mb-3">Featured Services</p>
+            <h2 id="services-heading" className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-4">
+              Top Products
+            </h2>
+            <p className="text-[#8b8ba8] text-base sm:text-lg max-w-md mx-auto">Our most popular digital products and social media services.</p>
+          </div>
+
+          <div ref={gridRef} className="grid grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-5 mb-12">
+            <WindowsCard />
+            <GeminiCard />
+            <YouTubeCard />
+          </div>
+
+          <div className="text-center">
+            <a href="/store" className="btn-ghost inline-flex items-center gap-2">
+              View Full Store
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
-    <section
-      id="services"
-      className="relative py-20 sm:py-24"
-      aria-labelledby="services-heading"
-    >
+    <section id="store" className="relative py-20 sm:py-24 pt-32" aria-labelledby="store-heading">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        {/* Section heading */}
-        <div className="text-center mb-14">
-          <p className="section-eyebrow mb-3">What we offer</p>
-          <h2
-            id="services-heading"
-            className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-4"
-          >
-            {t("products_heading")}
-          </h2>
-          <p className="text-[#8b8ba8] text-base sm:text-lg max-w-md mx-auto">{t("products_subheading")}</p>
+        <div className="text-center mb-16">
+          <h1 id="store-heading" className="text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tight mb-6">
+            PREMIUM <span className="text-gradient-hero">CATALOG</span>
+          </h1>
+          <p className="text-[#8b8ba8] text-lg sm:text-xl max-w-2xl mx-auto">{t("products_subheading")}</p>
         </div>
 
-        {/* Cards grid */}
-        <div
-          ref={gridRef}
-          className="grid grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-5"
-        >
-          <WindowsCard />
-          <GeminiCard />
-          <YouTubeCard />
-          <TikTokCard />
-          <TelegramCard />
+        <div ref={gridRef} className="space-y-20">
+          {/* Software & AI Category */}
+          <div>
+            <div className="flex items-center gap-4 mb-8">
+              <h2 className="text-2xl font-bold text-white">Software & AI</h2>
+              <div className="h-px bg-violet-500/20 flex-1" />
+            </div>
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-5">
+              <WindowsCard />
+              <GeminiCard />
+            </div>
+          </div>
+
+          {/* Social Media Category */}
+          <div>
+            <div className="flex items-center gap-4 mb-8">
+              <h2 className="text-2xl font-bold text-white">Social Media Growth</h2>
+              <div className="h-px bg-cyan-500/20 flex-1" />
+            </div>
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-5">
+              <YouTubeCard />
+              <TikTokCard />
+              <TelegramCard />
+            </div>
+          </div>
         </div>
       </div>
     </section>

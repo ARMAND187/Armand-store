@@ -87,11 +87,11 @@ export default function Header() {
             <Link href="/" className="text-sm font-medium text-[#8b8ba8] hover:text-white transition-colors">
               {t("nav_home") || "Home"}
             </Link>
-            <Link href="#services" className="text-sm font-medium text-[#8b8ba8] hover:text-white transition-colors">
-              {t("nav_services") || "Services"}
+            <Link href="/store" className="text-sm font-medium text-[#8b8ba8] hover:text-white transition-colors">
+              {t("nav_store") || "Store"}
             </Link>
-            <Link href="#contact" className="text-sm font-medium text-[#8b8ba8] hover:text-white transition-colors">
-              {t("nav_contact") || "Contact"}
+            <Link href="/how-it-works" className="text-sm font-medium text-[#8b8ba8] hover:text-white transition-colors">
+              {t("nav_how_it_works") || "How It Works"}
             </Link>
             
             {/* Connect Dropdown */}
@@ -181,18 +181,18 @@ export default function Header() {
               {t("nav_home") || "Home"}
             </Link>
             <Link
-              href="#services"
+              href="/store"
               onClick={() => setMobileOpen(false)}
               className="block px-3 py-2.5 text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors"
             >
-              {t("nav_services") || "Services"}
+              {t("nav_store") || "Store"}
             </Link>
             <Link
-              href="#contact"
+              href="/how-it-works"
               onClick={() => setMobileOpen(false)}
               className="block px-3 py-2.5 text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors"
             >
-              {t("nav_contact") || "Contact"}
+              {t("nav_how_it_works") || "How It Works"}
             </Link>
             
             <div className="pt-4 pb-2">

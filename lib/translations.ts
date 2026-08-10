@@ -12,6 +12,8 @@ export const translations = {
     // Header
     nav_home: "Home",
     nav_services: "Services",
+    nav_store: "Store",
+    nav_how_it_works: "How It Works",
     nav_contact: "Contact",
     lang_en: "EN",
     lang_ku: "کوردی",
@@ -100,6 +102,8 @@ export const translations = {
     // Header
     nav_home: "سەرەکی",
     nav_services: "خزمەتگوزارییەکان",
+    nav_store: "کۆگا",
+    nav_how_it_works: "چۆنیەتی کارکردن",
     nav_contact: "پەیوەندی",
     lang_en: "EN",
     lang_ku: "کوردی",
