@@ -9,7 +9,7 @@ export default function HowItWorksPage() {
   return (
     <>
       <Header />
-      <main className="pt-32 pb-12">
+      <main className="pt-32 pb-24">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center mb-16">
           <p className="section-eyebrow mb-3">Support & Guides</p>
           <h1 className="text-4xl sm:text-5xl font-black text-white tracking-tight mb-4">
@@ -20,25 +20,12 @@ export default function HowItWorksPage() {
           </p>
         </div>
         
-        <HowToOrder />
-        
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 my-20">
-          <div className="h-px bg-white/5 w-full" />
+        <div className="space-y-16 sm:space-y-24">
+          <HowToOrder />
+          <PaymentMethods />
+          <FAQSection />
+          <SocialSection />
         </div>
-        
-        <PaymentMethods />
-
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 my-20">
-          <div className="h-px bg-white/5 w-full" />
-        </div>
-
-        <FAQSection />
-
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 my-20">
-          <div className="h-px bg-white/5 w-full" />
-        </div>
-        
-        <SocialSection />
       </main>
       <Footer />
     </>

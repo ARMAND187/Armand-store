@@ -57,7 +57,7 @@ export default function HowToOrder() {
 
   return (
     <section
-      className="py-20 sm:py-24 bg-[#0d0a1e] section-slope-top relative z-10"
+      className="relative z-10"
       aria-labelledby="how-to-order-heading"
     >
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
