@@ -87,24 +87,7 @@ export default function Footer() {
 
           <p className="text-[#55556a] text-sm max-w-xs">{t("footer_tagline")}</p>
 
-          {/* Social icons */}
-          <div className="flex items-center gap-3">
-            {FOOTER_SOCIAL.map((item) => (
-              <a
-                key={item.key}
-                href={SOCIAL_LINKS[item.key]}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-xl bg-white/4 hover:bg-violet-500/15 border border-white/6 hover:border-violet-500/30 text-[#55556a] hover:text-violet-300 flex items-center justify-center transition-all hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-400"
-                aria-label={`${SITE_CONFIG.name} on ${item.label}`}
-              >
-                {item.icon}
-              </a>
-            ))}
-          </div>
-
-          {/* Divider */}
-          <div className="divider-glow w-full" aria-hidden="true" />
+          {/* No social icons here (moved to Social Section) */}
 
           <p className="text-[#55556a] text-sm">{t("footer_copy")}</p>
         </div>

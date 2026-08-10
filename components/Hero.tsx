@@ -71,17 +71,6 @@ export default function Hero() {
             </svg>
             {t("cta_message_telegram")}
           </a>
-          <a
-            href="#services"
-            id="hero-view-services"
-            className="btn-ghost w-full sm:w-auto text-base px-7 py-3.5"
-            aria-label="View Armand Store services"
-          >
-            {t("hero_cta_secondary")}
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5} aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-            </svg>
-          </a>
         </div>
 
         {/* Share Store */}
