@@ -1,6 +1,7 @@
 "use client";
 
 import { useLanguage } from "@/components/LanguageProvider";
+import { trackPaymentClick } from "@/lib/analytics";
 
 const PAYMENT_METHODS = [
   {
@@ -48,7 +49,12 @@ export default function PaymentMethods() {
           {PAYMENT_METHODS.map((m) => (
             <div
               key={m.id}
-              className="glass-card flex-1 w-full flex flex-col items-center justify-center gap-5 p-6"
+              className="glass-card flex-1 w-full flex flex-col items-center justify-center gap-5 p-6 cursor-pointer"
+              onClick={() => trackPaymentClick(m.name)}
+              role="button"
+              tabIndex={0}
+              aria-label={`Pay with ${m.name}`}
+              onKeyDown={(e) => e.key === 'Enter' && trackPaymentClick(m.name)}
             >
               <div className="h-20 w-full flex items-center justify-center">
                 <img

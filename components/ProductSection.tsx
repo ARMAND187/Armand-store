@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { useLanguage } from "@/components/LanguageProvider";
 import { TELEGRAM_URL } from "@/config/site";
+import { trackProductOrderClick } from "@/lib/analytics";
 
 // ── Intersection Observer hook for reveal animation ───────
 function useReveal() {
@@ -38,12 +39,16 @@ function TgButton({
   id: string;
   colorClass?: string;
 }) {
+  const handleClick = () => {
+    trackProductOrderClick(label);
+  };
   return (
     <a
       href={TELEGRAM_URL}
       target="_blank"
       rel="noopener noreferrer"
       id={id}
+      onClick={handleClick}
       className={`flex items-center justify-center gap-1 sm:gap-2 w-full text-white font-bold text-[10px] sm:text-sm py-2 sm:py-3 rounded-xl sm:rounded-2xl leading-none tracking-wide btn-3d-base focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0D1B2F] ${colorClass}`}
       aria-label={`Message us about ${label} on Telegram`}
     >

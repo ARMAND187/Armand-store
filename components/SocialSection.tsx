@@ -2,6 +2,7 @@
 
 import { useLanguage } from "@/components/LanguageProvider";
 import { SOCIAL_LINKS } from "@/config/site";
+import { trackSocialClick } from "@/lib/analytics";
 
 const SOCIAL_ITEMS = [
   {
@@ -76,6 +77,7 @@ export default function SocialSection() {
               rel="noopener noreferrer"
               className={`inline-flex items-center gap-2.5 px-5 py-3 rounded-2xl border font-semibold text-sm transition-all hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#081426] ${item.style}`}
               aria-label={item.ariaLabel}
+              onClick={() => trackSocialClick(item.label)}
             >
               {item.icon}
               {item.label}

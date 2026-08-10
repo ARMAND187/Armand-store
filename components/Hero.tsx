@@ -2,6 +2,7 @@
 
 import { useLanguage } from "@/components/LanguageProvider";
 import { TELEGRAM_URL } from "@/config/site";
+import ShareStore from "@/components/ShareStore";
 
 // Service icons displayed subtly in the hero
 const SERVICE_BADGES = [
@@ -141,6 +142,11 @@ export default function Hero() {
               <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
             </svg>
           </a>
+        </div>
+
+        {/* Share Store */}
+        <div className="flex justify-center mb-10 animate-fade-in-up animation-delay-300">
+          <ShareStore />
         </div>
 
         {/* Service badges */}
