@@ -247,7 +247,7 @@ export default function ProductSection({ featuredOnly = false }: { featuredOnly?
   }
 
   return (
-    <section id="store" className="relative pt-32 pb-8 sm:pb-12" aria-labelledby="store-heading">
+    <section id="store" className="relative pt-24 sm:pt-32 pb-8 sm:pb-12" aria-labelledby="store-heading">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-16">
           <h1 id="store-heading" className="text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tight mb-6">

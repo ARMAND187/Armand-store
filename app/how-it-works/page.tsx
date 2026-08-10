@@ -10,7 +10,7 @@ export default function HowItWorksPage() {
   return (
     <>
       <Header />
-    <main className="pt-32 pb-0">
+    <main className="pt-24 sm:pt-32 pb-0">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center mb-16">
           <p className="section-eyebrow mb-3">Support & Guides</p>
           <h1 className="text-4xl sm:text-5xl font-black text-white tracking-tight mb-4">
