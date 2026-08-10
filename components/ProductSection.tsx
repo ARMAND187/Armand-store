@@ -253,7 +253,20 @@ export default function ProductSection({ featuredOnly = false }: { featuredOnly?
           <h1 id="store-heading" className="text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tight mb-6">
             PREMIUM <span className="text-gradient-hero">CATALOG</span>
           </h1>
-          <p className="text-[#8b8ba8] text-lg sm:text-xl max-w-2xl mx-auto">{t("products_subheading")}</p>
+          <p className="text-[#8b8ba8] text-lg sm:text-xl max-w-2xl mx-auto mb-8">{t("products_subheading")}</p>
+          <div className="flex justify-center">
+            <a
+              href={TELEGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary inline-flex items-center gap-2 px-7 py-3.5 text-base shadow-[0_0_20px_rgba(124,58,237,0.3)] animate-pulse hover:animate-none hover:scale-105 transition-transform"
+            >
+              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.069l-2.02 9.52c-.148.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.883.701z" />
+              </svg>
+              {t("cta_message_telegram")}
+            </a>
+          </div>
         </div>
 
         <div ref={gridRef} className="space-y-20">
@@ -263,7 +276,7 @@ export default function ProductSection({ featuredOnly = false }: { featuredOnly?
               <h2 className="text-2xl font-bold text-white">Software & AI</h2>
               <div className="h-px bg-violet-500/20 flex-1" />
             </div>
-            <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-5">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-5">
               <WindowsCard />
               <GeminiCard />
             </div>
@@ -275,7 +288,7 @@ export default function ProductSection({ featuredOnly = false }: { featuredOnly?
               <h2 className="text-2xl font-bold text-white">Social Media Growth</h2>
               <div className="h-px bg-cyan-500/20 flex-1" />
             </div>
-            <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-5">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-5">
               <YouTubeCard />
               <TikTokCard />
               <TelegramCard />
