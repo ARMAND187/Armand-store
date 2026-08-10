@@ -17,7 +17,7 @@ export default function Hero() {
 
   return (
     <section
-      className="relative flex flex-col items-center justify-start overflow-hidden pt-32 sm:pt-40 pb-16 px-4"
+      className="relative flex flex-col items-center justify-start overflow-hidden pt-16 sm:pt-28 pb-16 px-4"
       aria-label="Hero"
     >
       {/* Large hero glow core */}
