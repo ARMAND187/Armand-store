@@ -161,11 +161,11 @@ function YouTubeCard() {
 function TikTokCard() {
   const { t } = useLanguage();
   return (
-    <article className="glass-card card-glow-white reveal-card relative p-3 sm:p-6 flex flex-col gap-2 sm:gap-4 col-span-2 sm:col-span-1">
+    <article className="glass-card card-glow-pink reveal-card relative p-3 sm:p-6 flex flex-col gap-2 sm:gap-4 col-span-2 sm:col-span-1">
 
       <div className="flex items-center gap-3">
-        <div className="w-8 h-8 sm:w-11 sm:h-11 rounded-lg sm:rounded-xl bg-white/7 border border-white/12 flex items-center justify-center flex-shrink-0" aria-hidden="true">
-          <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 sm:w-5 sm:h-5 text-white" fill="currentColor">
+        <div className="w-8 h-8 sm:w-11 sm:h-11 rounded-lg sm:rounded-xl bg-pink-500/15 border border-pink-500/25 flex items-center justify-center flex-shrink-0" aria-hidden="true">
+          <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 sm:w-5 sm:h-5 text-pink-400" fill="currentColor">
             <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V9.02a8.16 8.16 0 004.77 1.52V7.1a4.85 4.85 0 01-1-.41z" />
           </svg>
         </div>
@@ -178,7 +178,7 @@ function TikTokCard() {
         <TierRow label={t("tt_tier3_label")} price={t("tt_tier3_price")} />
       </div>
 
-      <TgButton label={t("tt_name")} id="cta-tiktok" colorClass="btn-3d-ghost" />
+      <TgButton label={t("tt_name")} id="cta-tiktok" colorClass="btn-3d-pink" />
     </article>
   );
 }
