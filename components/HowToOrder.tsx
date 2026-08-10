@@ -62,7 +62,7 @@ export default function HowToOrder() {
     >
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-14">
-          <p className="text-blue-400 text-xs font-bold tracking-[0.2em] uppercase mb-3">Simple process</p>
+          <p className="section-eyebrow mb-3">Simple process</p>
           <h2
             id="how-to-order-heading"
             className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight"

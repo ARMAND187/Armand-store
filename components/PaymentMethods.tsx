@@ -36,7 +36,7 @@ export default function PaymentMethods() {
     >
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-10">
-          <p className="text-blue-400 text-xs font-bold tracking-[0.2em] uppercase mb-3">Local payment</p>
+          <p className="section-eyebrow mb-3">Local payment</p>
           <h2
             id="payment-heading"
             className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight"

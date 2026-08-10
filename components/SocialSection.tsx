@@ -60,7 +60,7 @@ export default function SocialSection() {
       aria-labelledby="social-heading"
     >
       <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-        <p className="text-blue-400 text-xs font-bold tracking-[0.2em] uppercase mb-3">Find us</p>
+        <p className="section-eyebrow mb-3">Find us</p>
         <h2
           id="social-heading"
           className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-10"

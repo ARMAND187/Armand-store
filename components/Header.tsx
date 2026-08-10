@@ -39,7 +39,7 @@ export default function Header() {
     <header
       className={`sticky top-0 z-50 w-full transition-all duration-300 ${
         scrolled
-          ? "bg-[#050B18]/90 backdrop-blur-xl border-b border-[rgba(96,165,250,0.10)] shadow-lg shadow-black/30"
+          ? "bg-[#05000f]/90 backdrop-blur-xl border-b border-violet-500/10 shadow-lg shadow-black/40"
           : "bg-transparent"
       }`}
     >
@@ -54,43 +54,43 @@ export default function Header() {
           >
             <div className="w-9 h-9 relative flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform duration-300">
               {/* Outer glowing ring */}
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-blue-700 rounded-xl opacity-20 blur-md group-hover:opacity-40 transition-opacity"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-violet-400 to-violet-700 rounded-xl opacity-20 blur-md group-hover:opacity-40 transition-opacity"></div>
               {/* Main Logo Container */}
-              <div className="relative w-full h-full bg-gradient-to-br from-[#0a1930] to-[#040914] border border-blue-500/30 rounded-xl flex items-center justify-center shadow-xl shadow-blue-900/20 overflow-hidden">
+              <div className="relative w-full h-full bg-gradient-to-br from-[#180a3e] to-[#05000f] border border-violet-500/30 rounded-xl flex items-center justify-center shadow-xl shadow-violet-900/20 overflow-hidden">
                  {/* Shiny glass overlay */}
                  <div className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-white/10 to-transparent"></div>
                  {/* The SVG Logo */}
                  <svg className="w-5 h-5 relative z-10" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                   <path d="M12 2L2 22H7L9.5 17H14.5L17 22H22L12 2Z" fill="url(#blue-grad)" />
-                   <path d="M12 2L2 22H7L12 12L17 22H22L12 2Z" fill="url(#cyan-grad)" opacity="0.8" />
+                   <path d="M12 2L2 22H7L9.5 17H14.5L17 22H22L12 2Z" fill="url(#violet-grad)" />
+                   <path d="M12 2L2 22H7L12 12L17 22H22L12 2Z" fill="url(#cyan-grad-h)" opacity="0.85" />
                    <path d="M10.75 14.5L12 12L13.25 14.5H10.75Z" fill="#ffffff" />
                    <defs>
-                     <linearGradient id="blue-grad" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
-                       <stop stopColor="#60A5FA" />
-                       <stop offset="1" stopColor="#2563EB" />
+                     <linearGradient id="violet-grad" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
+                       <stop stopColor="#a78bfa" />
+                       <stop offset="1" stopColor="#7c3aed" />
                      </linearGradient>
-                     <linearGradient id="cyan-grad" x1="12" y1="2" x2="12" y2="22" gradientUnits="userSpaceOnUse">
-                       <stop stopColor="#22D3EE" />
-                       <stop offset="1" stopColor="#0284C7" stopOpacity="0" />
+                     <linearGradient id="cyan-grad-h" x1="12" y1="2" x2="12" y2="22" gradientUnits="userSpaceOnUse">
+                       <stop stopColor="#67e8f9" />
+                       <stop offset="1" stopColor="#06b6d4" stopOpacity="0" />
                      </linearGradient>
                    </defs>
                  </svg>
               </div>
             </div>
-            <span className="font-bold text-white text-lg tracking-tight">
-              ARMAND <span className="text-blue-400">STORE</span>
+            <span className="font-bold text-white text-lg tracking-tight" style={{fontFamily:"var(--font-display)"}}>
+              ARMAND <span className="text-violet-400">STORE</span>
             </span>
           </Link>
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-8" aria-label="Main navigation">
-            <Link href="/" className="text-sm font-medium text-slate-400 hover:text-white transition-colors">
+            <Link href="/" className="text-sm font-medium text-[#8b8ba8] hover:text-white transition-colors">
               {t("nav_home") || "Home"}
             </Link>
-            <Link href="#services" className="text-sm font-medium text-slate-400 hover:text-white transition-colors">
+            <Link href="#services" className="text-sm font-medium text-[#8b8ba8] hover:text-white transition-colors">
               {t("nav_services") || "Services"}
             </Link>
-            <Link href="#contact" className="text-sm font-medium text-slate-400 hover:text-white transition-colors">
+            <Link href="#contact" className="text-sm font-medium text-[#8b8ba8] hover:text-white transition-colors">
               {t("nav_contact") || "Contact"}
             </Link>
             
@@ -98,7 +98,7 @@ export default function Header() {
             <div className="relative" ref={connectRef}>
               <button 
                 onClick={() => setConnectOpen(!connectOpen)}
-                className={`text-sm font-medium transition-colors flex items-center gap-1.5 focus:outline-none ${connectOpen ? "text-white" : "text-slate-400 hover:text-white"}`}
+                className={`text-sm font-medium transition-colors flex items-center gap-1.5 focus:outline-none ${connectOpen ? "text-violet-400" : "text-[#8b8ba8] hover:text-white"}`}
                 aria-haspopup="true"
                 aria-expanded={connectOpen}
               >
@@ -107,9 +107,9 @@ export default function Header() {
               </button>
               
               {connectOpen && (
-                <div className="absolute top-full mt-4 right-0 w-56 bg-[#081426] border border-white/10 rounded-2xl shadow-xl shadow-black/50 p-2 z-50 animate-in fade-in slide-in-from-top-2">
-                  <div className="px-3 py-2.5 mb-1 border-b border-white/5">
-                    <p className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Connect With Us</p>
+                <div className="absolute top-full mt-4 right-0 w-56 bg-[#0d0a1e] border border-violet-500/15 rounded-2xl shadow-xl shadow-black/60 p-2 z-50 animate-in fade-in slide-in-from-top-2">
+                  <div className="px-3 py-2.5 mb-1 border-b border-violet-500/10">
+                    <p className="text-[11px] font-bold text-[#55556a] uppercase tracking-wider">Connect With Us</p>
                   </div>
                   <SocialMenuItem href={SOCIAL_LINKS.telegram} icon={<TelegramIcon className="w-4 h-4 text-sky-400"/>} label="Telegram" onClick={() => setConnectOpen(false)} />
                   <SocialMenuItem href={SOCIAL_LINKS.instagram} icon={<InstagramIcon className="w-4 h-4 text-pink-500"/>} label="Instagram" onClick={() => setConnectOpen(false)} />
@@ -123,13 +123,13 @@ export default function Header() {
           {/* Right: lang switch */}
           <div className="flex items-center gap-3">
             {/* Language Switch */}
-            <div className="flex items-center rounded-lg border border-[rgba(96,165,250,0.18)] overflow-hidden text-xs font-semibold bg-[rgba(13,27,47,0.60)]">
+            <div className="flex items-center rounded-lg border border-violet-500/20 overflow-hidden text-xs font-semibold bg-violet-950/40">
               <button
                 onClick={() => setLang("en")}
                 className={`px-2.5 py-1.5 transition-colors focus:outline-none ${
                   lang === "en"
-                    ? "bg-blue-600 text-white"
-                    : "text-slate-400 hover:text-white"
+                    ? "bg-violet-600 text-white"
+                    : "text-[#8b8ba8] hover:text-white"
                 }`}
                 aria-label="Switch to English"
                 aria-pressed={lang === "en"}
@@ -140,8 +140,8 @@ export default function Header() {
                 onClick={() => setLang("ku")}
                 className={`px-2.5 py-1.5 transition-colors focus:outline-none ${
                   lang === "ku"
-                    ? "bg-blue-600 text-white"
-                    : "text-slate-400 hover:text-white"
+                    ? "bg-violet-600 text-white"
+                    : "text-[#8b8ba8] hover:text-white"
                 }`}
                 aria-label="Switch to Kurdish"
                 aria-pressed={lang === "ku"}
@@ -172,7 +172,7 @@ export default function Header() {
 
         {/* Mobile Menu */}
         {mobileOpen && (
-          <div className="md:hidden border-t border-[rgba(96,165,250,0.10)] py-4 space-y-1 bg-[#081426]/95 backdrop-blur-xl -mx-4 px-4">
+          <div className="md:hidden border-t border-violet-500/10 py-4 space-y-1 bg-[#0d0a1e]/95 backdrop-blur-xl -mx-4 px-4">
             <Link
               href="/"
               onClick={() => setMobileOpen(false)}

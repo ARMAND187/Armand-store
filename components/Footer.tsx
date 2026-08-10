@@ -47,46 +47,45 @@ export default function Footer() {
   const { t } = useLanguage();
 
   return (
-    <footer className="bg-[#020812] border-t border-[rgba(96,165,250,0.08)] py-12">
+    <footer className="bg-transparent border-t border-violet-500/10 py-14">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="flex flex-col items-center text-center gap-6">
           {/* Brand */}
           <Link
             href="/"
-            className="flex items-center gap-2.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 rounded-lg"
+            className="flex items-center gap-2.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 rounded-lg"
             aria-label="Armand Store Home"
           >
             <div className="w-9 h-9 relative flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform duration-300">
-              {/* Outer glowing ring */}
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-blue-700 rounded-xl opacity-20 blur-md group-hover:opacity-40 transition-opacity"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-violet-400 to-violet-700 rounded-xl opacity-20 blur-md group-hover:opacity-40 transition-opacity"></div>
               {/* Main Logo Container */}
-              <div className="relative w-full h-full bg-gradient-to-br from-[#0a1930] to-[#040914] border border-blue-500/30 rounded-xl flex items-center justify-center shadow-xl shadow-blue-900/20 overflow-hidden">
+              <div className="relative w-full h-full bg-gradient-to-br from-[#180a3e] to-[#05000f] border border-violet-500/30 rounded-xl flex items-center justify-center shadow-xl shadow-violet-900/20 overflow-hidden">
                  {/* Shiny glass overlay */}
                  <div className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-white/10 to-transparent"></div>
                  {/* The SVG Logo */}
                  <svg className="w-5 h-5 relative z-10" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                   <path d="M12 2L2 22H7L9.5 17H14.5L17 22H22L12 2Z" fill="url(#blue-grad-footer)" />
-                   <path d="M12 2L2 22H7L12 12L17 22H22L12 2Z" fill="url(#cyan-grad-footer)" opacity="0.8" />
+                   <path d="M12 2L2 22H7L9.5 17H14.5L17 22H22L12 2Z" fill="url(#violet-grad-footer)" />
+                   <path d="M12 2L2 22H7L12 12L17 22H22L12 2Z" fill="url(#cyan-grad-footer)" opacity="0.85" />
                    <path d="M10.75 14.5L12 12L13.25 14.5H10.75Z" fill="#ffffff" />
                    <defs>
-                     <linearGradient id="blue-grad-footer" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
-                       <stop stopColor="#60A5FA" />
-                       <stop offset="1" stopColor="#2563EB" />
+                     <linearGradient id="violet-grad-footer" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
+                       <stop stopColor="#a78bfa" />
+                       <stop offset="1" stopColor="#7c3aed" />
                      </linearGradient>
                      <linearGradient id="cyan-grad-footer" x1="12" y1="2" x2="12" y2="22" gradientUnits="userSpaceOnUse">
-                       <stop stopColor="#22D3EE" />
-                       <stop offset="1" stopColor="#0284C7" stopOpacity="0" />
+                       <stop stopColor="#67e8f9" />
+                       <stop offset="1" stopColor="#06b6d4" stopOpacity="0" />
                      </linearGradient>
                    </defs>
                  </svg>
               </div>
             </div>
             <span className="font-bold text-white text-lg tracking-tight">
-              ARMAND <span className="text-blue-400">STORE</span>
+              ARMAND <span className="text-violet-400">STORE</span>
             </span>
           </Link>
 
-          <p className="text-slate-500 text-sm max-w-xs">{t("footer_tagline")}</p>
+          <p className="text-[#55556a] text-sm max-w-xs">{t("footer_tagline")}</p>
 
           {/* Social icons */}
           <div className="flex items-center gap-3">
@@ -96,7 +95,7 @@ export default function Footer() {
                 href={SOCIAL_LINKS[item.key]}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-xl bg-white/5 hover:bg-blue-500/15 border border-white/8 hover:border-blue-500/30 text-slate-400 hover:text-blue-400 flex items-center justify-center transition-all hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
+                className="w-10 h-10 rounded-xl bg-white/4 hover:bg-violet-500/15 border border-white/6 hover:border-violet-500/30 text-[#55556a] hover:text-violet-300 flex items-center justify-center transition-all hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-400"
                 aria-label={`${SITE_CONFIG.name} on ${item.label}`}
               >
                 {item.icon}
@@ -105,9 +104,9 @@ export default function Footer() {
           </div>
 
           {/* Divider */}
-          <div className="w-full h-px bg-[rgba(96,165,250,0.08)]" aria-hidden="true" />
+          <div className="divider-glow w-full" aria-hidden="true" />
 
-          <p className="text-slate-600 text-sm">{t("footer_copy")}</p>
+          <p className="text-[#55556a] text-sm">{t("footer_copy")}</p>
         </div>
       </div>
     </footer>
