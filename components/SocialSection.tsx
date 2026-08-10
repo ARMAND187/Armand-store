@@ -56,7 +56,7 @@ export default function SocialSection() {
 
   return (
     <section
-      className="relative z-10 pt-24 pb-0"
+      className="relative z-10 pt-24 pb-6"
       aria-labelledby="social-heading"
     >
       <div className="absolute top-0 left-0 right-0 divider-glow opacity-50" />

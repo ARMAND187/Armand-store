@@ -295,6 +295,11 @@ export default function ProductSection({ featuredOnly = false }: { featuredOnly?
             </div>
           </div>
         </div>
+
+        {/* Small subtle divider before footer */}
+        <div className="mt-20 sm:mt-24 mb-4">
+          <div className="h-px w-full max-w-sm mx-auto bg-violet-500/20" />
+        </div>
       </div>
     </section>
   );
