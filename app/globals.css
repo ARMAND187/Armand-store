@@ -8,10 +8,10 @@
   --font-inter: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 
   /* Palette */
-  --bg-primary:   #050B18;
-  --bg-secondary: #081426;
-  --bg-card:      #0D1B2F;
-  --bg-card-hover:#122640;
+  --bg-primary:   #020617;
+  --bg-secondary: #0f172a;
+  --bg-card:      #1e293b;
+  --bg-card-hover:#334155;
 
   --text-primary:   #FFFFFF;
   --text-secondary: #94A3B8;
@@ -116,21 +116,21 @@ body {
 
 .bg-orb-1 {
   width: 120vw; height: 120vh;
-  background: radial-gradient(circle at center, rgba(59, 130, 246, 0.25) 0%, rgba(96, 165, 250, 0.05) 40%, transparent 70%);
+  background: radial-gradient(circle at center, rgba(79, 70, 229, 0.28) 0%, rgba(99, 102, 241, 0.08) 40%, transparent 70%);
   top: -30vh; left: -30vw;
   animation: orb-float-1 25s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
 .bg-orb-2 {
   width: 100vw; height: 100vh;
-  background: radial-gradient(circle at center, rgba(168, 85, 247, 0.2) 0%, rgba(139, 92, 246, 0.05) 40%, transparent 60%);
+  background: radial-gradient(circle at center, rgba(147, 51, 234, 0.22) 0%, rgba(168, 85, 247, 0.06) 40%, transparent 60%);
   top: 10vh; right: -30vw;
   animation: orb-float-2 30s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
 .bg-orb-3 {
   width: 110vw; height: 110vh;
-  background: radial-gradient(circle at center, rgba(14, 165, 233, 0.2) 0%, rgba(56, 189, 248, 0.05) 40%, transparent 60%);
+  background: radial-gradient(circle at center, rgba(37, 99, 235, 0.25) 0%, rgba(59, 130, 246, 0.08) 40%, transparent 60%);
   bottom: -40vh; left: 10vw;
   animation: orb-float-3 28s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
@@ -151,8 +151,8 @@ body {
   width: 100%;
   height: 200%;
   background-image: 
-    linear-gradient(to right, rgba(59, 130, 246, 0.15) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(59, 130, 246, 0.15) 1px, transparent 1px);
+    linear-gradient(to right, rgba(139, 92, 246, 0.18) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(139, 92, 246, 0.18) 1px, transparent 1px);
   background-size: 80px 80px;
   animation: grid-scroll 3s linear infinite;
 }
