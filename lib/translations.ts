@@ -22,7 +22,7 @@ export const translations = {
     hero_title: "ARMAND STORE",
     hero_subtitle: "Premium Digital Products & Social Media Services",
     hero_tag: "Fast • Simple • Local Payment",
-    hero_cta_primary: "MESSAGE US",
+    hero_cta_primary: "JOIN TELEGRAM CHANNEL",
     hero_cta_secondary: "VIEW SERVICES",
 
     // Products section
@@ -72,8 +72,8 @@ export const translations = {
     tg_note: "Need more? Message us.",
 
     // Shared
-    cta_message: "MESSAGE US",
-    cta_message_telegram: "MESSAGE US ON TELEGRAM",
+    cta_message: "JOIN CHANNEL",
+    cta_message_telegram: "JOIN TELEGRAM CHANNEL",
 
     // How to Order
     how_heading: "HOW TO ORDER",
@@ -112,7 +112,7 @@ export const translations = {
     hero_title: "ARMAND STORE",
     hero_subtitle: "بەرهەمە دیجیتاڵییە پریمیومەکان و خزمەتگوزارییەکانی میدیای کۆمەڵایەتی",
     hero_tag: "خێرا • سادە • پارەدانی خۆماڵی",
-    hero_cta_primary: "پەیوەندیمان پێوەبکە",
+    hero_cta_primary: "جۆینی کەناڵی تێلیگرام ببە",
     hero_cta_secondary: "خزمەتگوزارییەکان ببینە",
 
     // Products section
@@ -162,8 +162,8 @@ export const translations = {
     tg_note: "زیاترت پێویستە؟ پەیوەندیمان پێوەبکە.",
 
     // Shared
-    cta_message: "پەیوەندیمان پێوەبکە",
-    cta_message_telegram: "لەسەر Telegram پەیوەندیمان پێوەبکە",
+    cta_message: "جۆینی کەناڵ ببە",
+    cta_message_telegram: "جۆینی کەناڵی تێلیگرام ببە",
 
     // How to Order
     how_heading: "چۆن داواکاری بکەی؟",
