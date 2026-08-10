@@ -17,7 +17,7 @@ export default function Hero() {
 
   return (
     <section
-      className="relative min-h-[95vh] flex flex-col items-center justify-center overflow-hidden pt-10 pb-24 px-4"
+      className="relative flex flex-col items-center justify-start overflow-hidden pt-32 sm:pt-40 pb-16 px-4"
       aria-label="Hero"
     >
       {/* Large hero glow core */}
@@ -34,14 +34,14 @@ export default function Hero() {
       <div className="relative z-10 max-w-4xl mx-auto text-center">
 
         {/* Animated status pill */}
-        <div className="inline-flex items-center gap-2.5 border border-violet-500/25 bg-violet-500/8 text-violet-300 text-xs font-semibold px-5 py-2 rounded-full mb-10 animate-fade-in animate-float-badge">
+        <div className="inline-flex items-center gap-2.5 border border-violet-500/25 bg-violet-500/8 text-violet-300 text-xs font-semibold px-5 py-2 rounded-full mb-6 animate-fade-in animate-float-badge">
           <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_8px_#06b6d4]" aria-hidden="true" />
           {t("hero_tag")}
         </div>
 
         {/* Main heading — two-tone: white + animated gradient */}
         <h1
-          className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-[0.95] tracking-tight mb-7 animate-fade-in-up"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-[0.95] tracking-tight mb-5 animate-fade-in-up"
         >
           <span className="text-white">ARMAND</span>
           <br />
@@ -49,15 +49,15 @@ export default function Hero() {
         </h1>
 
         {/* Thin divider glowing line */}
-        <div className="divider-glow w-48 mx-auto mb-7 animate-fade-in animation-delay-100" />
+        <div className="divider-glow w-48 mx-auto mb-5 animate-fade-in animation-delay-100" />
 
         {/* Subtitle */}
-        <p className="text-base sm:text-lg md:text-xl text-[#8b8ba8] font-medium mb-12 max-w-xl mx-auto animate-fade-in-up animation-delay-200 leading-relaxed">
+        <p className="text-base sm:text-lg text-[#8b8ba8] font-medium mb-8 max-w-xl mx-auto animate-fade-in-up animation-delay-200 leading-relaxed">
           {t("hero_subtitle")}
         </p>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6 animate-fade-in-up animation-delay-300">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-5 animate-fade-in-up animation-delay-300">
           <a
             href={TELEGRAM_URL}
             target="_blank"
@@ -85,7 +85,7 @@ export default function Hero() {
         </div>
 
         {/* Share Store */}
-        <div className="flex justify-center mb-12 animate-fade-in-up animation-delay-400">
+        <div className="flex justify-center mb-8 animate-fade-in-up animation-delay-400">
           <ShareStore />
         </div>
 

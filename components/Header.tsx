@@ -77,25 +77,25 @@ export default function Header() {
                  </svg>
               </div>
             </div>
-            <span className="font-bold text-white text-lg tracking-tight" style={{fontFamily:"var(--font-display)"}}>
+            <span className="hidden sm:inline-block font-bold text-white text-lg tracking-tight" style={{fontFamily:"var(--font-display)"}}>
               ARMAND <span className="text-gradient-hero">STORE</span>
             </span>
           </Link>
 
-          {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-8" aria-label="Main navigation">
-            <Link href="/" className="text-sm font-medium text-[#8b8ba8] hover:text-white transition-colors">
+          {/* Main Nav (Visible on all sizes) */}
+          <nav className="flex items-center gap-3 sm:gap-6 md:gap-8 overflow-x-auto no-scrollbar" aria-label="Main navigation">
+            <Link href="/" className="text-[11px] sm:text-xs md:text-sm font-medium text-[#8b8ba8] hover:text-white transition-colors whitespace-nowrap">
               {t("nav_home") || "Home"}
             </Link>
-            <Link href="/store" className="text-sm font-medium text-[#8b8ba8] hover:text-white transition-colors">
+            <Link href="/store" className="text-[11px] sm:text-xs md:text-sm font-medium text-[#8b8ba8] hover:text-white transition-colors whitespace-nowrap">
               {t("nav_store") || "Store"}
             </Link>
-            <Link href="/how-it-works" className="text-sm font-medium text-[#8b8ba8] hover:text-white transition-colors">
+            <Link href="/how-it-works" className="text-[11px] sm:text-xs md:text-sm font-medium text-[#8b8ba8] hover:text-white transition-colors whitespace-nowrap">
               {t("nav_how_it_works") || "How It Works"}
             </Link>
             
-            {/* Connect Dropdown */}
-            <div className="relative" ref={connectRef}>
+            {/* Connect Dropdown (Hidden on very small mobile to save space, visible sm+) */}
+            <div className="hidden sm:block relative" ref={connectRef}>
               <button 
                 onClick={() => setConnectOpen(!connectOpen)}
                 className={`text-sm font-medium transition-colors flex items-center gap-1.5 focus:outline-none ${connectOpen ? "text-violet-400" : "text-[#8b8ba8] hover:text-white"}`}
@@ -149,61 +149,8 @@ export default function Header() {
                 کوردی
               </button>
             </div>
-
-            {/* Mobile hamburger */}
-            <button
-              onClick={() => setMobileOpen(!mobileOpen)}
-              className="md:hidden p-2 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 transition-colors"
-              aria-label={mobileOpen ? "Close menu" : "Open menu"}
-              aria-expanded={mobileOpen}
-            >
-              {mobileOpen ? (
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              ) : (
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-              )}
-            </button>
           </div>
         </div>
-
-        {/* Mobile Menu */}
-        {mobileOpen && (
-          <div className="md:hidden border-t border-violet-500/10 py-4 space-y-1 bg-[#0d0a1e]/95 backdrop-blur-xl -mx-4 px-4">
-            <Link
-              href="/"
-              onClick={() => setMobileOpen(false)}
-              className="block px-3 py-2.5 text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors"
-            >
-              {t("nav_home") || "Home"}
-            </Link>
-            <Link
-              href="/store"
-              onClick={() => setMobileOpen(false)}
-              className="block px-3 py-2.5 text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors"
-            >
-              {t("nav_store") || "Store"}
-            </Link>
-            <Link
-              href="/how-it-works"
-              onClick={() => setMobileOpen(false)}
-              className="block px-3 py-2.5 text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors"
-            >
-              {t("nav_how_it_works") || "How It Works"}
-            </Link>
-            
-            <div className="pt-4 pb-2">
-              <p className="px-3 text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Connect With Us</p>
-              <SocialMenuItem href={SOCIAL_LINKS.telegram} icon={<TelegramIcon className="w-4 h-4 text-sky-400"/>} label="Telegram" onClick={() => setMobileOpen(false)} />
-              <SocialMenuItem href={SOCIAL_LINKS.instagram} icon={<InstagramIcon className="w-4 h-4 text-pink-500"/>} label="Instagram" onClick={() => setMobileOpen(false)} />
-              <SocialMenuItem href={SOCIAL_LINKS.tiktok} icon={<TikTokIcon className="w-4 h-4 text-white"/>} label="TikTok" onClick={() => setMobileOpen(false)} />
-              <SocialMenuItem href={SOCIAL_LINKS.facebook} icon={<FacebookIcon className="w-4 h-4 text-blue-500"/>} label="Facebook" onClick={() => setMobileOpen(false)} />
-            </div>
-          </div>
-        )}
       </div>
     </header>
   );
