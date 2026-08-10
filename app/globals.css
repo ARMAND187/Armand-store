@@ -92,107 +92,26 @@ h1, h2, h3 {
 #services, #contact { scroll-margin-top: 72px; }
 
 /* ═══════════════════════════════════════════════════════
-   4K ANIMATED BACKGROUND
+   CINEMATIC BACKGROUND SYSTEM
 ═══════════════════════════════════════════════════════ */
-@keyframes noise-drift {
-  0%   { transform: translate(0, 0); }
-  100% { transform: translate(5%, 5%); }
+@keyframes cinematic-pan {
+  0% { transform: scale(1.05) translate(0, 0); }
+  50% { transform: scale(1.15) translate(-2%, -2%); }
+  100% { transform: scale(1.05) translate(0, 0); }
 }
 
-.bg-3d-wrapper {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  overflow: hidden;
-  background: radial-gradient(ellipse 120% 80% at 50% -20%, #1a0a3e 0%, var(--bg-primary) 70%);
-  perspective: 1200px;
+.animate-cinematic-pan {
+  animation: cinematic-pan 40s ease-in-out infinite;
+  transform-origin: center;
 }
 
-.bg-noise {
-  position: absolute;
-  inset: -50%;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.035'/%3E%3C/svg%3E");
-  animation: noise-drift 150s linear infinite;
+.bg-radial-vignette {
+  background: radial-gradient(circle at center, transparent 30%, #000000 120%);
+}
+
+.bg-film-grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E");
   pointer-events: none;
-  z-index: 1;
-}
-
-@keyframes orb-float-1 {
-  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.55; }
-  33%       { transform: translate(12vw, -8vh) scale(1.12); opacity: 0.7; }
-  66%       { transform: translate(-8vw, 12vh) scale(0.92); opacity: 0.45; }
-}
-@keyframes orb-float-2 {
-  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.4; }
-  50%       { transform: translate(-18vw, -12vh) scale(1.18); opacity: 0.6; }
-}
-@keyframes orb-float-3 {
-  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.35; }
-  50%       { transform: translate(20vw, 8vh) scale(1.1); opacity: 0.55; }
-}
-@keyframes orb-float-4 {
-  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.3; }
-  50%       { transform: translate(-10vw, 20vh) scale(1.15); opacity: 0.5; }
-}
-
-.bg-orb {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(120px);
-  pointer-events: none;
-  z-index: 2;
-  mix-blend-mode: screen;
-}
-.bg-orb-1 {
-  width: 130vw; height: 130vh;
-  background: radial-gradient(circle at center, rgba(124, 58, 237, 0.3) 0%, rgba(109, 40, 217, 0.08) 45%, transparent 70%);
-  top: -40vh; left: -35vw;
-  animation: orb-float-1 28s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-}
-.bg-orb-2 {
-  width: 90vw; height: 90vh;
-  background: radial-gradient(circle at center, rgba(6, 182, 212, 0.2) 0%, rgba(6, 182, 212, 0.04) 40%, transparent 60%);
-  top: 5vh; right: -30vw;
-  animation: orb-float-2 32s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-}
-.bg-orb-3 {
-  width: 100vw; height: 100vh;
-  background: radial-gradient(circle at center, rgba(79, 70, 229, 0.22) 0%, rgba(49, 46, 129, 0.05) 40%, transparent 60%);
-  bottom: -45vh; left: 5vw;
-  animation: orb-float-3 24s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-}
-.bg-orb-4 {
-  width: 80vw; height: 80vh;
-  background: radial-gradient(circle at center, rgba(167, 139, 250, 0.15) 0%, transparent 55%);
-  top: 40vh; left: 35vw;
-  animation: orb-float-4 36s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-}
-
-.bg-grid-container {
-  position: absolute;
-  bottom: -25vh; left: -50vw;
-  width: 200vw; height: 110vh;
-  transform: rotateX(68deg);
-  transform-origin: bottom center;
-  z-index: 3; opacity: 0.35;
-  pointer-events: none;
-}
-.bg-grid-plane {
-  width: 100%; height: 200%;
-  background-image:
-    linear-gradient(to right, rgba(124, 58, 237, 0.2) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(124, 58, 237, 0.2) 1px, transparent 1px);
-  background-size: 70px 70px;
-  animation: grid-scroll 2.5s linear infinite;
-}
-@keyframes grid-scroll {
-  0%   { transform: translateY(0); }
-  100% { transform: translateY(70px); }
-}
-.bg-horizon-fade {
-  position: absolute; inset: 0;
-  background: linear-gradient(to top, transparent 0%, var(--bg-primary) 60%);
-  z-index: 4; pointer-events: none;
 }
 
 /* ═══════════════════════════════════════════════════════
