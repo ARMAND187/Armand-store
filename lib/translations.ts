@@ -119,7 +119,7 @@ export const translations = {
     // Header
     nav_home: "سەرەکی",
     nav_services: "خزمەتگوزارییەکان",
-    nav_store: "کۆگا",
+    nav_store: "فرۆشگا",
     nav_how_it_works: "چۆنیەتی کارکردن",
     nav_contact: "پەیوەندی",
     lang_en: "EN",
@@ -127,7 +127,7 @@ export const translations = {
 
     // Hero
     hero_title: "ARMAND STORE",
-    hero_subtitle: "بەرهەمە دیجیتاڵییە پریمیومەکان و خزمەتگوزارییەکانی میدیای کۆمەڵایەتی",
+    hero_subtitle: "بەرهەمە دیجیتاڵییە نایابەکان و خزمەتگوزارییەکانی میدیای کۆمەڵایەتی",
     hero_tag: "خێرا • سادە • پارەدانی خۆماڵی",
     hero_cta_primary: "جۆینی کەناڵی تێلیگرام ببە",
     hero_cta_secondary: "خزمەتگوزارییەکان ببینە",
@@ -201,7 +201,7 @@ export const translations = {
       "پرسیارت هەیە یان خزمەتگوزارییەکی تر پێویستتە؟ نامەمان بنێرە و یارمەتیت دەدەین.",
 
     // Footer
-    footer_tagline: "بەرهەمە دیجیتاڵییە پریمیومەکان و خزمەتگوزارییەکانی میدیای کۆمەڵایەتی",
+    footer_tagline: "بەرهەمە دیجیتاڵییە نایابەکان و خزمەتگوزارییەکانی میدیای کۆمەڵایەتی",
     footer_copy: "© ٢٠٢٦ Armand Store",
 
     // How It Works Page Header
