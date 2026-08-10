@@ -38,8 +38,9 @@ export default function HowItWorksPage() {
           <HowToOrder />
           <PaymentMethods />
           <FAQSection />
-          <SocialSection />
         </div>
+        
+        <SocialSection />
       </main>
       <Footer />
     </>
