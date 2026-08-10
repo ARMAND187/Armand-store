@@ -270,8 +270,6 @@ h1, h2, h3 {
     0 4px 24px -4px rgba(0, 0, 0, 0.5),
     inset 0 1px 0 rgba(255, 255, 255, 0.05);
   transition: transform 0.18s ease, border-color 0.3s ease, box-shadow 0.35s ease;
-  transform-style: preserve-3d;
-  will-change: transform;
   position: relative;
   overflow: hidden;
 }
@@ -285,7 +283,7 @@ h1, h2, h3 {
     0 12px 40px -8px rgba(124, 58, 237, 0.15),
     0 8px 16px -4px rgba(0, 0, 0, 0.4),
     inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  transform: rotateX(var(--rx)) rotateY(var(--ry)) translateZ(8px);
+  transform: translateY(-4px);
 }
 
 /* Per-product card accent glows */

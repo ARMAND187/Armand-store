@@ -5,43 +5,6 @@ import { useLanguage } from "@/components/LanguageProvider";
 import { TELEGRAM_URL } from "@/config/site";
 import { trackProductOrderClick } from "@/lib/analytics";
 
-// ── 3D mouse-tilt hook ────────────────────────────────────
-function use3DTilt(ref: React.RefObject<HTMLElement | null>) {
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const cards = el.querySelectorAll<HTMLElement>(".glass-card");
-
-    const handleMove = (e: MouseEvent) => {
-      const card = (e.currentTarget as HTMLElement);
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      const cx = rect.width / 2;
-      const cy = rect.height / 2;
-      const rx = ((y - cy) / cy) * -8;   // max ±8deg
-      const ry = ((x - cx) / cx) * 8;
-      card.style.setProperty("--rx", `${rx}deg`);
-      card.style.setProperty("--ry", `${ry}deg`);
-    };
-    const handleLeave = (e: MouseEvent) => {
-      const card = (e.currentTarget as HTMLElement);
-      card.style.setProperty("--rx", "0deg");
-      card.style.setProperty("--ry", "0deg");
-    };
-
-    cards.forEach((card) => {
-      card.addEventListener("mousemove", handleMove);
-      card.addEventListener("mouseleave", handleLeave);
-    });
-    return () => {
-      cards.forEach((card) => {
-        card.removeEventListener("mousemove", handleMove);
-        card.removeEventListener("mouseleave", handleLeave);
-      });
-    };
-  }, [ref]);
-}
 
 // ── Intersection Observer hook ────────────────────────────
 function useReveal() {
@@ -115,9 +78,7 @@ function WindowsCard() {
   const { t } = useLanguage();
   return (
     <article className="glass-card card-glow-blue reveal-card relative p-3 sm:p-6 flex flex-col gap-2 sm:gap-4">
-      {/* Spotlight glow top-left */}
-      <div className="absolute top-0 left-0 w-32 h-32 rounded-full pointer-events-none"
-        style={{ background: "radial-gradient(circle at top left, rgba(99,102,241,0.18) 0%, transparent 70%)" }} />
+
       <div>
         <h3 className="text-[13px] sm:text-base font-bold text-white leading-tight">{t("win_name")}</h3>
         <p className="text-[10px] sm:text-xs text-slate-400 leading-tight">{t("win_desc")}</p>
@@ -139,8 +100,7 @@ function GeminiCard() {
   const { t } = useLanguage();
   return (
     <article className="glass-card card-glow-violet reveal-card relative p-3 sm:p-6 flex flex-col gap-2 sm:gap-4">
-      <div className="absolute top-0 right-0 w-32 h-32 rounded-full pointer-events-none"
-        style={{ background: "radial-gradient(circle at top right, rgba(124,58,237,0.2) 0%, transparent 70%)" }} />
+
       <div>
         <h3 className="text-[13px] sm:text-base font-bold text-white leading-tight">{t("gemini_name")}</h3>
         <p className="text-[10px] sm:text-xs text-slate-400 leading-tight">{t("gemini_duration")}</p>
@@ -162,8 +122,7 @@ function YouTubeCard() {
   const { t } = useLanguage();
   return (
     <article className="glass-card card-glow-red reveal-card relative p-3 sm:p-6 flex flex-col gap-2 sm:gap-4 col-span-2 md:col-span-2 lg:col-span-1">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-24 pointer-events-none"
-        style={{ background: "radial-gradient(ellipse at top, rgba(220,38,38,0.18) 0%, transparent 70%)" }} />
+
       <div className="flex items-center gap-3">
         <div className="w-8 h-8 sm:w-11 sm:h-11 rounded-lg sm:rounded-xl bg-red-500/15 border border-red-500/25 flex items-center justify-center flex-shrink-0" aria-hidden="true">
           <svg viewBox="0 0 24 24" className="w-4 h-4 sm:w-6 sm:h-6 text-red-400" fill="currentColor">
@@ -203,8 +162,7 @@ function TikTokCard() {
   const { t } = useLanguage();
   return (
     <article className="glass-card card-glow-white reveal-card relative p-3 sm:p-6 flex flex-col gap-2 sm:gap-4 col-span-2 sm:col-span-1">
-      <div className="absolute top-0 right-0 w-24 h-24 pointer-events-none"
-        style={{ background: "radial-gradient(circle at top right, rgba(255,255,255,0.07) 0%, transparent 70%)" }} />
+
       <div className="flex items-center gap-3">
         <div className="w-8 h-8 sm:w-11 sm:h-11 rounded-lg sm:rounded-xl bg-white/7 border border-white/12 flex items-center justify-center flex-shrink-0" aria-hidden="true">
           <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 sm:w-5 sm:h-5 text-white" fill="currentColor">
@@ -230,8 +188,7 @@ function TelegramCard() {
   const { t } = useLanguage();
   return (
     <article className="glass-card card-glow-sky reveal-card relative p-3 sm:p-6 flex flex-col gap-2 sm:gap-4 col-span-2 sm:col-span-1">
-      <div className="absolute top-0 left-0 w-24 h-24 pointer-events-none"
-        style={{ background: "radial-gradient(circle at top left, rgba(6,182,212,0.2) 0%, transparent 70%)" }} />
+
       <div className="flex items-center gap-3">
         <div className="w-8 h-8 sm:w-11 sm:h-11 rounded-lg sm:rounded-xl bg-cyan-500/12 border border-cyan-500/22 flex items-center justify-center flex-shrink-0" aria-hidden="true">
           <svg viewBox="0 0 24 24" className="w-4 h-4 sm:w-6 sm:h-6 text-cyan-400" fill="currentColor">
@@ -257,12 +214,10 @@ function TelegramCard() {
 export default function ProductSection() {
   const { t } = useLanguage();
   const gridRef = useReveal();
-  use3DTilt(gridRef);
-
   return (
     <section
       id="services"
-      className="relative py-20 sm:py-28"
+      className="relative py-20 sm:py-24"
       aria-labelledby="services-heading"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -282,7 +237,6 @@ export default function ProductSection() {
         <div
           ref={gridRef}
           className="grid grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-5"
-          style={{ perspective: "1200px" }}
         >
           <WindowsCard />
           <GeminiCard />
