@@ -57,7 +57,7 @@ export default function HowToOrder() {
 
   return (
     <section
-      className="py-20 sm:py-24 bg-transparent"
+      className="py-20 sm:py-24 bg-[#0d0a1e] section-slope-top relative z-10"
       aria-labelledby="how-to-order-heading"
     >
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
@@ -79,9 +79,9 @@ export default function HowToOrder() {
               style={{ transitionDelay: `${i * 100}ms` }}
             >
               {/* Number */}
-              <span className="text-xl sm:text-4xl font-black text-blue-500/30 leading-none">{step.num}</span>
+              <span className="text-xl sm:text-4xl font-black text-violet-500/30 leading-none">{step.num}</span>
               {/* Icon circle */}
-              <div className="w-8 h-8 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400">
+              <div className="w-8 h-8 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-violet-500/10 border border-violet-500/20 flex items-center justify-center text-cyan-400">
                 <div className="scale-75 sm:scale-100">{step.icon}</div>
               </div>
               <h3 className="text-[9px] sm:text-sm font-semibold text-slate-200 leading-tight">{t(step.keyTitle)}</h3>
