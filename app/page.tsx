@@ -1,6 +1,5 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import ContactCTA from "@/components/ContactCTA";
 import SocialSection from "@/components/SocialSection";
 import Footer from "@/components/Footer";
 import Link from "next/link";
@@ -22,7 +21,6 @@ export default function HomePage() {
           </Link>
         </section>
 
-        <ContactCTA />
         <SocialSection />
       </main>
       <Footer />

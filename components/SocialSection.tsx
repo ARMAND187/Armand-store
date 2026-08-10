@@ -56,17 +56,20 @@ export default function SocialSection() {
 
   return (
     <section
-      className="relative z-10"
+      className="relative z-10 py-24 sm:py-32"
       aria-labelledby="social-heading"
     >
+      <div className="absolute top-0 left-0 right-0 divider-glow opacity-50" />
       <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-        <p className="section-eyebrow mb-3">Find us</p>
         <h2
           id="social-heading"
-          className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-10"
+          className="text-4xl sm:text-5xl font-black text-white tracking-tight mb-4"
         >
-          {t("social_heading")}
+          FIND US
         </h2>
+        <p className="text-violet-400 text-lg sm:text-xl font-semibold tracking-wider mb-10 uppercase">
+          Ready to Order?
+        </p>
 
         <div className="flex flex-wrap items-center justify-center gap-3">
           {SOCIAL_ITEMS.map((item) => (
