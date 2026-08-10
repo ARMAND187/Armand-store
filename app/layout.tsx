@@ -67,11 +67,23 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <body className="font-sans antialiased">
-        {/* Animated background orbs — fixed, behind everything */}
-        <div aria-hidden="true">
+        {/* Premium 4K 3D Animated Background */}
+        <div className="bg-3d-wrapper" aria-hidden="true">
+          {/* Deep space noise / stars overlay */}
+          <div className="bg-noise" />
+          
+          {/* Volumetric glowing orbs */}
           <div className="bg-orb bg-orb-1" />
           <div className="bg-orb bg-orb-2" />
           <div className="bg-orb bg-orb-3" />
+          
+          {/* 3D Perspective Grid */}
+          <div className="bg-grid-container">
+            <div className="bg-grid-plane" />
+          </div>
+          
+          {/* Fade horizon out smoothly */}
+          <div className="bg-horizon-fade" />
         </div>
         <LanguageProvider>{children}</LanguageProvider>
       </body>
