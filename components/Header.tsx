@@ -100,22 +100,22 @@ export default function Header() {
           </Link>
 
           {/* Main Nav (Visible on all sizes) */}
-          <nav className="flex items-center gap-1.5 sm:gap-6 md:gap-8 overflow-x-auto no-scrollbar" aria-label="Main navigation">
+          <nav className="flex items-center gap-2 sm:gap-6 md:gap-8 overflow-x-auto no-scrollbar" aria-label="Main navigation">
             <Link 
               href="/" 
-              className={`text-[10px] sm:text-xs md:text-sm font-medium transition-colors whitespace-nowrap px-1 py-0.5 rounded ${pathname === "/" ? "text-white bg-white/10" : "text-[#8b8ba8] hover:text-white"}`}
+              className={`text-[11px] sm:text-xs md:text-sm font-medium transition-colors whitespace-nowrap px-1.5 py-0.5 rounded ${pathname === "/" ? "text-white bg-white/10" : "text-[#8b8ba8] hover:text-white"}`}
             >
               {t("nav_home") || "Home"}
             </Link>
             <Link 
               href="/store" 
-              className={`text-[10px] sm:text-xs md:text-sm font-medium transition-colors whitespace-nowrap px-1 py-0.5 rounded ${pathname === "/store" ? "text-white bg-white/10" : "text-[#8b8ba8] hover:text-white"}`}
+              className={`text-[11px] sm:text-xs md:text-sm font-medium transition-colors whitespace-nowrap px-1.5 py-0.5 rounded ${pathname === "/store" ? "text-white bg-white/10" : "text-[#8b8ba8] hover:text-white"}`}
             >
               {t("nav_store") || "Store"}
             </Link>
             <Link 
               href="/how-it-works" 
-              className={`text-[10px] sm:text-xs md:text-sm font-medium transition-colors whitespace-nowrap px-1 py-0.5 rounded ${pathname === "/how-it-works" ? "text-white bg-white/10" : "text-[#8b8ba8] hover:text-white"}`}
+              className={`text-[11px] sm:text-xs md:text-sm font-medium transition-colors whitespace-nowrap px-1.5 py-0.5 rounded ${pathname === "/how-it-works" ? "text-white bg-white/10" : "text-[#8b8ba8] hover:text-white"}`}
             >
               {t("nav_how_it_works") || "How It Works"}
             </Link>
@@ -124,7 +124,7 @@ export default function Header() {
           {/* Right: lang switch */}
           <div className="flex items-center gap-2 sm:gap-3">
             {/* Language Switch */}
-            <div className="flex items-center rounded-lg border border-violet-500/20 overflow-hidden text-[10px] sm:text-xs font-semibold bg-violet-950/40">
+            <div className="flex items-center rounded-lg border border-violet-500/20 overflow-hidden text-[11px] sm:text-xs font-semibold bg-violet-950/40">
               <button
                 onClick={() => setLang("en")}
                 className={`px-1.5 py-1 sm:px-2.5 sm:py-1.5 transition-colors focus:outline-none ${
