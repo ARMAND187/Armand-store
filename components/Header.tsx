@@ -1,11 +1,13 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
 import { useLanguage } from "@/components/LanguageProvider";
 import { TELEGRAM_URL, SOCIAL_LINKS } from "@/config/site";
 
 export default function Header() {
+  const pathname = usePathname();
   const { t, lang, setLang } = useLanguage();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -99,13 +101,22 @@ export default function Header() {
 
           {/* Main Nav (Visible on all sizes) */}
           <nav className="flex items-center gap-3 sm:gap-6 md:gap-8 overflow-x-auto no-scrollbar" aria-label="Main navigation">
-            <Link href="/" className="text-[11px] sm:text-xs md:text-sm font-medium text-[#8b8ba8] hover:text-white transition-colors whitespace-nowrap">
+            <Link 
+              href="/" 
+              className={`text-[11px] sm:text-xs md:text-sm font-medium transition-colors whitespace-nowrap px-1 py-0.5 rounded ${pathname === "/" ? "text-white bg-white/10" : "text-[#8b8ba8] hover:text-white"}`}
+            >
               {t("nav_home") || "Home"}
             </Link>
-            <Link href="/store" className="text-[11px] sm:text-xs md:text-sm font-medium text-[#8b8ba8] hover:text-white transition-colors whitespace-nowrap">
+            <Link 
+              href="/store" 
+              className={`text-[11px] sm:text-xs md:text-sm font-medium transition-colors whitespace-nowrap px-1 py-0.5 rounded ${pathname === "/store" ? "text-white bg-white/10" : "text-[#8b8ba8] hover:text-white"}`}
+            >
               {t("nav_store") || "Store"}
             </Link>
-            <Link href="/how-it-works" className="text-[11px] sm:text-xs md:text-sm font-medium text-[#8b8ba8] hover:text-white transition-colors whitespace-nowrap">
+            <Link 
+              href="/how-it-works" 
+              className={`text-[11px] sm:text-xs md:text-sm font-medium transition-colors whitespace-nowrap px-1 py-0.5 rounded ${pathname === "/how-it-works" ? "text-white bg-white/10" : "text-[#8b8ba8] hover:text-white"}`}
+            >
               {t("nav_how_it_works") || "How It Works"}
             </Link>
           </nav>
