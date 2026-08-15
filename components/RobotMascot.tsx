@@ -69,52 +69,31 @@ function AICore({
   visibleBubble: boolean;
 }) {
   const rootRef = useRef<THREE.Group>(null!);
-  const coreRef = useRef<THREE.Mesh>(null!);
-  const ring1Ref = useRef<THREE.Mesh>(null!);
-  const ring2Ref = useRef<THREE.Mesh>(null!);
-  const ring3Ref = useRef<THREE.Mesh>(null!);
   const particlesRef = useRef<THREE.Points>(null!);
 
   useFrame(({ clock }, delta) => {
-    if (!rootRef.current || !coreRef.current) return;
+    if (!rootRef.current) return;
     const t = clock.getElapsedTime();
 
-    // Bobbing animation
+    // Bobbing animation (up and down)
     rootRef.current.position.y = Math.sin(t * 1.5) * 0.15;
 
-    // Core pulsing
-    const scale = 1.0 + Math.sin(t * 3) * 0.05 + (reacting ? 0.2 : 0);
-    coreRef.current.scale.set(scale, scale, scale);
-
-    // Mouse tracking (Core looks towards mouse slightly)
+    // Mouse tracking (slight tilt)
     rootRef.current.rotation.y = THREE.MathUtils.lerp(
       rootRef.current.rotation.y,
-      mouse.x * 0.5,
+      mouse.x * 0.2,
       delta * 3
     );
     rootRef.current.rotation.x = THREE.MathUtils.lerp(
       rootRef.current.rotation.x,
-      -mouse.y * 0.5,
+      -mouse.y * 0.2,
       delta * 3
     );
 
-    // Rings rotating
-    if (ring1Ref.current) {
-      ring1Ref.current.rotation.x += delta * 0.5;
-      ring1Ref.current.rotation.y += delta * 0.2;
-    }
-    if (ring2Ref.current) {
-      ring2Ref.current.rotation.y += delta * 0.8;
-      ring2Ref.current.rotation.z += delta * 0.3;
-    }
-    if (ring3Ref.current) {
-      ring3Ref.current.rotation.z -= delta * 0.6;
-      ring3Ref.current.rotation.x -= delta * 0.4;
-    }
-
-    // Particles rotating
+    // Particles rotating (circling)
     if (particlesRef.current) {
-      particlesRef.current.rotation.y += delta * 0.1;
+      particlesRef.current.rotation.y += delta * 0.15;
+      particlesRef.current.rotation.z += delta * 0.05;
     }
   });
 
