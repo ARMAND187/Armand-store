@@ -1,25 +1,7 @@
-import FadeIn from "./FadeIn";
+"use client";
 
-const reviews = [
-  {
-    name: "Ahmed K.",
-    role: "Content Creator",
-    text: "The YouTube views service was incredibly fast and exactly as described. Highly recommend Armand Store for anyone looking to grow.",
-    rating: 5,
-  },
-  {
-    name: "Sara M.",
-    role: "Designer",
-    text: "Got my Gemini Advanced subscription within minutes. Customer support on Telegram was super helpful and polite.",
-    rating: 5,
-  },
-  {
-    name: "Ali R.",
-    role: "Gamer",
-    text: "Best prices in Iraq for digital keys. FastPay integration makes it so easy to buy without hassle.",
-    rating: 5,
-  },
-];
+import FadeIn from "./FadeIn";
+import { useLanguage } from "./LanguageProvider";
 
 function StarRating({ rating }: { rating: number }) {
   return (
@@ -38,16 +20,39 @@ function StarRating({ rating }: { rating: number }) {
 }
 
 export default function ReviewsSection() {
+  const { t } = useLanguage();
+
+  const reviews = [
+    {
+      name: "Ahmed K.",
+      role: t("review_1_role"),
+      text: t("review_1_text"),
+      rating: 5,
+    },
+    {
+      name: "Sara M.",
+      role: t("review_2_role"),
+      text: t("review_2_text"),
+      rating: 5,
+    },
+    {
+      name: "Ali R.",
+      role: t("review_3_role"),
+      text: t("review_3_text"),
+      rating: 5,
+    },
+  ];
+
   return (
     <section className="py-24 relative z-10 px-4 bg-white/[0.02] border-y border-white/5">
       <div className="max-w-6xl mx-auto">
         <FadeIn direction="up">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-black mb-6 tracking-tight text-white">
-              Trusted by <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-200 to-gray-500">Customers</span>
+              {t("reviews_heading_1")} <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-200 to-gray-500">{t("reviews_heading_2")}</span>
             </h2>
             <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-              Don't just take our word for it. See what our community has to say.
+              {t("reviews_subheading")}
             </p>
           </div>
         </FadeIn>

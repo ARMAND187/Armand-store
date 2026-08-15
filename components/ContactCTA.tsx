@@ -28,17 +28,14 @@ export default function ContactCTA() {
         {/* Eyebrow badge */}
         <div className="inline-flex items-center gap-2.5 border border-white/10 bg-white/5 text-white/80 text-xs font-semibold px-5 py-2 rounded-full mb-10 tracking-wider uppercase animate-float-badge">
           <span className="w-2 h-2 rounded-full bg-white/60 animate-pulse shadow-[0_0_8px_#ffffff]" aria-hidden="true" />
-          Ready to Order?
+          {t("social_ready")}
         </div>
 
         <h2
           id="contact-heading"
-          className="text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tight mb-6 leading-tight"
+          className="text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tight mb-6 leading-tight uppercase"
         >
-          GET YOUR{" "}
-          <span className="text-gradient-hero">PRODUCT</span>
-          <br />
-          TODAY
+          {t("contact_get_product")}
         </h2>
 
         <div className="divider-glow w-32 mx-auto mb-6" />

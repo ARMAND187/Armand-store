@@ -33,6 +33,8 @@ function useReveal() {
 function TgButton({
   label, id, colorClass = "btn-3d-blue",
 }: { label: string; id: string; colorClass?: string; }) {
+  const { t } = useLanguage();
+  
   return (
     <a
       href={TELEGRAM_URL}
@@ -40,8 +42,8 @@ function TgButton({
       rel="noopener noreferrer"
       id={id}
       onClick={() => trackProductOrderClick(label)}
-      className="flex items-center justify-center gap-1 sm:gap-2 w-full text-white font-bold text-[10px] sm:text-sm py-3 sm:py-4 rounded-xl sm:rounded-2xl leading-none tracking-wide focus:outline-none relative overflow-hidden group shadow-[0_4px_30px_rgba(0,0,0,0.3)] transition-all duration-300"
-      aria-label={`Message us about ${label} on Telegram`}
+      className="flex items-center justify-center gap-1 sm:gap-2 w-full text-white font-bold text-[10px] sm:text-sm py-3 sm:py-4 rounded-xl sm:rounded-2xl leading-none tracking-wide focus:outline-none relative overflow-hidden group shadow-[0_4px_30px_rgba(0,0,0,0.3)] transition-all duration-300 uppercase"
+      aria-label={`${t("btn_message_us")} about ${label} on Telegram`}
     >
       {/* Animated spinning line */}
       <div className="absolute inset-0 z-0 overflow-hidden">
@@ -52,7 +54,7 @@ function TgButton({
 
       <div className="relative z-20 flex items-center gap-1 sm:gap-2">
         <TgIcon />
-        <span>MESSAGE US</span>
+        <span>{t("btn_message_us")}</span>
       </div>
     </a>
   );

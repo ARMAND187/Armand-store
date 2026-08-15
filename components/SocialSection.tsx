@@ -62,12 +62,12 @@ export default function SocialSection() {
       <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
         <h2
           id="social-heading"
-          className="text-4xl sm:text-5xl font-black text-white tracking-tight mb-4"
+          className="text-4xl sm:text-5xl font-black text-white tracking-tight mb-4 uppercase"
         >
-          FIND US
+          {t("social_find_us")}
         </h2>
         <p className="text-gray-400 text-lg sm:text-xl font-semibold tracking-wider mb-10 uppercase">
-          Ready to Order?
+          {t("social_ready")}
         </p>
 
         <div className="flex flex-wrap items-center justify-center gap-3">

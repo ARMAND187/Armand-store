@@ -82,6 +82,7 @@ export const translations = {
     // Shared
     cta_message: "JOIN CHANNEL",
     cta_message_telegram: "JOIN TELEGRAM CHANNEL",
+    btn_message_us: "Message us",
 
     // How to Order
     how_heading: "HOW TO ORDER",
@@ -90,20 +91,46 @@ export const translations = {
     how_step3_title: "Pay and receive your service",
 
     // Payment
+    payment_eyebrow: "Local payment",
     payment_heading: "PAYMENT METHODS",
     payment_accepted: "Accepted Payment Methods",
 
+    // Reviews
+    reviews_heading_1: "Trusted by",
+    reviews_heading_2: "Customers",
+    reviews_subheading: "Don't just take our word for it. See what our community has to say.",
+    review_1_text: "The YouTube views service was incredibly fast and exactly as described. Highly recommend Armand Store for anyone looking to grow.",
+    review_1_role: "Content Creator",
+    review_2_text: "Got my Gemini Advanced subscription within minutes. Customer support on Telegram was super helpful and polite.",
+    review_2_role: "Designer",
+    review_3_text: "Best prices in Iraq for digital keys. FastPay integration makes it so easy to buy without hassle.",
+    review_3_role: "Gamer",
+
     // Social
     social_heading: "CONNECT WITH US",
+    social_find_us: "Find us",
+    social_ready: "Ready to Order?",
 
     // Contact
     contact_heading: "NEED HELP?",
+    contact_get_product: "GET YOUR PRODUCT TODAY",
     contact_body:
       "Have a question or need a different service? Send us a message and we'll help you.",
 
     // Footer
     footer_tagline: "Premium Digital Products & Social Media Services",
     footer_copy: "© 2026 Armand Store",
+
+    // Features
+    feat_heading_1: "Why Choose",
+    feat_heading_2: "ARMAND STORE",
+    feat_subheading: "We provide the most reliable, fast, and secure digital services in the region.",
+    feat_1_title: "Instant Delivery",
+    feat_1_desc: "Receive your digital products and services instantly after purchase.",
+    feat_2_title: "Premium Quality",
+    feat_2_desc: "We provide only the highest quality digital accounts, keys, and social boosts.",
+    feat_3_title: "24/7 Support",
+    feat_3_desc: "Our team is always ready to assist you via Telegram with any questions.",
 
     // How It Works Page Header
     hiw_eyebrow: "Support & Guides",
@@ -197,6 +224,7 @@ export const translations = {
     // Shared
     cta_message: "جۆینی کەناڵ ببە",
     cta_message_telegram: "جۆینی کەناڵی تێلیگرام ببە",
+    btn_message_us: "نامەمان بۆ بنێرە",
 
     // How to Order
     how_heading: "چۆن داواکاری بکەی؟",
@@ -205,20 +233,46 @@ export const translations = {
     how_step3_title: "پارەبدە و خزمەتگوزاریەکەت وەربگرە",
 
     // Payment
+    payment_eyebrow: "پارەدانی ناوخۆیی",
     payment_heading: "شێوازەکانی پارەدان",
     payment_accepted: "شێوازەکانی پارەدانی پەسەندکراو",
 
+    // Reviews
+    reviews_heading_1: "متمانەپێکراو لەلایەن",
+    reviews_heading_2: "کڕیارانەوە",
+    reviews_subheading: "تەنها گوێ لە ئێمە مەگرە. بزانە کۆمەڵگەکەمان چی دەڵێت.",
+    review_1_text: "خزمەتگوزاری بینەری یوتوب زۆر خێرا بوو و ڕێک وەک ئەوەی باسکراوە. بە توندی Armand Store پێشنیار دەکەم بۆ هەر کەسێک کە دەیەوێت گەشە بکات.",
+    review_1_role: "دروستکەری ناوەڕۆک",
+    review_2_text: "بەژداریکردنی Gemini Advanced م بەدەستهێنا لە چەند خولەکێکدا. پشتگیری کڕیاران لە تێلیگرام زۆر یارمەتیدەر و بەڕێز بوون.",
+    review_2_role: "دیزاینەر",
+    review_3_text: "باشترین نرخ لە عێراق بۆ کلیلە دیجیتاڵییەکان. FastPay کڕینی زۆر ئاسان کردووە بەبێ هیچ کێشەیەک.",
+    review_3_role: "گەیمەر",
+
     // Social
     social_heading: "پەیوەندیمان پێوەبکە",
+    social_find_us: "بماندۆزەرەوە",
+    social_ready: "ئامادەی بۆ داواکردن؟",
 
     // Contact
     contact_heading: "پێویستی یارمەتیت هەیە؟",
+    contact_get_product: "بەرهەمەکەت ئەمڕۆ بەدەستبهێنە",
     contact_body:
       "پرسیارت هەیە یان خزمەتگوزارییەکی تر پێویستتە؟ نامەمان بنێرە و یارمەتیت دەدەین.",
 
     // Footer
     footer_tagline: "بەرهەمە دیجیتاڵییە نایابەکان و خزمەتگوزارییەکانی میدیای کۆمەڵایەتی",
     footer_copy: "© ٢٠٢٦ Armand Store",
+
+    // Features
+    feat_heading_1: "بۆچی",
+    feat_heading_2: "ARMAND STORE",
+    feat_subheading: "ئێمە متمانەپێکراوترین و خێراترین خزمەتگوزارییە دیجیتاڵییەکان لە ناوچەکەدا پێشکەش دەکەین.",
+    feat_1_title: "گەیاندنی دەستبەجێ",
+    feat_1_desc: "بەرهەم و خزمەتگوزارییە دیجیتاڵییەکانت ڕاستەوخۆ دوای کڕین وەربگرە.",
+    feat_2_title: "کوالێتی نایاب",
+    feat_2_desc: "تەنها بەرزترین کوالێتی هەژمارە دیجیتاڵییەکان، کلیلەکان و بەهێزکەرانی سۆشیال میدیا پێشکەش دەکەین.",
+    feat_3_title: "پشتگیری ٢٤/٧",
+    feat_3_desc: "تیمەکەمان هەمیشە ئامادەیە بۆ یارمەتیدانت لە ڕێگەی تێلیگرامەوە بۆ هەر پرسیارێک.",
 
     // How It Works Page Header
     hiw_eyebrow: "پشتگیری و ڕێبەرەکان",
