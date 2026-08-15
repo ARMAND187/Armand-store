@@ -57,46 +57,24 @@ export default function Footer() {
             aria-label="Armand Store Home"
           >
             <div className="w-10 h-10 relative flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform duration-300">
-              <div className="absolute inset-0 bg-gradient-to-br from-violet-400 to-violet-700 rounded-xl opacity-30 blur-md group-hover:opacity-50 transition-opacity"></div>
-              {/* Main Logo Container */}
-              <div className="relative w-full h-full bg-black border border-violet-500/30 rounded-xl flex items-center justify-center shadow-xl shadow-violet-900/20 overflow-hidden">
-                 {/* Shiny glass overlay */}
-                 <div className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-white/10 to-transparent"></div>
-                 {/* The SVG Logo */}
-                 <svg className="w-6 h-6 relative z-10" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                   {/* Neon Glow Filter */}
-                   <filter id="neon-glow-footer" x="-20%" y="-20%" width="140%" height="140%">
-                     <feGaussianBlur stdDeviation="1" result="blur" />
-                     <feMerge>
-                       <feMergeNode in="blur" />
-                       <feMergeNode in="SourceGraphic" />
-                     </feMerge>
-                   </filter>
-
-                   {/* Hollow Chevron Outline */}
-                   <path d="M12 2 L3 22 H7.5 L12 12 L16.5 22 H21 Z" 
-                         fill="transparent" 
-                         stroke="url(#neon-blue-footer)" 
-                         strokeWidth="1.5" 
-                         strokeLinejoin="round" 
-                         filter="url(#neon-glow-footer)" />
-
-                   {/* Sweeping Crescent Crossbar */}
-                   <path d="M 3 17 Q 12 17 22 5 Q 15 12 4 15 Z" 
-                         fill="url(#neon-blue-footer)" 
-                         filter="url(#neon-glow-footer)" />
-
-                   <defs>
-                     <linearGradient id="neon-blue-footer" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
-                       <stop stopColor="#00f0ff" />
-                       <stop offset="1" stopColor="#0055ff" />
-                     </linearGradient>
-                   </defs>
-                 </svg>
-              </div>
+              <div className="absolute inset-0 rounded-xl border border-white/15 bg-white/5 group-hover:bg-white/10 group-hover:border-white/25 transition-all duration-300" />
+              <div className="absolute top-0 left-0 right-0 h-1/2 rounded-t-xl bg-gradient-to-b from-white/10 to-transparent" />
+              <svg className="w-5 h-5 relative z-10" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2 L3 22 H7.5 L12 12 L16.5 22 H21 Z"
+                  fill="transparent"
+                  stroke="white"
+                  strokeWidth="1.5"
+                  strokeLinejoin="round"
+                  strokeOpacity="0.9"
+                />
+                <path d="M 3 17 Q 12 17 22 5 Q 15 12 4 15 Z"
+                  fill="white"
+                  fillOpacity="0.8"
+                />
+              </svg>
             </div>
             <span className="font-bold text-white text-lg tracking-tight">
-              ARMAND <span className="text-gradient-hero animate-pulse">STORE</span>
+              ARMAND <span className="text-gradient-hero font-black">STORE</span>
             </span>
           </Link>
 

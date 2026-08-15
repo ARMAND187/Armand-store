@@ -58,8 +58,8 @@ export default function Header() {
                 />
               </svg>
             </div>
-            <span className="hidden sm:block font-semibold text-[13px] text-white/90 tracking-tight">
-              ARMAND <span className="text-white/50">STORE</span>
+            <span className="hidden sm:block font-bold text-[14px] text-white tracking-tight">
+              ARMAND <span className="text-gradient-hero font-black">STORE</span>
             </span>
           </Link>
 

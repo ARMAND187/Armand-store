@@ -37,7 +37,7 @@ export default function FeaturesSection() {
         <FadeIn direction="up">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-black mb-6 tracking-tight text-white">
-              Why Choose <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-200 to-gray-500">Armand Store</span>
+              Why Choose <span className="uppercase">ARMAND <span className="text-gradient-hero">STORE</span></span>
             </h2>
             <p className="text-gray-400 text-lg max-w-2xl mx-auto">
               We provide the most reliable, fast, and secure digital services in the region.

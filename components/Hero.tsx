@@ -52,7 +52,7 @@ export default function Hero() {
             target="_blank"
             rel="noopener noreferrer"
             id="hero-message-us"
-            className="btn-primary w-full sm:w-auto text-sm px-7 py-3"
+            className="inline-flex items-center gap-2 justify-center w-full sm:w-auto text-sm px-7 py-3 bg-white/5 border border-white/10 text-white rounded-xl hover:bg-white/15 hover:border-white/25 hover:shadow-[0_4px_30px_rgba(255,255,255,0.1)] transition-all duration-300"
             aria-label="Message Armand Store on Telegram"
           >
             <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">

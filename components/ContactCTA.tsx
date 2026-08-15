@@ -12,12 +12,12 @@ export default function ContactCTA() {
       className="relative py-28 sm:py-36 overflow-hidden"
       aria-labelledby="contact-heading"
     >
-      {/* Cinematic background glow — violet + cyan */}
+      {/* Cinematic background glow — monochrome */}
       <div
         className="absolute inset-0 pointer-events-none"
         aria-hidden="true"
         style={{
-          background: "radial-gradient(ellipse 80% 60% at 50% 50%, rgba(124,58,237,0.18) 0%, rgba(6,182,212,0.05) 50%, transparent 80%)",
+          background: "radial-gradient(ellipse 80% 60% at 50% 50%, rgba(255,255,255,0.05) 0%, transparent 80%)",
           filter: "blur(40px)",
         }}
       />
@@ -26,8 +26,8 @@ export default function ContactCTA() {
 
       <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 text-center">
         {/* Eyebrow badge */}
-        <div className="inline-flex items-center gap-2.5 border border-violet-500/25 bg-violet-500/8 text-violet-300 text-xs font-semibold px-5 py-2 rounded-full mb-10 tracking-wider uppercase animate-float-badge">
-          <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_8px_#06b6d4]" aria-hidden="true" />
+        <div className="inline-flex items-center gap-2.5 border border-white/10 bg-white/5 text-white/80 text-xs font-semibold px-5 py-2 rounded-full mb-10 tracking-wider uppercase animate-float-badge">
+          <span className="w-2 h-2 rounded-full bg-white/60 animate-pulse shadow-[0_0_8px_#ffffff]" aria-hidden="true" />
           Ready to Order?
         </div>
 
@@ -53,7 +53,7 @@ export default function ContactCTA() {
           target="_blank"
           rel="noopener noreferrer"
           id="contact-telegram-cta"
-          className="group inline-flex items-center justify-center gap-3 btn-primary text-base sm:text-lg px-10 sm:px-12 py-4 sm:py-5 rounded-2xl"
+          className="group inline-flex items-center justify-center gap-3 bg-white/5 border border-white/10 text-white hover:bg-white/15 hover:border-white/25 hover:shadow-[0_4px_30px_rgba(255,255,255,0.1)] transition-all duration-300 text-base sm:text-lg px-10 sm:px-12 py-4 sm:py-5 rounded-2xl"
           aria-label="Message Armand Store on Telegram channel"
         >
           <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
