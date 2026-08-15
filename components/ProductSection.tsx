@@ -40,11 +40,20 @@ function TgButton({
       rel="noopener noreferrer"
       id={id}
       onClick={() => trackProductOrderClick(label)}
-      className="flex items-center justify-center gap-1 sm:gap-2 w-full text-white font-bold text-[10px] sm:text-sm py-3 sm:py-4 rounded-xl sm:rounded-2xl leading-none tracking-wide focus:outline-none bg-white/5 border border-white/10 hover:bg-white/15 hover:border-white/25 hover:shadow-[0_4px_30px_rgba(255,255,255,0.1)] transition-all duration-300 relative overflow-hidden group"
+      className="flex items-center justify-center gap-1 sm:gap-2 w-full text-white font-bold text-[10px] sm:text-sm py-3 sm:py-4 rounded-xl sm:rounded-2xl leading-none tracking-wide focus:outline-none relative overflow-hidden group shadow-[0_4px_30px_rgba(0,0,0,0.3)] transition-all duration-300"
       aria-label={`Message us about ${label} on Telegram`}
     >
-      <TgIcon />
-      <span>MESSAGE US</span>
+      {/* Animated spinning line */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] h-[500%] bg-[conic-gradient(from_0deg,transparent_0_300deg,rgba(255,255,255,0.6)_360deg)] animate-[spin_3s_linear_infinite]" />
+      </div>
+      {/* Inner background mask */}
+      <div className="absolute inset-[1px] bg-[#0a0a0a] rounded-[11px] sm:rounded-[15px] z-10 group-hover:bg-[#151515] transition-colors" />
+
+      <div className="relative z-20 flex items-center gap-1 sm:gap-2">
+        <TgIcon />
+        <span>MESSAGE US</span>
+      </div>
     </a>
   );
 }
