@@ -135,7 +135,7 @@ function YouTubeCard() {
         </div>
       </div>
 
-      <div className="space-y-2">
+      <div className="space-y-2 flex-1">
         <TierRow label={t("yt_tier1_label")} price={t("yt_tier1_price")} />
         <TierRow label={t("yt_tier2_label")} price={t("yt_tier2_price")} />
         <div className="relative rounded-xl bg-red-500/10 border border-red-500/30 p-2 sm:p-3 hover:bg-red-500/15 transition-colors">
@@ -151,8 +151,8 @@ function YouTubeCard() {
         </div>
       </div>
 
+      <p className="text-[9px] sm:text-[11px] text-slate-500 leading-relaxed mb-1">{t("yt_disclaimer")}</p>
       <TgButton label={t("yt_name")} id="cta-youtube" colorClass="btn-3d-red" />
-      <p className="text-[9px] sm:text-[11px] text-slate-500 leading-relaxed">{t("yt_disclaimer")}</p>
     </article>
   );
 }
