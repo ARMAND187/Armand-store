@@ -40,7 +40,7 @@ function TgButton({
       rel="noopener noreferrer"
       id={id}
       onClick={() => trackProductOrderClick(label)}
-      className={`flex items-center justify-center gap-1 sm:gap-2 w-full text-white font-bold text-[10px] sm:text-sm py-2 sm:py-3 rounded-xl sm:rounded-2xl leading-none tracking-wide btn-3d-base focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#05000f] ${colorClass}`}
+      className="flex items-center justify-center gap-1 sm:gap-2 w-full text-white font-bold text-[10px] sm:text-sm py-3 sm:py-4 rounded-xl sm:rounded-2xl leading-none tracking-wide focus:outline-none bg-white/5 border border-white/10 hover:bg-white/15 hover:border-white/25 hover:shadow-[0_4px_30px_rgba(255,255,255,0.1)] transition-all duration-300 relative overflow-hidden group"
       aria-label={`Message us about ${label} on Telegram`}
     >
       <TgIcon />
@@ -63,12 +63,12 @@ function TierRow({ label, price, highlight = false }: { label: string; price: st
     <div
       className={`flex flex-col xl:flex-row items-start xl:items-center justify-between gap-0.5 xl:gap-0 rounded-lg sm:rounded-xl px-2.5 sm:px-4 py-2 sm:py-3 transition-colors ${
         highlight
-          ? "bg-red-500/10 border border-red-500/20 hover:bg-red-500/15"
+          ? "bg-white/10 border border-white/20 hover:bg-white/15"
           : "bg-white/[0.035] border border-white/[0.06] hover:bg-white/[0.06]"
       }`}
     >
-      <span className={`text-[10px] sm:text-sm font-medium leading-tight ${highlight ? "text-red-300" : "text-slate-300"}`}>{label}</span>
-      <span className={`text-[11px] sm:text-sm font-bold whitespace-nowrap tabular-nums ${highlight ? "text-red-400" : "text-white"}`}>{price}</span>
+      <span className={`text-[10px] sm:text-sm font-medium leading-tight ${highlight ? "text-slate-200" : "text-slate-300"}`}>{label}</span>
+      <span className={`text-[11px] sm:text-sm font-bold whitespace-nowrap tabular-nums ${highlight ? "text-white" : "text-white"}`}>{price}</span>
     </div>
   );
 }
@@ -77,7 +77,7 @@ function TierRow({ label, price, highlight = false }: { label: string; price: st
 function WindowsCard() {
   const { t } = useLanguage();
   return (
-    <article className="glass-card card-glow-blue reveal-card relative p-3 sm:p-6 flex flex-col gap-2 sm:gap-4">
+    <article className="glass-card reveal-card relative p-3 sm:p-6 flex flex-col gap-2 sm:gap-4">
 
       <div>
         <h3 className="text-[13px] sm:text-base font-bold text-white leading-tight">{t("win_name")}</h3>
@@ -89,7 +89,7 @@ function WindowsCard() {
       </div>
       <div>
         <p className="text-xl sm:text-3xl font-extrabold text-white mb-1.5 sm:mb-3 tabular-nums">{t("win_price")}</p>
-        <TgButton label={t("win_name")} id="cta-windows" colorClass="btn-3d-blue" />
+        <TgButton label={t("win_name")} id="cta-windows" />
       </div>
     </article>
   );
@@ -99,7 +99,7 @@ function WindowsCard() {
 function GeminiCard() {
   const { t } = useLanguage();
   return (
-    <article className="glass-card card-glow-violet reveal-card relative p-3 sm:p-6 flex flex-col gap-2 sm:gap-4">
+    <article className="glass-card reveal-card relative p-3 sm:p-6 flex flex-col gap-2 sm:gap-4">
 
       <div>
         <h3 className="text-[13px] sm:text-base font-bold text-white leading-tight">{t("gemini_name")}</h3>
@@ -111,7 +111,7 @@ function GeminiCard() {
       </div>
       <div>
         <p className="text-xl sm:text-3xl font-extrabold text-white mb-1.5 sm:mb-3 tabular-nums">{t("gemini_price")}</p>
-        <TgButton label={t("gemini_name")} id="cta-gemini" colorClass="btn-3d-violet" />
+        <TgButton label={t("gemini_name")} id="cta-gemini" />
       </div>
     </article>
   );
@@ -121,11 +121,11 @@ function GeminiCard() {
 function YouTubeCard() {
   const { t } = useLanguage();
   return (
-    <article className="glass-card card-glow-red reveal-card relative p-3 sm:p-6 flex flex-col gap-2 sm:gap-4 col-span-2 md:col-span-2 lg:col-span-1">
+    <article className="glass-card reveal-card relative p-3 sm:p-6 flex flex-col gap-2 sm:gap-4 col-span-2 md:col-span-2 lg:col-span-1">
 
       <div className="flex items-center gap-3">
-        <div className="w-8 h-8 sm:w-11 sm:h-11 rounded-lg sm:rounded-xl bg-red-500/15 border border-red-500/25 flex items-center justify-center flex-shrink-0" aria-hidden="true">
-          <svg viewBox="0 0 24 24" className="w-4 h-4 sm:w-6 sm:h-6 text-red-400" fill="currentColor">
+        <div className="w-8 h-8 sm:w-11 sm:h-11 rounded-lg sm:rounded-xl bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0" aria-hidden="true">
+          <svg viewBox="0 0 24 24" className="w-4 h-4 sm:w-6 sm:h-6 text-white" fill="currentColor">
             <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
           </svg>
         </div>
@@ -138,21 +138,21 @@ function YouTubeCard() {
       <div className="space-y-2 flex-1">
         <TierRow label={t("yt_tier1_label")} price={t("yt_tier1_price")} />
         <TierRow label={t("yt_tier2_label")} price={t("yt_tier2_price")} />
-        <div className="relative rounded-xl bg-red-500/10 border border-red-500/30 p-2 sm:p-3 hover:bg-red-500/15 transition-colors">
+        <div className="relative rounded-xl bg-white/5 border border-white/10 p-2 sm:p-3 hover:bg-white/10 transition-colors">
           <div className="flex flex-col xl:flex-row items-start xl:items-center justify-between gap-1.5 sm:gap-2">
             <div className="flex-1">
-              <span className="inline-flex items-center text-[8px] sm:text-[10px] font-bold text-red-400 bg-red-500/20 px-1.5 sm:px-2 py-0.5 rounded-full mb-1">
+              <span className="inline-flex items-center text-[8px] sm:text-[10px] font-bold text-slate-900 bg-white px-1.5 sm:px-2 py-0.5 rounded-full mb-1">
                 {t("yt_best_offer")}
               </span>
-              <p className="text-[10px] sm:text-xs text-red-300 font-medium leading-tight">{t("yt_tier3_label")}</p>
+              <p className="text-[10px] sm:text-xs text-slate-300 font-medium leading-tight">{t("yt_tier3_label")}</p>
             </div>
-            <p className="text-sm sm:text-xl font-extrabold text-red-400 whitespace-nowrap tabular-nums mt-0.5 xl:mt-0">{t("yt_tier3_price")}</p>
+            <p className="text-sm sm:text-xl font-extrabold text-white whitespace-nowrap tabular-nums mt-0.5 xl:mt-0">{t("yt_tier3_price")}</p>
           </div>
         </div>
       </div>
 
       <p className="text-[9px] sm:text-[11px] text-slate-500 leading-relaxed mb-1">{t("yt_disclaimer")}</p>
-      <TgButton label={t("yt_name")} id="cta-youtube" colorClass="btn-3d-red" />
+      <TgButton label={t("yt_name")} id="cta-youtube" />
     </article>
   );
 }
@@ -160,10 +160,10 @@ function YouTubeCard() {
 function YouTubeViewsCard() {
   const { t } = useLanguage();
   return (
-    <article className="glass-card card-glow-red reveal-card relative p-3 sm:p-6 flex flex-col gap-2 sm:gap-4 col-span-2 md:col-span-2 lg:col-span-1">
+    <article className="glass-card reveal-card relative p-3 sm:p-6 flex flex-col gap-2 sm:gap-4 col-span-2 md:col-span-2 lg:col-span-1">
       <div className="flex items-center gap-3">
-        <div className="w-8 h-8 sm:w-11 sm:h-11 rounded-lg sm:rounded-xl bg-red-500/15 border border-red-500/25 flex items-center justify-center flex-shrink-0" aria-hidden="true">
-          <svg viewBox="0 0 24 24" className="w-4 h-4 sm:w-6 sm:h-6 text-red-400" fill="currentColor">
+        <div className="w-8 h-8 sm:w-11 sm:h-11 rounded-lg sm:rounded-xl bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0" aria-hidden="true">
+          <svg viewBox="0 0 24 24" className="w-4 h-4 sm:w-6 sm:h-6 text-white" fill="currentColor">
             <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
           </svg>
         </div>
@@ -178,7 +178,7 @@ function YouTubeViewsCard() {
         <TierRow label={t("yt_views_tier2_label")} price={t("yt_views_tier2_price")} />
       </div>
 
-      <TgButton label={t("yt_views_name")} id="cta-youtube-views" colorClass="btn-3d-red" />
+      <TgButton label={t("yt_views_name")} id="cta-youtube-views" />
     </article>
   );
 }
@@ -187,11 +187,11 @@ function YouTubeViewsCard() {
 function TikTokCard() {
   const { t } = useLanguage();
   return (
-    <article className="glass-card card-glow-pink reveal-card relative p-3 sm:p-6 flex flex-col gap-2 sm:gap-4 col-span-2 sm:col-span-1">
+    <article className="glass-card reveal-card relative p-3 sm:p-6 flex flex-col gap-2 sm:gap-4 col-span-2 sm:col-span-1">
 
       <div className="flex items-center gap-3">
-        <div className="w-8 h-8 sm:w-11 sm:h-11 rounded-lg sm:rounded-xl bg-pink-500/15 border border-pink-500/25 flex items-center justify-center flex-shrink-0" aria-hidden="true">
-          <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 sm:w-5 sm:h-5 text-pink-400" fill="currentColor">
+        <div className="w-8 h-8 sm:w-11 sm:h-11 rounded-lg sm:rounded-xl bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0" aria-hidden="true">
+          <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 sm:w-5 sm:h-5 text-white" fill="currentColor">
             <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V9.02a8.16 8.16 0 004.77 1.52V7.1a4.85 4.85 0 01-1-.41z" />
           </svg>
         </div>
@@ -204,7 +204,7 @@ function TikTokCard() {
         <TierRow label={t("tt_tier3_label")} price={t("tt_tier3_price")} />
       </div>
 
-      <TgButton label={t("tt_name")} id="cta-tiktok" colorClass="btn-3d-pink" />
+      <TgButton label={t("tt_name")} id="cta-tiktok" />
     </article>
   );
 }
@@ -213,11 +213,11 @@ function TikTokCard() {
 function TelegramCard() {
   const { t } = useLanguage();
   return (
-    <article className="glass-card card-glow-sky reveal-card relative p-3 sm:p-6 flex flex-col gap-2 sm:gap-4 col-span-2 sm:col-span-1">
+    <article className="glass-card reveal-card relative p-3 sm:p-6 flex flex-col gap-2 sm:gap-4 col-span-2 sm:col-span-1">
 
       <div className="flex items-center gap-3">
-        <div className="w-8 h-8 sm:w-11 sm:h-11 rounded-lg sm:rounded-xl bg-cyan-500/12 border border-cyan-500/22 flex items-center justify-center flex-shrink-0" aria-hidden="true">
-          <svg viewBox="0 0 24 24" className="w-4 h-4 sm:w-6 sm:h-6 text-cyan-400" fill="currentColor">
+        <div className="w-8 h-8 sm:w-11 sm:h-11 rounded-lg sm:rounded-xl bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0" aria-hidden="true">
+          <svg viewBox="0 0 24 24" className="w-4 h-4 sm:w-6 sm:h-6 text-white" fill="currentColor">
             <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.069l-2.02 9.52c-.148.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.883.701z" />
           </svg>
         </div>
@@ -231,7 +231,7 @@ function TelegramCard() {
       </div>
       <p className="text-xs text-slate-500">{t("tg_note")}</p>
 
-      <TgButton label={t("tg_name")} id="cta-telegram-members" colorClass="btn-3d-sky" />
+      <TgButton label={t("tg_name")} id="cta-telegram-members" />
     </article>
   );
 }
