@@ -10,19 +10,19 @@ import { usePathname } from "next/navigation";
 function Bubble({ text, visible }: { text: string; visible: boolean }) {
   if (!visible) return null;
   return (
-    <Html position={[-0.4, 0.2, 0.4]} center style={{ pointerEvents: "none" }}>
+    <Html position={[-1.2, 1.2, 0]} center style={{ pointerEvents: "none" }}>
       <div
         style={{
           background: "rgba(8, 8, 12, 0.85)",
-          border: "1px solid rgba(124, 58, 237, 0.3)",
+          border: "1px solid rgba(124, 58, 237, 0.4)",
           borderRadius: "14px",
-          padding: "10px 16px",
+          padding: "12px 18px",
           color: "rgba(255,255,255,0.9)",
-          fontSize: "clamp(12px, 1.5vw, 15px)",
+          fontSize: "14px",
           fontWeight: 500,
           whiteSpace: "nowrap",
           backdropFilter: "blur(12px)",
-          boxShadow: "0 12px 30px rgba(0,0,0,0.6), 0 0 15px rgba(124, 58, 237, 0.2)",
+          boxShadow: "0 12px 30px rgba(0,0,0,0.6), 0 0 20px rgba(124, 58, 237, 0.3)",
           fontFamily: "Inter, sans-serif",
           letterSpacing: "0.01em",
           userSelect: "none",
@@ -42,7 +42,7 @@ function Bubble({ text, visible }: { text: string; visible: boolean }) {
             height: 0,
             borderTop: "6px solid transparent",
             borderBottom: "6px solid transparent",
-            borderLeft: "8px solid rgba(124, 58, 237, 0.3)",
+            borderLeft: "8px solid rgba(124, 58, 237, 0.4)",
           }}
         />
       </div>
@@ -56,227 +56,134 @@ function Bubble({ text, visible }: { text: string; visible: boolean }) {
   );
 }
 
-// ── Main Humanoid Robot built from Three.js primitives ──────────────────────
-function Robot({
+// ── Premium AI Core (Replaces the clunky humanoid) ────────────────────────────
+function AICore({
   mouse,
-  phase,
   reacting,
   speech,
+  visibleBubble,
 }: {
   mouse: { x: number; y: number };
-  phase: "entering" | "idle";
   reacting: boolean;
   speech: string;
+  visibleBubble: boolean;
 }) {
-  const rootRef  = useRef<THREE.Group>(null!);
-  const headRef  = useRef<THREE.Group>(null!);
-  const chestRef = useRef<THREE.Group>(null!);
-  const rightArmRef = useRef<THREE.Group>(null!);
-  const leftArmRef  = useRef<THREE.Group>(null!);
-
-  // target Y for rise-up (making the robot full scale)
-  const targetY = useRef(-5.0);
-  useEffect(() => {
-    if (phase !== "entering") targetY.current = -1.2;
-  }, [phase]);
+  const rootRef = useRef<THREE.Group>(null!);
+  const coreRef = useRef<THREE.Mesh>(null!);
+  const ring1Ref = useRef<THREE.Mesh>(null!);
+  const ring2Ref = useRef<THREE.Mesh>(null!);
+  const ring3Ref = useRef<THREE.Mesh>(null!);
+  const particlesRef = useRef<THREE.Points>(null!);
 
   useFrame(({ clock }, delta) => {
-    if (!rootRef.current || !headRef.current || !chestRef.current) return;
+    if (!rootRef.current || !coreRef.current) return;
     const t = clock.getElapsedTime();
 
-    // Smooth rise
-    rootRef.current.position.y = THREE.MathUtils.lerp(
-      rootRef.current.position.y,
-      targetY.current,
-      delta * 1.5
+    // Bobbing animation
+    rootRef.current.position.y = Math.sin(t * 1.5) * 0.15;
+
+    // Core pulsing
+    const scale = 1.0 + Math.sin(t * 3) * 0.05 + (reacting ? 0.2 : 0);
+    coreRef.current.scale.set(scale, scale, scale);
+
+    // Mouse tracking (Core looks towards mouse slightly)
+    rootRef.current.rotation.y = THREE.MathUtils.lerp(
+      rootRef.current.rotation.y,
+      mouse.x * 0.5,
+      delta * 3
+    );
+    rootRef.current.rotation.x = THREE.MathUtils.lerp(
+      rootRef.current.rotation.x,
+      -mouse.y * 0.5,
+      delta * 3
     );
 
-    // Idle float (applied on top once visible)
-    if (phase !== "entering") {
-      rootRef.current.position.y =
-        targetY.current + Math.sin(t * 1.5) * 0.05;
+    // Rings rotating
+    if (ring1Ref.current) {
+      ring1Ref.current.rotation.x += delta * 0.5;
+      ring1Ref.current.rotation.y += delta * 0.2;
+    }
+    if (ring2Ref.current) {
+      ring2Ref.current.rotation.y += delta * 0.8;
+      ring2Ref.current.rotation.z += delta * 0.3;
+    }
+    if (ring3Ref.current) {
+      ring3Ref.current.rotation.z -= delta * 0.6;
+      ring3Ref.current.rotation.x -= delta * 0.4;
     }
 
-    // Body slowly tracks mouse, breathing
-    chestRef.current.rotation.y = THREE.MathUtils.lerp(
-      chestRef.current.rotation.y,
-      mouse.x * 0.15,
-      delta * 2
-    );
-    chestRef.current.rotation.x = Math.sin(t * 2) * 0.02;
-
-    // Head tracks mouse smoothly (faster than chest)
-    headRef.current.rotation.y = THREE.MathUtils.lerp(
-      headRef.current.rotation.y,
-      mouse.x * 0.6,
-      delta * 4
-    );
-    headRef.current.rotation.x = THREE.MathUtils.lerp(
-      headRef.current.rotation.x,
-      -mouse.y * 0.4 + Math.sin(t * 1.2) * 0.05,
-      delta * 4
-    );
-    headRef.current.rotation.z = -mouse.x * 0.15;
-
-    // Arms gentle idle swing
-    if (rightArmRef.current && leftArmRef.current) {
-      rightArmRef.current.rotation.x = Math.sin(t * 1.5) * 0.05;
-      leftArmRef.current.rotation.x = Math.sin(t * 1.5 + Math.PI) * 0.05;
-    }
-
-    // Click/reaction jump
-    if (reacting) {
-      rootRef.current.position.y =
-        targetY.current + Math.abs(Math.sin(t * 15)) * 0.15;
+    // Particles rotating
+    if (particlesRef.current) {
+      particlesRef.current.rotation.y += delta * 0.1;
     }
   });
 
-  // Material exactly matching the Spline screenshot (Dark/Black Chrome)
-  const chromeDark = {
-    color: "#030303" as THREE.ColorRepresentation,
-    metalness: 0.9,
-    roughness: 0.15,
-    clearcoat: 1.0,
-    clearcoatRoughness: 0.1,
-  };
-  
-  // High reflective black for face visor
-  const visorMat = {
-    color: "#000000" as THREE.ColorRepresentation,
-    metalness: 1.0,
-    roughness: 0.05,
-    clearcoat: 1.0,
-    clearcoatRoughness: 0.0,
-  };
-
-  const jointMat = {
-    color: "#1a1a24" as THREE.ColorRepresentation,
-    metalness: 0.7,
-    roughness: 0.5,
-  };
-
   return (
-    <group ref={rootRef} position={[0, -5.0, 0]} scale={1.3}>
+    <group ref={rootRef} position={[2, 0, 0]} scale={1.2}>
+      {/* ── CENTRAL CORE ── */}
+      <mesh ref={coreRef}>
+        <sphereGeometry args={[0.5, 64, 64]} />
+        <meshPhysicalMaterial
+          color="#1a0b2e"
+          emissive="#7c3aed"
+          emissiveIntensity={reacting ? 2.5 : 1.5}
+          roughness={0.1}
+          metalness={0.9}
+          clearcoat={1}
+          clearcoatRoughness={0.1}
+        />
+        {/* Intense core light */}
+        <pointLight color="#a855f7" intensity={reacting ? 6 : 3} distance={5} />
+      </mesh>
+
+      {/* ── ORBITING RINGS ── */}
+      <mesh ref={ring1Ref}>
+        <torusGeometry args={[0.8, 0.02, 16, 100]} />
+        <meshPhysicalMaterial
+          color="#ffffff"
+          emissive="#ffffff"
+          emissiveIntensity={1}
+          transparent
+          opacity={0.8}
+        />
+      </mesh>
       
-      {/* ── CHEST & BODY ── */}
-      <group ref={chestRef} position={[0, 1.2, 0]}>
-        
-        {/* Upper Chest (Curved, wide shoulders) */}
-        <mesh castShadow position={[0, 0.4, 0]}>
-          <capsuleGeometry args={[0.45, 0.5, 32, 32]} />
-          <meshPhysicalMaterial {...chromeDark} />
-        </mesh>
+      <mesh ref={ring2Ref} rotation={[Math.PI / 3, 0, 0]}>
+        <torusGeometry args={[1.1, 0.015, 16, 100]} />
+        <meshPhysicalMaterial
+          color="#00f7ff"
+          emissive="#00f7ff"
+          emissiveIntensity={1.5}
+          transparent
+          opacity={0.6}
+        />
+      </mesh>
 
-        {/* Lower Torso / Abdomen */}
-        <mesh castShadow position={[0, -0.3, 0]}>
-          <capsuleGeometry args={[0.3, 0.4, 32, 32]} />
-          <meshPhysicalMaterial {...chromeDark} />
-        </mesh>
+      <mesh ref={ring3Ref} rotation={[0, Math.PI / 4, 0]}>
+        <torusGeometry args={[1.4, 0.01, 16, 100]} />
+        <meshPhysicalMaterial
+          color="#ec4899"
+          emissive="#ec4899"
+          emissiveIntensity={1.5}
+          transparent
+          opacity={0.4}
+        />
+      </mesh>
 
-        {/* Shoulder Joints */}
-        <mesh position={[ 0.55, 0.65, 0]}>
-          <sphereGeometry args={[0.18, 32, 32]} />
-          <meshPhysicalMaterial {...jointMat} />
-        </mesh>
-        <mesh position={[-0.55, 0.65, 0]}>
-          <sphereGeometry args={[0.18, 32, 32]} />
-          <meshPhysicalMaterial {...jointMat} />
-        </mesh>
+      {/* ── PARTICLES ── */}
+      <points ref={particlesRef}>
+        <sphereGeometry args={[2, 32, 32]} />
+        <pointsMaterial
+          color="#ffffff"
+          size={0.02}
+          transparent
+          opacity={0.3}
+          blending={THREE.AdditiveBlending}
+        />
+      </points>
 
-        {/* ── RIGHT ARM ── */}
-        <group ref={rightArmRef} position={[0.7, 0.6, 0]}>
-          {/* Upper arm */}
-          <mesh position={[0.05, -0.35, 0]} rotation={[0, 0, 0.15]}>
-            <capsuleGeometry args={[0.12, 0.45, 32, 32]} />
-            <meshPhysicalMaterial {...chromeDark} />
-          </mesh>
-          {/* Elbow */}
-          <mesh position={[0.1, -0.7, 0]}>
-            <sphereGeometry args={[0.12, 32, 32]} />
-            <meshPhysicalMaterial {...jointMat} />
-          </mesh>
-          {/* Lower arm */}
-          <mesh position={[0.12, -1.1, 0.05]} rotation={[-0.1, 0, 0.1]}>
-            <capsuleGeometry args={[0.1, 0.5, 32, 32]} />
-            <meshPhysicalMaterial {...chromeDark} />
-          </mesh>
-          {/* Hand */}
-          <mesh position={[0.14, -1.5, 0.08]} rotation={[0, 0, 0.1]}>
-            <capsuleGeometry args={[0.08, 0.15, 32, 32]} />
-            <meshPhysicalMaterial {...chromeDark} />
-          </mesh>
-        </group>
-
-        {/* ── LEFT ARM ── */}
-        <group ref={leftArmRef} position={[-0.7, 0.6, 0]}>
-          {/* Upper arm */}
-          <mesh position={[-0.05, -0.35, 0]} rotation={[0, 0, -0.15]}>
-            <capsuleGeometry args={[0.12, 0.45, 32, 32]} />
-            <meshPhysicalMaterial {...chromeDark} />
-          </mesh>
-          {/* Elbow */}
-          <mesh position={[-0.1, -0.7, 0]}>
-            <sphereGeometry args={[0.12, 32, 32]} />
-            <meshPhysicalMaterial {...jointMat} />
-          </mesh>
-          {/* Lower arm */}
-          <mesh position={[-0.12, -1.1, 0.05]} rotation={[-0.1, 0, -0.1]}>
-            <capsuleGeometry args={[0.1, 0.5, 32, 32]} />
-            <meshPhysicalMaterial {...chromeDark} />
-          </mesh>
-          {/* Hand */}
-          <mesh position={[-0.14, -1.5, 0.08]} rotation={[0, 0, -0.1]}>
-            <capsuleGeometry args={[0.08, 0.15, 32, 32]} />
-            <meshPhysicalMaterial {...chromeDark} />
-          </mesh>
-        </group>
-
-        {/* ── HEAD & NECK ── */}
-        {/* Neck */}
-        <mesh position={[0, 0.85, 0]}>
-          <cylinderGeometry args={[0.1, 0.14, 0.25, 32]} />
-          <meshPhysicalMaterial {...jointMat} />
-        </mesh>
-
-        {/* Head Group */}
-        <group ref={headRef} position={[0, 1.15, 0]}>
-          {/* Back of Head (Chrome) */}
-          <mesh castShadow position={[0, 0, -0.05]}>
-            <sphereGeometry args={[0.3, 32, 32]} />
-            <meshPhysicalMaterial {...chromeDark} />
-          </mesh>
-          
-          {/* Visor / Faceplate (Reflective Black) */}
-          <mesh position={[0, 0, 0.08]} rotation={[0.1, 0, 0]}>
-            <boxGeometry args={[0.42, 0.5, 0.38]} />
-            <meshPhysicalMaterial {...visorMat} />
-          </mesh>
-          <mesh position={[0, -0.1, 0.28]} rotation={[0.2, 0, 0]}>
-             <sphereGeometry args={[0.22, 32, 32]} />
-             <meshPhysicalMaterial {...visorMat} />
-          </mesh>
-
-          {/* Speech bubble - Positioned lower near neck */}
-          <Bubble text={speech} visible={phase === "idle"} />
-        </group>
-
-        {/* ── HIPS & LEGS (Visible partially) ── */}
-        <mesh position={[0, -0.75, 0]}>
-          <sphereGeometry args={[0.28, 32, 32]} />
-          <meshPhysicalMaterial {...jointMat} />
-        </mesh>
-        {/* Right Leg */}
-        <mesh position={[0.22, -1.4, 0]}>
-          <capsuleGeometry args={[0.14, 1.0, 32, 32]} />
-          <meshPhysicalMaterial {...chromeDark} />
-        </mesh>
-        {/* Left Leg */}
-        <mesh position={[-0.22, -1.4, 0]}>
-          <capsuleGeometry args={[0.14, 1.0, 32, 32]} />
-          <meshPhysicalMaterial {...chromeDark} />
-        </mesh>
-      </group>
-
+      {/* ── SPEECH BUBBLE ── */}
+      <Bubble text={speech} visible={visibleBubble} />
     </group>
   );
 }
@@ -284,40 +191,36 @@ function Robot({
 // ── Scene lighting ────────────────────────────────────────────────────────────
 function Scene({
   mouse,
-  phase,
   reacting,
   speech,
+  visibleBubble,
 }: {
   mouse: { x: number; y: number };
-  phase: "entering" | "idle";
   reacting: boolean;
   speech: string;
+  visibleBubble: boolean;
 }) {
   return (
     <>
-      <ambientLight intensity={0.5} />
-      {/* Key light — bright top front (creates the shiny chest) */}
-      <directionalLight position={[0, 5, 5]} intensity={2.5} />
-      {/* Rim light — deep purple from bottom/back (matches background) */}
-      <directionalLight position={[0, -5, -3]} intensity={4.0} color="#9333ea" />
-      {/* Side rim lights for edge definition */}
-      <directionalLight position={[-4, 2, -2]} intensity={1.5} color="#c0c8ff" />
-      <directionalLight position={[4, 2, -2]} intensity={1.5} color="#c0c8ff" />
-      <Robot mouse={mouse} phase={phase} reacting={reacting} speech={speech} />
+      <ambientLight intensity={0.2} />
+      {/* Key light */}
+      <directionalLight position={[0, 5, 5]} intensity={1.5} />
+      {/* Rim light */}
+      <directionalLight position={[0, -5, -3]} intensity={3.0} color="#9333ea" />
+      <AICore mouse={mouse} reacting={reacting} speech={speech} visibleBubble={visibleBubble} />
     </>
   );
 }
 
 // ── Smart context messages ────────────────────────────────────────────────────
-// Using typing effect for messages
 export default function RobotMascot() {
   const pathname = usePathname();
   const [mouse,    setMouse]    = useState({ x: 0, y: 0 });
-  const [phase,    setPhase]    = useState<"entering" | "idle">("entering");
   const [reacting, setReacting] = useState(false);
   
   const [fullSpeech, setFullSpeech] = useState("");
   const [speech, setSpeech] = useState("");
+  const [visibleBubble, setVisibleBubble] = useState(false);
   
   const reactingRef = useRef(false);
 
@@ -325,13 +228,13 @@ export default function RobotMascot() {
   useEffect(() => {
     if (!fullSpeech) {
       setSpeech("");
+      setVisibleBubble(false);
       return;
     }
     
-    // Start with typing dots
+    setVisibleBubble(true);
     setSpeech("...");
     
-    // After short delay, show full message
     const t = setTimeout(() => {
       setSpeech(fullSpeech);
     }, 400);
@@ -341,7 +244,6 @@ export default function RobotMascot() {
 
   // Page awareness
   useEffect(() => {
-    if (phase !== "idle") return;
     if (pathname === "/") {
       setFullSpeech("Welcome! 🛒 Click Store in the nav bar to see products.");
     } else if (pathname === "/store") {
@@ -349,7 +251,7 @@ export default function RobotMascot() {
     } else {
       setFullSpeech("Need help? Click a button to continue.");
     }
-  }, [pathname, phase]);
+  }, [pathname]);
 
   const triggerReact = (msg: string) => {
     if (reactingRef.current) return;
@@ -359,16 +261,16 @@ export default function RobotMascot() {
     setTimeout(() => {
       setReacting(false);
       reactingRef.current = false;
+      
+      // Revert to default page message after reacting
+      setTimeout(() => {
+        if (pathname === "/") setFullSpeech("Welcome! 🛒 Click Store in the nav bar to see products.");
+        else if (pathname === "/store") setFullSpeech("Great! Here are our premium digital services. ✨");
+        else setFullSpeech("Need help? Click a button to continue.");
+      }, 3000);
+      
     }, 1500);
   };
-
-  // Phase progression: rise → idle
-  useEffect(() => {
-    const t = setTimeout(() => {
-      setPhase("idle");
-    }, 1500);
-    return () => clearTimeout(t);
-  }, []);
 
   // Mouse tracking
   useEffect(() => {
@@ -384,7 +286,6 @@ export default function RobotMascot() {
   // Click awareness
   useEffect(() => {
     const h = (e: MouseEvent) => {
-      if (phase !== "idle") return;
       const t = e.target as HTMLElement;
       if (t.closest("a[href='/store']")) {
         triggerReact("Heading to the Store! 🚀");
@@ -397,8 +298,7 @@ export default function RobotMascot() {
     };
     window.addEventListener("click", h);
     return () => window.removeEventListener("click", h);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [phase]);
+  }, [pathname]);
 
   return (
     <div
@@ -406,23 +306,23 @@ export default function RobotMascot() {
       style={{
         position: "fixed",
         top:      0,
-        right:    0, // Align to right
-        width:    "clamp(300px, 40vw, 600px)", // Take up right half of screen on desktop, full on mobile
+        right:    0,
+        width:    "clamp(300px, 40vw, 600px)",
         height:   "100vh",
         zIndex:   -10,
         pointerEvents: "none",
       }}
     >
       <Canvas
-        camera={{ position: [0, 0, 7.5], fov: 45 }}
+        camera={{ position: [0, 0, 5], fov: 45 }}
         style={{ background: "transparent" }}
         gl={{ alpha: true, antialias: true, preserveDrawingBuffer: false }}
       >
         <Scene
           mouse={mouse}
-          phase={phase}
           reacting={reacting}
           speech={speech}
+          visibleBubble={visibleBubble}
         />
       </Canvas>
     </div>
