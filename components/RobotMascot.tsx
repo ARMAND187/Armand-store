@@ -15,11 +15,11 @@ function Eye({ position }: { position: [number, number, number] }) {
   });
   return (
     <mesh position={position}>
-      <sphereGeometry args={[0.075, 16, 16]} />
+      <sphereGeometry args={[0.06, 16, 16]} />
       <meshStandardMaterial
         ref={matRef}
-        color="#00f7ff"
-        emissive="#00f7ff"
+        color="#ffffff"
+        emissive="#ffffff"
         emissiveIntensity={1.5}
       />
     </mesh>
@@ -30,24 +30,24 @@ function Eye({ position }: { position: [number, number, number] }) {
 function Bubble({ text, visible }: { text: string; visible: boolean }) {
   if (!visible) return null;
   return (
-    <Html position={[-0.3, 2.1, 0]} center style={{ pointerEvents: "none" }}>
+    <Html position={[-0.4, 1.2, 0]} center style={{ pointerEvents: "none" }}>
       <div
         style={{
           background: "rgba(12,12,18,0.96)",
           border: "1px solid rgba(255,255,255,0.14)",
-          borderRadius: "14px",
-          padding: "9px 16px",
+          borderRadius: "16px",
+          padding: "12px 20px",
           color: "rgba(255,255,255,0.9)",
-          fontSize: "12px",
-          fontWeight: 500,
+          fontSize: "15px",
+          fontWeight: 600,
           whiteSpace: "nowrap",
           backdropFilter: "blur(16px)",
-          boxShadow: "0 8px 30px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.04)",
+          boxShadow: "0 12px 40px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.05)",
           fontFamily: "Inter, sans-serif",
           letterSpacing: "0.01em",
           userSelect: "none",
           position: "relative",
-          animation: "bubblePop 0.25s cubic-bezier(0.34,1.56,0.64,1) both",
+          animation: "bubblePop 0.35s cubic-bezier(0.34,1.56,0.64,1) both",
         }}
       >
         {text}
@@ -55,20 +55,20 @@ function Bubble({ text, visible }: { text: string; visible: boolean }) {
         <div
           style={{
             position: "absolute",
-            bottom: -7,
-            left: "55%",
+            bottom: -8,
+            left: "60%",
             transform: "translateX(-50%)",
             width: 0,
             height: 0,
-            borderLeft: "7px solid transparent",
-            borderRight: "7px solid transparent",
-            borderTop: "7px solid rgba(255,255,255,0.14)",
+            borderLeft: "8px solid transparent",
+            borderRight: "8px solid transparent",
+            borderTop: "8px solid rgba(255,255,255,0.14)",
           }}
         />
       </div>
       <style>{`
         @keyframes bubblePop {
-          from { opacity: 0; transform: scale(0.8) translateY(6px); }
+          from { opacity: 0; transform: scale(0.8) translateY(10px); }
           to   { opacity: 1; transform: scale(1) translateY(0); }
         }
       `}</style>
@@ -76,7 +76,7 @@ function Bubble({ text, visible }: { text: string; visible: boolean }) {
   );
 }
 
-// ── Main robot built from Three.js primitives ─────────────────────────────────
+// ── Main Humanoid Robot built from Three.js primitives ──────────────────────
 function Robot({
   mouse,
   phase,
@@ -93,10 +93,10 @@ function Robot({
   const waveRef  = useRef<THREE.Group>(null!);
   const leftRef  = useRef<THREE.Group>(null!);
 
-  // target Y for rise-up
-  const targetY = useRef(-4.5);
+  // target Y for rise-up (making the robot full scale)
+  const targetY = useRef(-8.0);
   useEffect(() => {
-    if (phase !== "entering") targetY.current = -1.65;
+    if (phase !== "entering") targetY.current = -1.2;
   }, [phase]);
 
   useFrame(({ clock }, delta) => {
@@ -107,238 +107,225 @@ function Robot({
     rootRef.current.position.y = THREE.MathUtils.lerp(
       rootRef.current.position.y,
       targetY.current,
-      delta * 2.0
+      delta * 1.5
     );
 
     // Idle float (applied on top once visible)
     if (phase !== "entering") {
       rootRef.current.position.y =
-        targetY.current + Math.sin(t * 1.15) * 0.045;
+        targetY.current + Math.sin(t * 1.2) * 0.08;
     }
 
     // Very subtle body sway
-    rootRef.current.rotation.z =
-      Math.sin(t * 0.7) * 0.018;
+    rootRef.current.rotation.z = Math.sin(t * 0.6) * 0.02;
 
     // Head tracks mouse smoothly
     headRef.current.rotation.y = THREE.MathUtils.lerp(
       headRef.current.rotation.y,
-      mouse.x * 0.42,
-      delta * 5
+      mouse.x * 0.5,
+      delta * 4
     );
     headRef.current.rotation.x = THREE.MathUtils.lerp(
       headRef.current.rotation.x,
-      -mouse.y * 0.22,
-      delta * 5
+      -mouse.y * 0.3,
+      delta * 4
     );
 
-    // Wave animation
+    // Wave animation (Right arm)
     if (phase === "waving") {
-      waveRef.current.rotation.z =
-        -Math.abs(Math.sin(t * 5.5)) * 1.4 - 0.25;
-      waveRef.current.rotation.x = -0.25;
+      waveRef.current.rotation.z = -Math.abs(Math.sin(t * 5.5)) * 1.6 - 0.4;
+      waveRef.current.rotation.x = -0.3;
     } else {
       waveRef.current.rotation.z = THREE.MathUtils.lerp(
-        waveRef.current.rotation.z, -0.12, delta * 3
+        waveRef.current.rotation.z, -0.15, delta * 2
       );
       waveRef.current.rotation.x = THREE.MathUtils.lerp(
-        waveRef.current.rotation.x, 0, delta * 3
+        waveRef.current.rotation.x, 0, delta * 2
       );
     }
 
     // Left arm gentle idle swing
     if (leftRef.current && phase === "idle") {
-      leftRef.current.rotation.x = Math.sin(t * 1.1 + 1) * 0.07;
+      leftRef.current.rotation.x = Math.sin(t * 1.0 + 1) * 0.1;
     }
 
     // Click/reaction jump
     if (reacting) {
       rootRef.current.position.y =
-        targetY.current + Math.abs(Math.sin(t * 14)) * 0.14;
+        targetY.current + Math.abs(Math.sin(t * 15)) * 0.2;
     }
   });
 
-  // Shared metal material params
+  // Shared metal material params (Sleek Silver/Black)
   const metal = {
-    color:     "#0f0f1c" as THREE.ColorRepresentation,
-    metalness: 0.94,
-    roughness: 0.06,
+    color:     "#111116" as THREE.ColorRepresentation,
+    metalness: 0.9,
+    roughness: 0.15,
+  };
+  const jointMetal = {
+    color: "#2a2a35" as THREE.ColorRepresentation,
+    metalness: 0.8,
+    roughness: 0.3,
   };
 
   return (
-    <group ref={rootRef} position={[0.55, -4.5, 0]}>
-
+    <group ref={rootRef} position={[2.5, -8.0, 0]} scale={1.2}>
+      
       {/* ── HEAD ── */}
-      <group ref={headRef} position={[0, 1.15, 0]}>
-        {/* Head cube */}
+      <group ref={headRef} position={[0, 2.6, 0]}>
+        {/* Head shape (Capsule/Sphere hybrid) */}
         <mesh castShadow>
-          <boxGeometry args={[0.62, 0.58, 0.55]} />
+          <sphereGeometry args={[0.35, 32, 32]} />
           <meshPhysicalMaterial {...metal} />
+        </mesh>
+        
+        {/* Face plate (glassy black) */}
+        <mesh position={[0, 0, 0.28]}>
+          <boxGeometry args={[0.45, 0.35, 0.15]} />
+          <meshPhysicalMaterial color="#000000" metalness={1} roughness={0} />
         </mesh>
 
         {/* Eyes */}
-        <Eye position={[-0.135, 0.07, 0.285]} />
-        <Eye position={[ 0.135, 0.07, 0.285]} />
-        {/* Eye glow lights */}
-        <pointLight position={[-0.14, 0.07, 0.6]} color="#00f7ff" intensity={0.6} distance={1.4} />
-        <pointLight position={[ 0.14, 0.07, 0.6]} color="#00f7ff" intensity={0.6} distance={1.4} />
-
-        {/* Mouth bar */}
-        <mesh position={[0, -0.1, 0.285]}>
-          <boxGeometry args={[0.21, 0.026, 0.01]} />
-          <meshStandardMaterial color="#00f7ff" emissive="#00f7ff" emissiveIntensity={1.8} />
-        </mesh>
-
-        {/* Antenna pole */}
-        <mesh position={[0, 0.37, 0]}>
-          <cylinderGeometry args={[0.013, 0.013, 0.19, 8]} />
-          <meshPhysicalMaterial color="#1e1e2e" metalness={0.9} roughness={0.15} />
-        </mesh>
-        {/* Antenna ball — pulsing purple */}
-        <mesh position={[0, 0.49, 0]}>
-          <sphereGeometry args={[0.052, 16, 16]} />
-          <meshStandardMaterial color="#7c3aed" emissive="#7c3aed" emissiveIntensity={2.5} />
-        </mesh>
-        <pointLight position={[0, 0.55, 0]} color="#7c3aed" intensity={0.5} distance={0.8} />
+        <Eye position={[-0.12, 0.05, 0.36]} />
+        <Eye position={[ 0.12, 0.05, 0.36]} />
+        <pointLight position={[-0.12, 0.05, 0.5]} color="#ffffff" intensity={0.8} distance={2} />
+        <pointLight position={[ 0.12, 0.05, 0.5]} color="#ffffff" intensity={0.8} distance={2} />
 
         {/* Speech bubble */}
         <Bubble text={speech} visible={phase === "idle"} />
       </group>
 
       {/* ── NECK ── */}
-      <mesh position={[0, 0.76, 0]}>
-        <cylinderGeometry args={[0.1, 0.14, 0.15, 12]} />
-        <meshPhysicalMaterial {...metal} />
+      <mesh position={[0, 2.15, 0]}>
+        <cylinderGeometry args={[0.1, 0.12, 0.4, 16]} />
+        <meshPhysicalMaterial {...jointMetal} />
       </mesh>
 
-      {/* ── BODY ── */}
-      <group position={[0, 0.22, 0]}>
-        {/* Torso */}
-        <mesh castShadow>
-          <boxGeometry args={[0.73, 0.82, 0.47]} />
+      {/* ── TORSO ── */}
+      <group position={[0, 1.2, 0]}>
+        {/* Upper chest */}
+        <mesh castShadow position={[0, 0.4, 0]}>
+          <capsuleGeometry args={[0.4, 0.5, 16, 16]} />
           <meshPhysicalMaterial {...metal} />
         </mesh>
-
-        {/* Chest panel (glowing screen) */}
-        <mesh position={[0, 0.06, 0.255]}>
-          <boxGeometry args={[0.37, 0.31, 0.012]} />
-          <meshStandardMaterial
-            color="#060610"
-            emissive="#7c3aed"
-            emissiveIntensity={0.45}
-          />
+        
+        {/* Glowing core in chest */}
+        <mesh position={[0, 0.4, 0.38]}>
+          <sphereGeometry args={[0.1, 16, 16]} />
+          <meshStandardMaterial color="#ffffff" emissive="#ffffff" emissiveIntensity={2} />
         </mesh>
-        {/* Grid lines on panel */}
-        {[-0.05, 0.04, 0.13].map((y, i) => (
-          <mesh key={i} position={[0, y, 0.268]}>
-            <boxGeometry args={[0.33, 0.003, 0.004]} />
-            <meshStandardMaterial
-              color="#a78bfa"
-              emissive="#a78bfa"
-              emissiveIntensity={0.7}
-            />
-          </mesh>
-        ))}
-        {/* Panel glow */}
-        <pointLight position={[0, 0.06, 0.5]} color="#7c3aed" intensity={0.35} distance={0.9} />
+        <pointLight position={[0, 0.4, 0.5]} color="#ffffff" intensity={1} distance={2} />
+
+        {/* Lower torso/waist */}
+        <mesh castShadow position={[0, -0.3, 0]}>
+          <capsuleGeometry args={[0.3, 0.4, 16, 16]} />
+          <meshPhysicalMaterial {...metal} />
+        </mesh>
 
         {/* Shoulder joints */}
-        <mesh position={[ 0.45, 0.32, 0]}>
-          <sphereGeometry args={[0.095, 12, 12]} />
-          <meshPhysicalMaterial {...metal} />
+        <mesh position={[ 0.5, 0.7, 0]}>
+          <sphereGeometry args={[0.15, 16, 16]} />
+          <meshPhysicalMaterial {...jointMetal} />
         </mesh>
-        <mesh position={[-0.45, 0.32, 0]}>
-          <sphereGeometry args={[0.095, 12, 12]} />
-          <meshPhysicalMaterial {...metal} />
+        <mesh position={[-0.5, 0.7, 0]}>
+          <sphereGeometry args={[0.15, 16, 16]} />
+          <meshPhysicalMaterial {...jointMetal} />
         </mesh>
       </group>
 
-      {/* ── RIGHT/WAVE ARM ── */}
-      <group ref={waveRef} position={[0.54, 0.55, 0]}>
-        {/* Upper arm (horizontal) */}
-        <mesh position={[0.2, 0, 0]} rotation={[0, 0, Math.PI / 2]}>
-          <cylinderGeometry args={[0.078, 0.078, 0.34, 12]} />
+      {/* ── RIGHT ARM (WAVING) ── */}
+      <group ref={waveRef} position={[0.65, 1.9, 0]}>
+        {/* Upper arm */}
+        <mesh position={[0.3, 0, 0]} rotation={[0, 0, Math.PI / 2]}>
+          <capsuleGeometry args={[0.1, 0.4, 16, 16]} />
           <meshPhysicalMaterial {...metal} />
         </mesh>
-        {/* Elbow ball */}
-        <mesh position={[0.39, 0, 0]}>
-          <sphereGeometry args={[0.085, 12, 12]} />
-          <meshPhysicalMaterial {...metal} />
+        {/* Elbow */}
+        <mesh position={[0.6, 0, 0]}>
+          <sphereGeometry args={[0.12, 16, 16]} />
+          <meshPhysicalMaterial {...jointMetal} />
         </mesh>
         {/* Lower arm */}
-        <mesh position={[0.39, -0.21, 0]}>
-          <cylinderGeometry args={[0.063, 0.063, 0.37, 12]} />
+        <mesh position={[0.6, -0.35, 0]}>
+          <capsuleGeometry args={[0.08, 0.5, 16, 16]} />
           <meshPhysicalMaterial {...metal} />
         </mesh>
         {/* Hand */}
-        <mesh position={[0.39, -0.41, 0]}>
-          <boxGeometry args={[0.13, 0.12, 0.12]} />
-          <meshPhysicalMaterial {...metal} />
-        </mesh>
-        {/* Finger */}
-        <mesh position={[0.39, -0.53, 0.02]}>
-          <cylinderGeometry args={[0.025, 0.02, 0.1, 8]} />
+        <mesh position={[0.6, -0.75, 0]}>
+          <sphereGeometry args={[0.1, 16, 16]} />
           <meshPhysicalMaterial {...metal} />
         </mesh>
       </group>
 
       {/* ── LEFT ARM ── */}
-      <group ref={leftRef} position={[-0.54, 0.55, 0]}>
-        {/* Upper arm (horizontal) */}
-        <mesh position={[-0.2, 0, 0]} rotation={[0, 0, Math.PI / 2]}>
-          <cylinderGeometry args={[0.078, 0.078, 0.34, 12]} />
+      <group ref={leftRef} position={[-0.65, 1.9, 0]}>
+        {/* Upper arm (angled down slightly) */}
+        <mesh position={[-0.15, -0.25, 0]} rotation={[0, 0, -Math.PI / 6]}>
+          <capsuleGeometry args={[0.1, 0.4, 16, 16]} />
           <meshPhysicalMaterial {...metal} />
         </mesh>
-        {/* Elbow ball */}
-        <mesh position={[-0.39, 0, 0]}>
-          <sphereGeometry args={[0.085, 12, 12]} />
-          <meshPhysicalMaterial {...metal} />
+        {/* Elbow */}
+        <mesh position={[-0.3, -0.55, 0]}>
+          <sphereGeometry args={[0.12, 16, 16]} />
+          <meshPhysicalMaterial {...jointMetal} />
         </mesh>
-        {/* Lower arm — angled slightly forward */}
-        <mesh position={[-0.39, -0.21, 0]}>
-          <cylinderGeometry args={[0.063, 0.063, 0.37, 12]} />
+        {/* Lower arm */}
+        <mesh position={[-0.35, -0.9, 0]} rotation={[0, 0, -Math.PI / 12]}>
+          <capsuleGeometry args={[0.08, 0.5, 16, 16]} />
           <meshPhysicalMaterial {...metal} />
         </mesh>
         {/* Hand */}
-        <mesh position={[-0.39, -0.41, 0]}>
-          <boxGeometry args={[0.13, 0.12, 0.12]} />
+        <mesh position={[-0.4, -1.3, 0]}>
+          <sphereGeometry args={[0.1, 16, 16]} />
           <meshPhysicalMaterial {...metal} />
         </mesh>
       </group>
 
-      {/* ── HIP BLOCK ── */}
-      <mesh position={[0, -0.43, 0]}>
-        <boxGeometry args={[0.56, 0.13, 0.35]} />
-        <meshPhysicalMaterial {...metal} />
+      {/* ── HIPS & LEGS ── */}
+      <mesh position={[0, 0.4, 0]}>
+        <sphereGeometry args={[0.25, 16, 16]} />
+        <meshPhysicalMaterial {...jointMetal} />
       </mesh>
+      
+      {/* Right Leg */}
+      <group position={[0.22, 0.4, 0]}>
+        <mesh position={[0, -0.6, 0]}>
+          <capsuleGeometry args={[0.12, 0.8, 16, 16]} />
+          <meshPhysicalMaterial {...metal} />
+        </mesh>
+        <mesh position={[0, -1.15, 0]}>
+          <sphereGeometry args={[0.14, 16, 16]} />
+          <meshPhysicalMaterial {...jointMetal} />
+        </mesh>
+        <mesh position={[0, -1.75, 0]}>
+          <capsuleGeometry args={[0.1, 0.9, 16, 16]} />
+          <meshPhysicalMaterial {...metal} />
+        </mesh>
+        <mesh position={[0, -2.35, 0.1]}>
+          <boxGeometry args={[0.2, 0.15, 0.4]} />
+          <meshPhysicalMaterial {...metal} />
+        </mesh>
+      </group>
 
-      {/* ── LEGS ── */}
-      {/* Left */}
-      <mesh position={[-0.17, -0.75, 0]}>
-        <cylinderGeometry args={[0.092, 0.082, 0.56, 12]} />
-        <meshPhysicalMaterial {...metal} />
-      </mesh>
-      <mesh position={[-0.17, -1.06, 0]}>
-        <sphereGeometry args={[0.083, 12, 12]} />
-        <meshPhysicalMaterial {...metal} />
-      </mesh>
-      <mesh position={[-0.17, -1.09, 0]}>
-        <boxGeometry args={[0.16, 0.09, 0.27]} />
-        <meshPhysicalMaterial {...metal} />
-      </mesh>
-      {/* Right */}
-      <mesh position={[0.17, -0.75, 0]}>
-        <cylinderGeometry args={[0.092, 0.082, 0.56, 12]} />
-        <meshPhysicalMaterial {...metal} />
-      </mesh>
-      <mesh position={[0.17, -1.06, 0]}>
-        <sphereGeometry args={[0.083, 12, 12]} />
-        <meshPhysicalMaterial {...metal} />
-      </mesh>
-      <mesh position={[0.17, -1.09, 0]}>
-        <boxGeometry args={[0.16, 0.09, 0.27]} />
-        <meshPhysicalMaterial {...metal} />
-      </mesh>
+      {/* Left Leg */}
+      <group position={[-0.22, 0.4, 0]}>
+        <mesh position={[0, -0.6, 0]}>
+          <capsuleGeometry args={[0.12, 0.8, 16, 16]} />
+          <meshPhysicalMaterial {...metal} />
+        </mesh>
+        <mesh position={[0, -1.15, 0]}>
+          <sphereGeometry args={[0.14, 16, 16]} />
+          <meshPhysicalMaterial {...jointMetal} />
+        </mesh>
+        <mesh position={[0, -1.75, 0]}>
+          <capsuleGeometry args={[0.1, 0.9, 16, 16]} />
+          <meshPhysicalMaterial {...metal} />
+        </mesh>
+        <mesh position={[0, -2.35, 0.1]}>
+          <boxGeometry args={[0.2, 0.15, 0.4]} />
+          <meshPhysicalMaterial {...metal} />
+        </mesh>
+      </group>
 
     </group>
   );
@@ -358,13 +345,13 @@ function Scene({
 }) {
   return (
     <>
-      <ambientLight intensity={0.35} />
-      {/* Key light — top-front warm */}
-      <directionalLight position={[1.5, 4, 3.5]} intensity={1.4} />
-      {/* Rim light — cool silver from behind-left */}
-      <directionalLight position={[-3, 1, -2]} intensity={0.6} color="#c0c8ff" />
+      <ambientLight intensity={0.4} />
+      {/* Key light — top-front bright */}
+      <directionalLight position={[2, 5, 4]} intensity={2.0} />
+      {/* Rim light — cool silver from behind */}
+      <directionalLight position={[-4, 2, -3]} intensity={1.5} color="#c0c8ff" />
       {/* Fill — soft warm from right */}
-      <directionalLight position={[3, -1, 1]} intensity={0.4} color="#ffd8a8" />
+      <directionalLight position={[4, -2, 2]} intensity={0.5} color="#ffd8a8" />
       <Robot mouse={mouse} phase={phase} reacting={reacting} speech={speech} />
     </>
   );
@@ -372,13 +359,13 @@ function Scene({
 
 // ── Smart context messages ────────────────────────────────────────────────────
 const MESSAGES = {
-  idle:     "👋  Hey, need help?",
-  store:    "🛒  Check our products!",
-  scroll:   "👇  More below!",
-  click:    "✅  Great choice!",
-  card:     "💡  Nice pick!",
-  cta:      "📩  Sending message!",
-  top:      "🏠  Back at the top!",
+  idle:     "👋 Hello there!",
+  store:    "🛒 Looking for views?",
+  scroll:   "👇 Keep scrolling!",
+  click:    "✅ Good choice!",
+  card:     "💡 Need this?",
+  cta:      "📩 Let's talk!",
+  top:      "🏠 Back to top!",
 };
 
 // ── Exported component (loaded dynamically, SSR disabled) ─────────────────────
@@ -397,16 +384,16 @@ export default function RobotMascot() {
     setTimeout(() => {
       setReacting(false);
       reactingRef.current = false;
-    }, 900);
+    }, 1200);
   };
 
   // Phase progression: rise → wave → idle
   useEffect(() => {
-    const t1 = setTimeout(() => setPhase("waving"), 700);
+    const t1 = setTimeout(() => setPhase("waving"), 800);
     const t2 = setTimeout(() => {
       setPhase("idle");
       setSpeech(MESSAGES.idle);
-    }, 3200);
+    }, 3500);
     return () => { clearTimeout(t1); clearTimeout(t2); };
   }, []);
 
@@ -469,16 +456,16 @@ export default function RobotMascot() {
       aria-hidden="true"
       style={{
         position: "fixed",
-        bottom:   0,
-        right:    "2vw",
-        width:    "clamp(200px, 22vw, 320px)",
-        height:   "clamp(260px, 32vw, 420px)",
-        zIndex:   20,
+        top:      0,
+        right:    0,
+        width:    "100vw",
+        height:   "100vh",
+        zIndex:   -10, // Places it behind the main content but above the base background
         pointerEvents: "none",
       }}
     >
       <Canvas
-        camera={{ position: [0, 0, 3.8], fov: 48 }}
+        camera={{ position: [0, 0, 7.5], fov: 45 }}
         style={{ background: "transparent" }}
         gl={{ alpha: true, antialias: true, preserveDrawingBuffer: false }}
       >
