@@ -7,9 +7,8 @@
 // ✅ V2 UPDATE: Telegram destination is now the channel
 export const TELEGRAM_URL = "https://t.me/ArmandStore1";
 
-// ⚠️  TikTok username changing soon from @xeyal_awaz → @armand_store
-// Change only this one variable when the username changes:
-export const TIKTOK_URL = "https://www.tiktok.com/@xeyal_awaz";
+// ✅ TikTok username updated to @armand_store1
+export const TIKTOK_URL = "https://www.tiktok.com/@armand_store1";
 
 export const SOCIAL_LINKS = {
   telegram: TELEGRAM_URL,
