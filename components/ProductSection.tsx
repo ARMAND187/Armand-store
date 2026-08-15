@@ -150,7 +150,6 @@ function YouTubeCard() {
         <TierRow label={t("yt_tier1_label")} price={t("yt_tier1_price")} />
       </div>
 
-      <p className="text-[9px] sm:text-[11px] text-slate-500 leading-relaxed mb-1">{t("yt_disclaimer")}</p>
       <TgButton label={t("yt_name")} id="cta-youtube" />
     </article>
   );
