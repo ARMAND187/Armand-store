@@ -104,24 +104,23 @@ h1, h2, h3 {
 /* ═══════════════════════════════════════════════════════
    CINEMATIC BACKGROUND SYSTEM
 ═══════════════════════════════════════════════════════ */
-@keyframes sweep-light {
-  0% { transform: translateX(100%) rotate(-30deg); opacity: 0; }
-  10% { opacity: 1; }
-  50% { transform: translateX(-100%) rotate(-30deg); opacity: 1; }
-  60% { opacity: 0; }
-  100% { transform: translateX(-100%) rotate(-30deg); opacity: 0; }
+@keyframes blob {
+  0% { transform: translate(0vw, 0vh) scale(1); }
+  33% { transform: translate(15vw, -10vh) scale(1.1); }
+  66% { transform: translate(-10vw, 15vh) scale(0.9); }
+  100% { transform: translate(0vw, 0vh) scale(1); }
 }
 
-.bg-sweeping-light {
-  position: absolute;
-  top: -20%;
-  right: -50%;
-  width: 150vw;
-  height: 150vh;
-  background: radial-gradient(ellipse 40% 10% at 50% 50%, rgba(124, 58, 237, 0.15) 0%, rgba(6, 182, 212, 0.05) 40%, transparent 70%);
-  transform: rotate(-30deg);
-  animation: sweep-light 15s ease-in-out infinite;
-  pointer-events: none;
+.animate-blob {
+  animation: blob 15s infinite alternate cubic-bezier(0.45, 0, 0.55, 1);
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
 }
 
 .bg-film-grain {
