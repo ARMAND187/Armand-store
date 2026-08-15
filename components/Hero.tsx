@@ -2,15 +2,6 @@
 
 import { useLanguage } from "@/components/LanguageProvider";
 import { TELEGRAM_URL } from "@/config/site";
-import ShareStore from "@/components/ShareStore";
-
-const SERVICE_BADGES = [
-  { label: "Windows" },
-  { label: "Gemini" },
-  { label: "YouTube" },
-  { label: "TikTok" },
-  { label: "Telegram" },
-];
 
 export default function Hero() {
   const { t } = useLanguage();
@@ -55,7 +46,7 @@ export default function Hero() {
         </p>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-4 animate-fade-in-up animation-delay-300">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 animate-fade-in-up animation-delay-300">
           <a
             href={TELEGRAM_URL}
             target="_blank"
@@ -69,26 +60,6 @@ export default function Hero() {
             </svg>
             {t("cta_message_telegram")}
           </a>
-        </div>
-
-        {/* Share Store */}
-        <div className="flex justify-center mb-10 animate-fade-in-up animation-delay-400">
-          <ShareStore />
-        </div>
-
-        {/* Service badges — muted monochrome */}
-        <div
-          className="flex flex-wrap items-center justify-center gap-2 animate-fade-in-up animation-delay-500"
-          aria-label="Available services"
-        >
-          {SERVICE_BADGES.map((badge) => (
-            <div
-              key={badge.label}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-white/8 bg-white/4 text-white/50 text-xs font-medium tracking-wide"
-            >
-              {badge.label}
-            </div>
-          ))}
         </div>
       </div>
     </section>
