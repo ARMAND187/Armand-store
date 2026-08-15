@@ -6,37 +6,31 @@ export default function CinematicBackground() {
       className="fixed inset-0 w-full h-full -z-50 overflow-hidden pointer-events-none"
       style={{ background: "#050505" }}
     >
-      {/* Very subtle central glow — barely visible, just prevents dead black */}
+      {/* Deep purple floor glow matching the robot screenshot */}
       <div
-        className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[60vh] rounded-full opacity-40"
+        className="absolute bottom-0 left-0 right-0 h-[60vh] opacity-60"
         style={{
-          background:
-            "radial-gradient(ellipse, rgba(255,255,255,0.04) 0%, transparent 70%)",
-          filter: "blur(80px)",
+          background: "linear-gradient(to top, rgba(124, 58, 237, 0.25), transparent)",
+        }}
+      />
+      <div
+        className="absolute -bottom-1/4 left-1/2 -translate-x-1/2 w-[80vw] h-[50vh] rounded-full opacity-50"
+        style={{
+          background: "radial-gradient(ellipse, rgba(124, 58, 237, 0.3) 0%, transparent 60%)",
+          filter: "blur(90px)",
         }}
       />
 
-      {/* Top-left faint silver accent */}
-      <div
-        className="absolute -top-1/4 -left-1/4 w-[60vw] h-[60vw] rounded-full opacity-20 animate-blob"
+      {/* Grid pattern (optional, subtle tech look) */}
+      <div 
+        className="absolute inset-0 opacity-[0.03]"
         style={{
-          background:
-            "radial-gradient(ellipse, rgba(200,200,220,0.08) 0%, transparent 65%)",
-          filter: "blur(100px)",
+          backgroundImage: "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)",
+          backgroundSize: "60px 60px",
         }}
       />
 
-      {/* Bottom-right faint silver accent */}
-      <div
-        className="absolute -bottom-1/4 -right-1/4 w-[55vw] h-[55vw] rounded-full opacity-20 animate-blob animation-delay-4000"
-        style={{
-          background:
-            "radial-gradient(ellipse, rgba(180,180,210,0.06) 0%, transparent 65%)",
-          filter: "blur(110px)",
-        }}
-      />
-
-      {/* Subtle horizontal gradient line at top — gives depth */}
+      {/* Subtle horizontal gradient line at top */}
       <div
         className="absolute top-0 left-0 right-0 h-px opacity-30"
         style={{
@@ -46,7 +40,7 @@ export default function CinematicBackground() {
       />
 
       {/* Cinematic Film Grain */}
-      <div className="absolute inset-0 bg-film-grain opacity-[0.06] mix-blend-overlay" />
+      <div className="absolute inset-0 bg-film-grain opacity-[0.05] mix-blend-overlay" />
     </div>
   );
 }

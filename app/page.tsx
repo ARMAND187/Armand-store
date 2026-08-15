@@ -3,13 +3,11 @@ import Hero from "@/components/Hero";
 import SocialSection from "@/components/SocialSection";
 import Footer from "@/components/Footer";
 import Link from "next/link";
-import RobotLoader from "@/components/RobotLoader";
 
 export default function HomePage() {
   return (
     <>
       <Header />
-      <RobotLoader />
       <main>
         <Hero />
         
