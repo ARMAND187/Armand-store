@@ -61,8 +61,6 @@ export const metadata: Metadata = {
   },
 };
 
-import ShootingStars from "@/components/ShootingStars";
-
 export default function RootLayout({
   children,
 }: {
@@ -72,7 +70,6 @@ export default function RootLayout({
     <html lang="en" className={inter.variable}>
       <body className="font-sans antialiased">
         <CinematicBackground />
-        <ShootingStars />
         <LanguageProvider>{children}</LanguageProvider>
         <Analytics />
       </body>
