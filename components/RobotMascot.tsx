@@ -119,71 +119,22 @@ function AICore({
   });
 
   return (
-    <group ref={rootRef} position={[1.0, 0, 0]} scale={1.2}>
-      {/* ── CENTRAL CORE ── */}
-      <mesh ref={coreRef}>
-        <sphereGeometry args={[0.5, 64, 64]} />
-        <meshPhysicalMaterial
-          color="#1a0b2e"
-          emissive="#7c3aed"
-          emissiveIntensity={reacting ? 2.5 : 1.5}
-          roughness={0.1}
-          metalness={0.9}
-          clearcoat={1}
-          clearcoatRoughness={0.1}
-        />
-        {/* Intense core light */}
-        <pointLight color="#a855f7" intensity={reacting ? 6 : 3} distance={5} />
-      </mesh>
-
-      {/* ── ORBITING RINGS ── */}
-      <mesh ref={ring1Ref}>
-        <torusGeometry args={[0.8, 0.02, 16, 100]} />
-        <meshPhysicalMaterial
-          color="#ffffff"
-          emissive="#ffffff"
-          emissiveIntensity={1}
-          transparent
-          opacity={0.8}
-        />
-      </mesh>
-      
-      <mesh ref={ring2Ref} rotation={[Math.PI / 3, 0, 0]}>
-        <torusGeometry args={[1.1, 0.015, 16, 100]} />
-        <meshPhysicalMaterial
-          color="#00f7ff"
-          emissive="#00f7ff"
-          emissiveIntensity={1.5}
-          transparent
-          opacity={0.6}
-        />
-      </mesh>
-
-      <mesh ref={ring3Ref} rotation={[0, Math.PI / 4, 0]}>
-        <torusGeometry args={[1.4, 0.01, 16, 100]} />
-        <meshPhysicalMaterial
-          color="#ec4899"
-          emissive="#ec4899"
-          emissiveIntensity={1.5}
-          transparent
-          opacity={0.4}
-        />
-      </mesh>
-
-      {/* ── PARTICLES ── */}
+    <group ref={rootRef} position={[0, 0, 0]}>
+      {/* ── PARTICLES (Stars) ── */}
       <points ref={particlesRef}>
-        <sphereGeometry args={[2, 32, 32]} />
+        {/* Generate a large sphere of particles */}
+        <sphereGeometry args={[10, 64, 64]} />
         <pointsMaterial
           color="#ffffff"
-          size={0.02}
+          size={0.03}
           transparent
-          opacity={0.3}
+          opacity={0.4}
           blending={THREE.AdditiveBlending}
         />
       </points>
 
-      {/* ── SPEECH BUBBLE ── */}
-      <Bubble text={speech} visible={visibleBubble} />
+      {/* ── SPEECH BUBBLE (Hidden until new idea) ── */}
+      {/* <Bubble text={speech} visible={visibleBubble} /> */}
     </group>
   );
 }
@@ -307,7 +258,7 @@ export default function RobotMascot() {
         position: "fixed",
         top:      0,
         right:    0,
-        width:    "clamp(300px, 40vw, 600px)",
+        width:    "100vw",
         height:   "100vh",
         zIndex:   -10,
         pointerEvents: "none",
