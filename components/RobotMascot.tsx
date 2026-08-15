@@ -10,7 +10,7 @@ import { usePathname } from "next/navigation";
 function Bubble({ text, visible }: { text: string; visible: boolean }) {
   if (!visible) return null;
   return (
-    <Html position={[-1.2, 1.2, 0]} center style={{ pointerEvents: "none" }}>
+    <Html position={[-0.8, 1.0, 0]} center style={{ pointerEvents: "none" }}>
       <div
         style={{
           background: "rgba(8, 8, 12, 0.85)",
@@ -119,7 +119,7 @@ function AICore({
   });
 
   return (
-    <group ref={rootRef} position={[2, 0, 0]} scale={1.2}>
+    <group ref={rootRef} position={[1.0, 0, 0]} scale={1.2}>
       {/* ── CENTRAL CORE ── */}
       <mesh ref={coreRef}>
         <sphereGeometry args={[0.5, 64, 64]} />
