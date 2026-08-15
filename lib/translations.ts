@@ -52,6 +52,14 @@ export const translations = {
     yt_disclaimer:
       "YouTube monetization eligibility and approval are subject to YouTube's current requirements and review.",
 
+    // Product: YouTube Views
+    yt_views_name: "YouTube Views",
+    yt_views_subtitle: "High Quality Views",
+    yt_views_tier1_label: "1,000 Views (60 Days Guarantee)",
+    yt_views_tier1_price: "6,000 IQD",
+    yt_views_tier2_label: "5,000 Views (30 Days Guarantee)",
+    yt_views_tier2_price: "15,000 IQD",
+
     // Product: TikTok
     tt_name: "TikTok Followers",
     tt_tier1_label: "1,000 Followers",
@@ -158,6 +166,14 @@ export const translations = {
     yt_best_offer: "باشترین ئۆفەر",
     yt_disclaimer:
       "بەرپرسیارێتی داراییکردن و پەسەندکردنی YouTube بەپێی مەرج و پشکنینی ئێستای YouTube دیاردەکرێت.",
+
+    // Product: YouTube Views
+    yt_views_name: "بینەری YouTube",
+    yt_views_subtitle: "بینەری کوالێتی بەرز",
+    yt_views_tier1_label: "١,٠٠٠ بینەر (زەمانی ٦٠ ڕۆژ)",
+    yt_views_tier1_price: "6,000 دینار",
+    yt_views_tier2_label: "٥,٠٠٠ بینەر (زەمانی ٣٠ ڕۆژ)",
+    yt_views_tier2_price: "15,000 دینار",
 
     // Product: TikTok
     tt_name: "فۆلۆوەرەکانی TikTok",

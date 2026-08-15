@@ -156,6 +156,32 @@ function YouTubeCard() {
     </article>
   );
 }
+// ── YouTube Views Card ──────────────────────────────────────
+function YouTubeViewsCard() {
+  const { t } = useLanguage();
+  return (
+    <article className="glass-card card-glow-red reveal-card relative p-3 sm:p-6 flex flex-col gap-2 sm:gap-4 col-span-2 md:col-span-2 lg:col-span-1">
+      <div className="flex items-center gap-3">
+        <div className="w-8 h-8 sm:w-11 sm:h-11 rounded-lg sm:rounded-xl bg-red-500/15 border border-red-500/25 flex items-center justify-center flex-shrink-0" aria-hidden="true">
+          <svg viewBox="0 0 24 24" className="w-4 h-4 sm:w-6 sm:h-6 text-red-400" fill="currentColor">
+            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+          </svg>
+        </div>
+        <div>
+          <h3 className="text-[13px] sm:text-base font-bold text-white leading-tight">{t("yt_views_name")}</h3>
+          <p className="text-[10px] sm:text-xs text-slate-400 leading-tight">{t("yt_views_subtitle")}</p>
+        </div>
+      </div>
+
+      <div className="space-y-2 flex-1">
+        <TierRow label={t("yt_views_tier1_label")} price={t("yt_views_tier1_price")} />
+        <TierRow label={t("yt_views_tier2_label")} price={t("yt_views_tier2_price")} />
+      </div>
+
+      <TgButton label={t("yt_views_name")} id="cta-youtube-views" colorClass="btn-3d-red" />
+    </article>
+  );
+}
 
 // ── TikTok Card ───────────────────────────────────────────
 function TikTokCard() {
@@ -290,6 +316,7 @@ export default function ProductSection({ featuredOnly = false }: { featuredOnly?
             </div>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-5">
               <YouTubeCard />
+              <YouTubeViewsCard />
               <TikTokCard />
               <TelegramCard />
             </div>
