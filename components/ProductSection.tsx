@@ -148,18 +148,6 @@ function YouTubeCard() {
 
       <div className="space-y-2 flex-1">
         <TierRow label={t("yt_tier1_label")} price={t("yt_tier1_price")} />
-        <TierRow label={t("yt_tier2_label")} price={t("yt_tier2_price")} />
-        <div className="relative rounded-xl bg-white/5 border border-white/10 p-2 sm:p-3 hover:bg-white/10 transition-colors">
-          <div className="flex flex-col xl:flex-row items-start xl:items-center justify-between gap-1.5 sm:gap-2">
-            <div className="flex-1">
-              <span className="inline-flex items-center text-[8px] sm:text-[10px] font-bold text-slate-900 bg-white px-1.5 sm:px-2 py-0.5 rounded-full mb-1">
-                {t("yt_best_offer")}
-              </span>
-              <p className="text-[10px] sm:text-xs text-slate-300 font-medium leading-tight">{t("yt_tier3_label")}</p>
-            </div>
-            <p className="text-sm sm:text-xl font-extrabold text-white whitespace-nowrap tabular-nums mt-0.5 xl:mt-0">{t("yt_tier3_price")}</p>
-          </div>
-        </div>
       </div>
 
       <p className="text-[9px] sm:text-[11px] text-slate-500 leading-relaxed mb-1">{t("yt_disclaimer")}</p>
