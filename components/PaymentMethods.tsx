@@ -20,13 +20,13 @@ const PAYMENT_METHODS = [
     id: "zaincash",
     name: "ZainCash",
     logo: "/logo-zaincash-trans.png",
-    imgClass: "scale-[1.7] brightness-[1.5] contrast-125", 
+    imgClass: "scale-[2.2] brightness-[1.5] contrast-125", 
   },
   {
     id: "qicard",
     name: "Qi Card",
     logo: "/logo-qicard.svg",
-    imgClass: "scale-100", 
+    imgClass: "scale-[1.2]", 
   }
 ];
 

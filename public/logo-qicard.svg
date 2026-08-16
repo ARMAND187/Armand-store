@@ -1,11 +1,14 @@
 <svg viewBox="0 0 350 100" xmlns="http://www.w3.org/2000/svg">
-  <g transform="translate(10, 10)">
-    <!-- Main Q Ring -->
-    <circle cx="40" cy="40" r="30" stroke="#5B7B94" stroke-width="16" fill="none" />
+  <g transform="translate(10, 5)">
+    <!-- Main Q Ring (Arc with gap at bottom-right) -->
+    <!-- Circumference is 2 * PI * 28 = 175.9. Gap of 40, solid of 135.9 -->
+    <circle cx="45" cy="45" r="28" stroke="#5B7B94" stroke-width="16" fill="none" stroke-dasharray="140.9 35" transform="rotate(105 45 45)" />
+    
     <!-- Center Dot -->
-    <circle cx="40" cy="40" r="10" fill="#5B7B94" />
-    <!-- Q Tail -->
-    <line x1="60" y1="60" x2="85" y2="85" stroke="#5B7B94" stroke-width="16" stroke-linecap="round" />
+    <circle cx="45" cy="45" r="9" fill="#5B7B94" />
+    
+    <!-- Q Tail (Pill shape) -->
+    <line x1="56" y1="56" x2="74" y2="74" stroke="#5B7B94" stroke-width="16" stroke-linecap="round" />
   </g>
 
   <!-- Text -->
