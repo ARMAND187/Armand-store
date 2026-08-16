@@ -55,25 +55,25 @@ export default function ReviewsSection() {
         <div className="flex w-max animate-marquee gap-6 px-3">
           {/* Duplicate list twice for seamless infinite scrolling */}
           {[...reviews, ...reviews].map((review, i) => (
-            <div key={i} className="glass-card p-8 rounded-3xl w-[320px] sm:w-[400px] h-full flex flex-col relative overflow-hidden group shrink-0">
-              <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
+            <div key={i} className="glass-card p-6 sm:p-8 rounded-3xl w-[260px] sm:w-[400px] h-full flex flex-col relative overflow-hidden group shrink-0">
+              <div className="absolute top-0 right-0 p-4 sm:p-6 opacity-10 group-hover:opacity-20 transition-opacity">
                 <svg className="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                 </svg>
               </div>
               
               <StarRating rating={review.rating} />
-              <p className="text-gray-300 leading-relaxed mb-8 relative z-10 flex-1">
+              <p className="text-sm sm:text-base text-gray-300 leading-relaxed mb-6 sm:mb-8 relative z-10 flex-1">
                 "{review.text}"
               </p>
               
-              <div className="flex items-center gap-4 relative z-10">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-gray-700 to-gray-500 flex items-center justify-center text-white font-bold text-lg">
+              <div className="flex items-center gap-3 sm:gap-4 relative z-10">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-tr from-gray-700 to-gray-500 flex items-center justify-center text-white font-bold text-base sm:text-lg">
                   {review.name.charAt(0)}
                 </div>
                 <div>
-                  <h4 className="text-white font-bold">{review.name}</h4>
-                  <span className="text-sm text-gray-400">{review.role}</span>
+                  <h4 className="text-sm sm:text-base text-white font-bold">{review.name}</h4>
+                  <span className="text-xs sm:text-sm text-gray-400">{review.role}</span>
                 </div>
               </div>
             </div>
