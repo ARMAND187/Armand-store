@@ -13,7 +13,7 @@ export const translations = {
     nav_home: "Home",
     nav_services: "Services",
     nav_store: "Store",
-    nav_how_it_works: "How It Works",
+    nav_how_it_works: "Guide",
     nav_contact: "Contact",
     lang_en: "EN",
     lang_ku: "کوردی",
@@ -145,9 +145,9 @@ export const translations = {
     feat_3_title: "24/7 Support",
     feat_3_desc: "Our team is always ready to assist you via Telegram with any questions.",
 
-    // How It Works Page Header
+    // Guide Page Header
     hiw_eyebrow: "Support & Guides",
-    hiw_title: "How It Works",
+    hiw_title: "Guide",
     hiw_subtitle: "Everything you need to know about ordering, paying, and reaching our support team.",
     
     // FAQ
@@ -168,7 +168,7 @@ export const translations = {
     nav_home: "سەرەکی",
     nav_services: "خزمەتگوزارییەکان",
     nav_store: "فرۆشگا",
-    nav_how_it_works: "چۆنیەتی کارکردن",
+    nav_how_it_works: "ڕێبەر",
     nav_contact: "پەیوەندی",
     lang_en: "EN",
     lang_ku: "کوردی",
@@ -300,9 +300,9 @@ export const translations = {
     feat_3_title: "پشتگیری ٢٤/٧",
     feat_3_desc: "تیمەکەمان هەمیشە ئامادەیە بۆ یارمەتیدانت لە ڕێگەی تێلیگرامەوە بۆ هەر پرسیارێک.",
 
-    // How It Works Page Header
-    hiw_eyebrow: "پشتگیری و ڕێبەرەکان",
-    hiw_title: "چۆنیەتی کارکردن",
+    // Guide Page Header
+    hiw_eyebrow: "پشتگیری و ڕێبەر",
+    hiw_title: "ڕێبەر",
     hiw_subtitle: "هەموو ئەوەی پێویستە بیزانیت دەربارەی داواکردن، پارەدان، و پەیوەندیکردن بە تیمی پشتگیریمانەوە.",
     
     // FAQ

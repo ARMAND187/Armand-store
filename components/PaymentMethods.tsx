@@ -14,16 +14,20 @@ const PAYMENT_METHODS = [
     id: "fastpay",
     name: "FastPay",
     logo: "/logo-fastpay.png",
-    // Increased by ~30% from h-8 to h-10/11 so it is comparable to FIB
     imgClass: "h-14 sm:h-18 w-auto",
   },
   {
     id: "zaincash",
     name: "ZainCash",
     logo: "/logo-zaincash-trans.png",
-    // Make ZainCash ~2x larger and slightly brighter/higher contrast for readability against dark navy
-    imgClass: "h-40 sm:h-48 w-auto scale-[1.3] brightness-[1.4] contrast-125", 
+    imgClass: "h-32 sm:h-40 w-auto scale-[1.3] brightness-[1.4] contrast-125", 
   },
+  {
+    id: "qicard",
+    name: "Qi Card",
+    logo: "/logo-qicard.svg",
+    imgClass: "h-10 sm:h-14 w-auto drop-shadow-lg", 
+  }
 ];
 
 export default function PaymentMethods() {
@@ -45,18 +49,18 @@ export default function PaymentMethods() {
           </h2>
         </div>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8">
           {PAYMENT_METHODS.map((m) => (
             <div
               key={m.id}
-              className="glass-card flex-1 w-full flex flex-col items-center justify-center gap-6 p-8 cursor-pointer"
+              className="glass-card w-full flex flex-col items-center justify-center gap-4 sm:gap-6 p-6 sm:p-8 cursor-pointer hover:bg-white/5 transition-colors"
               onClick={() => trackPaymentClick(m.name)}
               role="button"
               tabIndex={0}
               aria-label={`Pay with ${m.name}`}
               onKeyDown={(e) => e.key === 'Enter' && trackPaymentClick(m.name)}
             >
-              <div className="h-24 sm:h-32 w-full flex items-center justify-center">
+              <div className="h-16 sm:h-24 w-full flex items-center justify-center">
                 <img
                   src={m.logo}
                   alt={`${m.name} logo`}
@@ -64,7 +68,7 @@ export default function PaymentMethods() {
                   loading="lazy"
                 />
               </div>
-              <span className="font-bold text-base sm:text-lg text-white">{m.name}</span>
+              <span className="font-bold text-sm sm:text-lg text-white text-center whitespace-nowrap">{m.name}</span>
             </div>
           ))}
         </div>

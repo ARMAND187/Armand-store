@@ -64,14 +64,14 @@ export default function Header() {
           </Link>
 
           {/* Navigation */}
-          <nav className="flex items-center gap-0.5 overflow-x-auto no-scrollbar" aria-label="Main navigation">
+          <nav className="flex items-center gap-1" aria-label="Main navigation">
             {navLinks.map(({ href, label }) => {
               const isActive = pathname === href;
               return (
                 <Link
                   key={href}
                   href={href}
-                  className={`relative text-[11px] sm:text-xs font-medium transition-all duration-200 whitespace-nowrap px-3 py-1.5 rounded-xl ${
+                  className={`relative text-[11px] sm:text-xs font-medium transition-all duration-200 whitespace-nowrap px-2 sm:px-3 py-1.5 rounded-xl ${
                     isActive
                       ? "text-white bg-white/10"
                       : "text-white/45 hover:text-white/80 hover:bg-white/5"
