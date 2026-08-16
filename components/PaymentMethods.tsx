@@ -49,18 +49,18 @@ export default function PaymentMethods() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
           {PAYMENT_METHODS.map((m) => (
             <div
               key={m.id}
-              className="glass-card w-full flex flex-row items-center justify-start gap-2 sm:gap-4 p-3 sm:p-5 cursor-pointer hover:bg-white/5 transition-colors"
+              className="glass-card w-full flex flex-col items-center justify-center gap-4 sm:gap-6 p-6 sm:p-8 cursor-pointer hover:bg-white/5 transition-colors"
               onClick={() => trackPaymentClick(m.name)}
               role="button"
               tabIndex={0}
               aria-label={`Pay with ${m.name}`}
               onKeyDown={(e) => e.key === 'Enter' && trackPaymentClick(m.name)}
             >
-              <div className="h-10 w-14 sm:h-12 sm:w-16 flex items-center justify-center shrink-0">
+              <div className="h-16 w-24 sm:h-20 sm:w-32 flex items-center justify-center">
                 <img
                   src={m.logo}
                   alt={`${m.name} logo`}
@@ -68,7 +68,7 @@ export default function PaymentMethods() {
                   loading="lazy"
                 />
               </div>
-              <span className="font-bold text-sm sm:text-base text-white text-left whitespace-nowrap">{m.name}</span>
+              <span className="font-bold text-sm sm:text-lg text-white text-center whitespace-nowrap">{m.name}</span>
             </div>
           ))}
         </div>
