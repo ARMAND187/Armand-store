@@ -16,7 +16,7 @@ export default function Hero() {
 
         {/* Animated status pill — minimal white */}
         <div className="inline-flex items-center gap-2 border border-white/10 bg-white/5 text-white/60 text-xs font-medium px-4 py-1.5 rounded-full mb-8 animate-fade-in animate-float-badge backdrop-blur-sm">
-          <span className="w-1.5 h-1.5 rounded-full bg-white/60 animate-pulse" aria-hidden="true" />
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(52,211,153,0.5)]" aria-hidden="true" />
           {t("hero_tag")}
         </div>
 
