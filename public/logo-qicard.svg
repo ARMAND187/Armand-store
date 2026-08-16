@@ -1,0 +1,15 @@
+<svg viewBox="0 0 350 100" xmlns="http://www.w3.org/2000/svg">
+  <g transform="translate(10, 10)">
+    <!-- Main Q Ring -->
+    <circle cx="40" cy="40" r="30" stroke="#5B7B94" stroke-width="16" fill="none" />
+    <!-- Center Dot -->
+    <circle cx="40" cy="40" r="10" fill="#5B7B94" />
+    <!-- Q Tail -->
+    <line x1="60" y1="60" x2="85" y2="85" stroke="#5B7B94" stroke-width="16" stroke-linecap="round" />
+  </g>
+
+  <!-- Text -->
+  <text x="120" y="65" font-family="'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-weight="900" font-size="52" fill="#FDB813" letter-spacing="-1">
+    Qi<tspan fill="#5B7B94">Card</tspan>
+  </text>
+</svg>
