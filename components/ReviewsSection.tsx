@@ -23,31 +23,23 @@ export default function ReviewsSection() {
   const { t } = useLanguage();
 
   const reviews = [
-    {
-      name: "Ahmed K.",
-      role: t("review_1_role"),
-      text: t("review_1_text"),
-      rating: 5,
-    },
-    {
-      name: "Sara M.",
-      role: t("review_2_role"),
-      text: t("review_2_text"),
-      rating: 5,
-    },
-    {
-      name: "Ali R.",
-      role: t("review_3_role"),
-      text: t("review_3_text"),
-      rating: 5,
-    },
+    { name: "Ahmed K.", role: t("review_1_role"), text: t("review_1_text"), rating: 5 },
+    { name: "Sara M.", role: t("review_2_role"), text: t("review_2_text"), rating: 5 },
+    { name: "Ali R.", role: t("review_3_role"), text: t("review_3_text"), rating: 5 },
+    { name: "Yusuf", role: t("review_4_role"), text: t("review_4_text"), rating: 5 },
+    { name: "Rami", role: t("review_5_role"), text: t("review_5_text"), rating: 5 },
+    { name: "Hassan", role: t("review_6_role"), text: t("review_6_text"), rating: 5 },
+    { name: "Lina", role: t("review_7_role"), text: t("review_7_text"), rating: 5 },
+    { name: "Tarik", role: t("review_8_role"), text: t("review_8_text"), rating: 5 },
+    { name: "Omar", role: t("review_9_role"), text: t("review_9_text"), rating: 5 },
+    { name: "Dilan", role: t("review_10_role"), text: t("review_10_text"), rating: 5 },
   ];
 
   return (
-    <section className="py-24 relative z-10 px-4 bg-white/[0.02] border-y border-white/5">
-      <div className="max-w-6xl mx-auto">
+    <section className="py-24 relative z-10 bg-white/[0.02] border-y border-white/5 overflow-hidden">
+      <div className="max-w-6xl mx-auto px-4 mb-12">
         <FadeIn direction="up">
-          <div className="text-center mb-16">
+          <div className="text-center">
             <h2 className="text-3xl md:text-5xl font-black mb-6 tracking-tight text-white">
               {t("reviews_heading_1")} <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-200 to-gray-500">{t("reviews_heading_2")}</span>
             </h2>
@@ -56,33 +48,35 @@ export default function ReviewsSection() {
             </p>
           </div>
         </FadeIn>
+      </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {reviews.map((review, i) => (
-            <FadeIn key={i} delay={i * 0.1} direction="up">
-              <div className="glass-card p-8 rounded-3xl h-full flex flex-col relative overflow-hidden group">
-                <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
-                  <svg className="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                  </svg>
+      {/* Marquee Container */}
+      <div className="relative w-full overflow-hidden flex [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
+        <div className="flex w-max animate-marquee gap-6 px-3">
+          {/* Duplicate list twice for seamless infinite scrolling */}
+          {[...reviews, ...reviews].map((review, i) => (
+            <div key={i} className="glass-card p-8 rounded-3xl w-[320px] sm:w-[400px] h-full flex flex-col relative overflow-hidden group shrink-0">
+              <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
+                <svg className="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                </svg>
+              </div>
+              
+              <StarRating rating={review.rating} />
+              <p className="text-gray-300 leading-relaxed mb-8 relative z-10 flex-1">
+                "{review.text}"
+              </p>
+              
+              <div className="flex items-center gap-4 relative z-10">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-gray-700 to-gray-500 flex items-center justify-center text-white font-bold text-lg">
+                  {review.name.charAt(0)}
                 </div>
-                
-                <StarRating rating={review.rating} />
-                <p className="text-gray-300 leading-relaxed mb-8 relative z-10 flex-1">
-                  "{review.text}"
-                </p>
-                
-                <div className="flex items-center gap-4 relative z-10">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-gray-700 to-gray-500 flex items-center justify-center text-white font-bold text-lg">
-                    {review.name.charAt(0)}
-                  </div>
-                  <div>
-                    <h4 className="text-white font-bold">{review.name}</h4>
-                    <span className="text-sm text-gray-400">{review.role}</span>
-                  </div>
+                <div>
+                  <h4 className="text-white font-bold">{review.name}</h4>
+                  <span className="text-sm text-gray-400">{review.role}</span>
                 </div>
               </div>
-            </FadeIn>
+            </div>
           ))}
         </div>
       </div>
