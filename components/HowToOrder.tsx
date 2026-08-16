@@ -60,7 +60,7 @@ export default function HowToOrder() {
       className="relative z-10"
       aria-labelledby="how-to-order-heading"
     >
-      <div className="max-w-5xl mx-auto px-4 sm:px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-14">
           <p className="section-eyebrow mb-3">Simple process</p>
           <h2
@@ -75,7 +75,7 @@ export default function HowToOrder() {
           {STEPS.map((step, i) => (
             <div
               key={i}
-              className="glass-card reveal-card flex flex-col items-center justify-start text-center p-3 sm:p-8 gap-1.5 sm:gap-4"
+              className="glass-card reveal-card flex flex-col items-center justify-start text-center p-4 sm:p-10 gap-2 sm:gap-6"
               style={{ transitionDelay: `${i * 100}ms` }}
             >
               {/* Number */}
@@ -84,7 +84,7 @@ export default function HowToOrder() {
               <div className="w-8 h-8 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-violet-500/10 border border-violet-500/20 flex items-center justify-center text-cyan-400">
                 <div className="scale-75 sm:scale-100">{step.icon}</div>
               </div>
-              <h3 className="text-[9px] sm:text-sm font-semibold text-slate-200 leading-tight">{t(step.keyTitle)}</h3>
+              <h3 className="text-xs sm:text-base font-semibold text-slate-200 leading-tight">{t(step.keyTitle)}</h3>
             </div>
           ))}
         </div>
