@@ -8,25 +8,25 @@ const PAYMENT_METHODS = [
     id: "fib",
     name: "FIB",
     logo: "/logo-fib.svg",
-    imgClass: "h-12 sm:h-16 w-auto",
+    imgClass: "scale-110",
   },
   {
     id: "fastpay",
     name: "FastPay",
     logo: "/logo-fastpay.png",
-    imgClass: "h-14 sm:h-18 w-auto",
+    imgClass: "scale-125",
   },
   {
     id: "zaincash",
     name: "ZainCash",
     logo: "/logo-zaincash-trans.png",
-    imgClass: "h-32 sm:h-40 w-auto scale-[1.3] brightness-[1.4] contrast-125", 
+    imgClass: "scale-[1.5] brightness-[1.4] contrast-125", 
   },
   {
     id: "qicard",
     name: "Qi Card",
-    logo: "/logo-qicard.svg",
-    imgClass: "h-10 sm:h-14 w-auto drop-shadow-lg", 
+    logo: "/logo-qicard.png",
+    imgClass: "scale-110 drop-shadow-md rounded-lg", 
   }
 ];
 
@@ -49,26 +49,26 @@ export default function PaymentMethods() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
           {PAYMENT_METHODS.map((m) => (
             <div
               key={m.id}
-              className="glass-card w-full flex flex-col items-center justify-center gap-4 sm:gap-6 p-6 sm:p-8 cursor-pointer hover:bg-white/5 transition-colors"
+              className="glass-card w-full flex flex-row items-center justify-start gap-2 sm:gap-4 p-3 sm:p-5 cursor-pointer hover:bg-white/5 transition-colors"
               onClick={() => trackPaymentClick(m.name)}
               role="button"
               tabIndex={0}
               aria-label={`Pay with ${m.name}`}
               onKeyDown={(e) => e.key === 'Enter' && trackPaymentClick(m.name)}
             >
-              <div className="h-16 sm:h-24 w-full flex items-center justify-center">
+              <div className="h-10 w-14 sm:h-12 sm:w-16 flex items-center justify-center shrink-0">
                 <img
                   src={m.logo}
                   alt={`${m.name} logo`}
-                  className={`object-contain drop-shadow-sm ${m.imgClass}`}
+                  className={`max-h-full max-w-full object-contain drop-shadow-sm ${m.imgClass}`}
                   loading="lazy"
                 />
               </div>
-              <span className="font-bold text-sm sm:text-lg text-white text-center whitespace-nowrap">{m.name}</span>
+              <span className="font-bold text-sm sm:text-base text-white text-left whitespace-nowrap">{m.name}</span>
             </div>
           ))}
         </div>
