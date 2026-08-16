@@ -1,18 +1,19 @@
-<svg viewBox="0 0 350 100" xmlns="http://www.w3.org/2000/svg">
-  <g transform="translate(10, 5)">
+<svg viewBox="0 0 320 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Translate a bit to center it vertically -->
+  <g transform="translate(5, 5)">
     <!-- Main Q Ring (Arc with gap at bottom-right) -->
-    <!-- Start at 70 degrees (bottom-right), draw clockwise to 20 degrees (right-bottom) -->
-    <path d="M 54.6 71.3 A 28 28 0 1 1 71.3 54.6" stroke="#5B7B94" stroke-width="16" fill="none" stroke-linecap="butt" />
+    <!-- Start at 62 degrees (bottom-right), draw clockwise to 28 degrees (right-bottom) -->
+    <path d="M 60.0 73.3 A 32 32 0 1 1 73.3 60.0" stroke="#5B7B94" stroke-width="14" fill="none" stroke-linecap="butt" />
     
     <!-- Center Dot -->
-    <circle cx="45" cy="45" r="9" fill="#5B7B94" />
+    <circle cx="45" cy="45" r="8" fill="#5B7B94" />
     
     <!-- Q Tail (Pill shape) -->
-    <line x1="56" y1="56" x2="74" y2="74" stroke="#5B7B94" stroke-width="16" stroke-linecap="round" />
+    <line x1="53.5" y1="53.5" x2="80.4" y2="80.4" stroke="#5B7B94" stroke-width="14" stroke-linecap="round" />
   </g>
 
   <!-- Text -->
-  <text x="120" y="65" font-family="'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-weight="900" font-size="52" fill="#FDB813" letter-spacing="-1">
+  <text x="105" y="66" font-family="'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-weight="900" font-size="56" fill="#FDB813" letter-spacing="-1.5">
     Qi<tspan fill="#5B7B94">Card</tspan>
   </text>
 </svg>

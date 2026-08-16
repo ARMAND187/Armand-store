@@ -26,7 +26,7 @@ const PAYMENT_METHODS = [
     id: "qicard",
     name: "Qi Card",
     logo: "/logo-qicard.svg",
-    imgClass: "scale-[1.2]", 
+    imgClass: "scale-[1.5]", 
   }
 ];
 
