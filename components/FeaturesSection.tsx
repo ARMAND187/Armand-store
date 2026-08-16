@@ -50,17 +50,19 @@ export default function FeaturesSection() {
           </div>
         </FadeIn>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-6 md:gap-8">
           {features.map((feature, i) => (
-            <FadeIn key={i} delay={i * 0.1} direction="up">
-              <div className="glass-card p-10 rounded-3xl h-full flex flex-col items-center text-center group hover:bg-white/5 transition-all duration-300">
-                <div className="w-20 h-20 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-gray-200 mb-8 group-hover:scale-110 transition-transform duration-300">
-                  <div className="scale-125">{feature.icon}</div>
+            <div key={i} className={i === 2 ? "col-span-2 md:col-span-1" : ""}>
+              <FadeIn delay={i * 0.1} direction="up" className="h-full">
+                <div className="glass-card p-5 sm:p-10 rounded-3xl h-full flex flex-col items-center text-center group hover:bg-white/5 transition-all duration-300">
+                  <div className="w-14 h-14 sm:w-20 sm:h-20 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-gray-200 mb-4 sm:mb-8 group-hover:scale-110 transition-transform duration-300">
+                    <div className="scale-100 sm:scale-125">{feature.icon}</div>
+                  </div>
+                  <h3 className="text-[15px] sm:text-2xl font-bold text-white mb-2 sm:mb-4 leading-tight">{feature.title}</h3>
+                  <p className="text-xs sm:text-lg text-gray-400 leading-relaxed">{feature.description}</p>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">{feature.title}</h3>
-                <p className="text-lg text-gray-400 leading-relaxed">{feature.description}</p>
-              </div>
-            </FadeIn>
+              </FadeIn>
+            </div>
           ))}
         </div>
       </div>
