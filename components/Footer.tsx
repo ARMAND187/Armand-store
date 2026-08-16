@@ -53,6 +53,7 @@ export default function Footer() {
           {/* Brand */}
           <Link
             href="/"
+            prefetch={true}
             className="flex items-center gap-2.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 rounded-lg"
             aria-label="Armand Store Home"
           >
@@ -73,7 +74,7 @@ export default function Footer() {
                 />
               </svg>
             </div>
-            <span className="font-bold text-white text-lg tracking-tight">
+            <span className="font-bold text-zinc-200 text-lg tracking-tight">
               ARMAND <span className="text-gradient-hero font-black">STORE</span>
             </span>
           </Link>

@@ -132,7 +132,7 @@ export const translations = {
 
     // Footer
     footer_tagline: "Premium Digital Products & Social Media Services",
-    footer_copy: "© 2026 Armand Store",
+    footer_copy: "Armand Store ©️ 2026",
 
     // Features
     feat_heading_1: "Why Choose",

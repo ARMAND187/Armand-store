@@ -11,16 +11,6 @@ export default function Hero() {
       className="relative flex flex-col items-center justify-start overflow-hidden pt-10 sm:pt-20 pb-16 px-4"
       aria-label="Hero"
     >
-      {/* Very faint centered glow */}
-      <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] rounded-full pointer-events-none animate-hero-glow"
-        aria-hidden="true"
-        style={{
-          background: "radial-gradient(ellipse, rgba(255,255,255,0.04) 0%, transparent 70%)",
-          filter: "blur(60px)",
-        }}
-      />
-
       {/* Content */}
       <div className="relative z-10 max-w-4xl mx-auto text-center">
 
@@ -32,7 +22,7 @@ export default function Hero() {
 
         {/* Main heading */}
         <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-[0.9] tracking-tight mb-6 animate-fade-in-up">
-          <span className="text-white">ARMAND</span>
+          <span className="text-zinc-200">ARMAND</span>
           <br />
           <span className="text-gradient-hero">STORE</span>
         </h1>

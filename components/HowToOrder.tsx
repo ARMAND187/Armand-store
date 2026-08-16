@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+
 import { useLanguage } from "@/components/LanguageProvider";
 
 const STEPS = [
@@ -35,25 +35,6 @@ const STEPS = [
 
 export default function HowToOrder() {
   const { t } = useLanguage();
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            e.target.classList.add("is-visible");
-            obs.unobserve(e.target);
-          }
-        });
-      },
-      { threshold: 0.15 }
-    );
-    el.querySelectorAll(".reveal-card").forEach((c) => obs.observe(c));
-    return () => obs.disconnect();
-  }, []);
 
   return (
     <section
@@ -71,7 +52,7 @@ export default function HowToOrder() {
           </h2>
         </div>
 
-        <div ref={ref} className="grid grid-cols-3 gap-2 sm:gap-6">
+        <div className="grid grid-cols-3 gap-2 sm:gap-6">
           {STEPS.map((step, i) => (
             <div
               key={i}

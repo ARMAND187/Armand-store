@@ -1,33 +1,13 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+
 import { useLanguage } from "@/components/LanguageProvider";
 import { TELEGRAM_URL } from "@/config/site";
 import { trackProductOrderClick } from "@/lib/analytics";
 
 
 // ── Intersection Observer hook ────────────────────────────
-function useReveal() {
-  const ref = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            e.target.classList.add("is-visible");
-            obs.unobserve(e.target);
-          }
-        });
-      },
-      { threshold: 0.12 }
-    );
-    el.querySelectorAll(".reveal-card").forEach((c) => obs.observe(c));
-    return () => obs.disconnect();
-  }, []);
-  return ref;
-}
+// ── Intersection Observer hook removed for stability ──
 
 // ── Shared Telegram CTA Button ────────────────────────────
 function TgButton({
@@ -237,7 +217,6 @@ function TelegramCard() {
 // ── Main Section ──────────────────────────────────────────
 export default function ProductSection({ featuredOnly = false }: { featuredOnly?: boolean }) {
   const { t } = useLanguage();
-  const gridRef = useReveal();
 
   if (featuredOnly) {
     return (
@@ -251,7 +230,7 @@ export default function ProductSection({ featuredOnly = false }: { featuredOnly?
             <p className="text-[#8b8ba8] text-base sm:text-lg max-w-md mx-auto">Our most popular digital products and social media services.</p>
           </div>
 
-          <div ref={gridRef} className="grid grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-5 mb-12">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-5 mb-12">
             <WindowsCard />
             <GeminiCard />
             <YouTubeCard />
@@ -293,7 +272,7 @@ export default function ProductSection({ featuredOnly = false }: { featuredOnly?
           </div>
         </div>
 
-        <div ref={gridRef} className="space-y-20">
+        <div className="space-y-20">
           {/* Software & AI Category */}
           <div>
             <div className="flex items-center gap-4 mb-8">

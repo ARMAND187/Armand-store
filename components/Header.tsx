@@ -58,7 +58,7 @@ export default function Header() {
                 />
               </svg>
             </div>
-            <span className="hidden sm:block font-bold text-[14px] text-white tracking-tight">
+            <span className="hidden sm:block font-bold text-[14px] text-zinc-200 tracking-tight">
               ARMAND <span className="text-gradient-hero font-black">STORE</span>
             </span>
           </Link>
@@ -71,6 +71,7 @@ export default function Header() {
                 <Link
                   key={href}
                   href={href}
+                  prefetch={true}
                   className={`relative text-[11px] sm:text-xs font-medium transition-all duration-200 whitespace-nowrap px-2 sm:px-3 py-1.5 rounded-xl ${
                     isActive
                       ? "text-white bg-white/10"

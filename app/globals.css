@@ -40,7 +40,7 @@
   --bg-card:       #0e0e0e;
   --bg-card-hover: #141414;
 
-  --text-primary:   #f5f5f5;
+  --text-primary:   #d4d4d8;
   --text-secondary: #888;
   --text-muted:     #444;
 
@@ -177,15 +177,14 @@ h1, h2, h3 {
    CARD REVEAL
 ═══════════════════════════════════════════════════════ */
 .reveal-card {
-  opacity: 0;
-  transform: translateY(32px) scale(0.97);
-  transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1), transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  opacity: 1;
+  transform: none;
 }
-.reveal-card.is-visible { opacity: 1; transform: translateY(0) scale(1); }
-.reveal-card:nth-child(2) { transition-delay: 100ms; }
-.reveal-card:nth-child(3) { transition-delay: 180ms; }
-.reveal-card:nth-child(4) { transition-delay: 260ms; }
-.reveal-card:nth-child(5) { transition-delay: 340ms; }
+.reveal-card.is-visible { opacity: 1; transform: none; }
+.reveal-card:nth-child(2) {}
+.reveal-card:nth-child(3) {}
+.reveal-card:nth-child(4) {}
+.reveal-card:nth-child(5) {}
 
 /* ═══════════════════════════════════════════════════════
    GLASS CARD — Deep Premium + 3D Mouse Tilt Support
