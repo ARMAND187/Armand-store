@@ -1,8 +1,8 @@
 <svg viewBox="0 0 350 100" xmlns="http://www.w3.org/2000/svg">
   <g transform="translate(10, 5)">
     <!-- Main Q Ring (Arc with gap at bottom-right) -->
-    <!-- Circumference is 2 * PI * 28 = 175.9. Gap of 40, solid of 135.9 -->
-    <circle cx="45" cy="45" r="28" stroke="#5B7B94" stroke-width="16" fill="none" stroke-dasharray="140.9 35" transform="rotate(105 45 45)" />
+    <!-- Start at 70 degrees (bottom-right), draw clockwise to 20 degrees (right-bottom) -->
+    <path d="M 54.6 71.3 A 28 28 0 1 1 71.3 54.6" stroke="#5B7B94" stroke-width="16" fill="none" stroke-linecap="butt" />
     
     <!-- Center Dot -->
     <circle cx="45" cy="45" r="9" fill="#5B7B94" />
