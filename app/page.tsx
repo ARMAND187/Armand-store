@@ -54,29 +54,39 @@ export default function Home() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-yellow-500/10 text-yellow-400 text-sm font-medium border border-yellow-500/20 mb-8"
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-500/10 text-red-500 font-black tracking-widest text-sm md:text-base border border-red-500/20 mb-6 uppercase shadow-[0_0_15px_rgba(239,68,68,0.2)]"
         >
-          <Info className="w-4 h-4" />
-          Coming Soon! We are open now but under test.
+          Coming Soon
         </motion.div>
 
         <motion.h1 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-5xl md:text-7xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-white to-zinc-500 mb-6"
+          className="text-6xl md:text-8xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-emerald-400 to-cyan-600 mb-2 uppercase drop-shadow-md"
         >
           RawchySMP
         </motion.h1>
 
-        <motion.p
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="text-3xl md:text-4xl font-bold text-white mb-6 uppercase tracking-wider"
+        >
+          The Hunter's World
+        </motion.h2>
+
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-zinc-400 text-lg md:text-xl max-w-2xl mb-12"
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="text-zinc-400 text-lg md:text-xl max-w-2xl mb-8 flex flex-col gap-2"
         >
-          The ultimate survival multiplayer experience. Gather resources, build massive bases, and survive together.
-        </motion.p>
+          <p>A new adventure is coming.</p>
+          <p className="font-semibold text-zinc-300">Build. Hunt. Survive. GO TOP</p>
+          <p className="text-yellow-500 font-bold tracking-widest mt-2 uppercase">Get Ready</p>
+        </motion.div>
 
         <motion.div 
           initial={{ opacity: 0, scale: 0.95 }}
