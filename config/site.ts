@@ -7,7 +7,7 @@ export const SOCIAL_LINKS = {
 
 export const SITE_CONFIG = {
   name: "RawchySMP",
-  tagline: "The Ultimate Minecraft Experience",
-  description: "Join RawchySMP, a premium survival server. Play, build, and explore with our amazing community. Coming soon!",
+  tagline: "The Hunter's World",
+  description: "A new adventure is coming. Build. Hunt. Survive. GO TOP. Coming soon!",
   url: "https://rawchysmp.com",
 };

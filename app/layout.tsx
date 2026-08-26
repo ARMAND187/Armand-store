@@ -11,7 +11,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "RawchySMP | The Ultimate Minecraft Experience",
+  title: "RawchySMP | The Hunter's World",
   description: SITE_CONFIG.description,
   keywords: [
     "RawchySMP",
@@ -25,14 +25,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: SITE_CONFIG.url,
-    title: "RawchySMP | The Ultimate Minecraft Experience",
+    title: "RawchySMP | The Hunter's World",
     description: SITE_CONFIG.description,
     siteName: SITE_CONFIG.name,
     images: [],
   },
   twitter: {
     card: "summary_large_image",
-    title: "RawchySMP | The Ultimate Minecraft Experience",
+    title: "RawchySMP | The Hunter's World",
     description: SITE_CONFIG.description,
     images: [],
   },
