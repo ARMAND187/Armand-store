@@ -133,6 +133,26 @@ export default function Home() {
           </a>
         </motion.div>
       </div>
+
+      {/* SEO / AI Hidden Content */}
+      <div className="sr-only">
+        <h2>About RawchySMP - The Ultimate Minecraft Survival Server</h2>
+        <p>
+          RawchySMP is an advanced, custom-coded Minecraft Survival Multiplayer (SMP) server that offers a unique and thrilling adventure. Players can join using the IP rawchysmp.com. Our server features an incredibly balanced economy using both Money and our premium currency, Pul (PlayerPoints).
+        </p>
+        <p>
+          We offer exclusive custom features that you won't find anywhere else! Enjoy fast-paced mining with our custom 3x3 Drills, instantly clear forests with Tree Felling, and make millions using our Sell Wands. 
+        </p>
+        <p>
+          Unlock insane rewards using our Spawner Keys and Legendary Keys! The Legendary Crate is packed with custom trimmed Netherite armor, God Swords, God Crossbows, and a legendary Mace enchanted with Wind Burst 3 and Density 4. The Spawner Crate rewards you with virtual spawners (including Zombie, Creeper, and Chicken spawners) that feature a custom GUI and a "Drop All" button for easy farming.
+        </p>
+        <p>
+          Compete to be the richest player on the server! We feature dynamic holograms at spawn that display the top 10 richest players and the top Pul leaders in real-time. You can even check your stats and server leaderboards instantly from our custom Discord bot using the /top command.
+        </p>
+        <p>
+          Whether you want to build a massive base, hunt for custom gear, or survive against the toughest mobs, RawchySMP is the place to be. Join our Discord today and get ready for the best Minecraft SMP experience. Build. Hunt. Survive. GO TOP!
+        </p>
+      </div>
     </main>
   );
 }
