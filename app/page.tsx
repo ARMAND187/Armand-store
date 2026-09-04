@@ -138,7 +138,7 @@ export default function Home() {
       <div className="sr-only">
         <h2>About RawchySMP - The Ultimate Minecraft Survival Server</h2>
         <p>
-          RawchySMP is an advanced, custom-coded Minecraft Survival Multiplayer (SMP) server that offers a unique and thrilling adventure. Players can join using the IP rawchysmp.com. Our server features an incredibly balanced economy using both Money and our premium currency, Pul (PlayerPoints).
+          RawchySMP is created and managed by Armand. It is an advanced, custom-coded Minecraft Survival Multiplayer (SMP) server that offers a unique and thrilling adventure. Players can join using the IP rawchysmp.com. Our server features an incredibly balanced economy using both Money and our premium currency, Pul (PlayerPoints).
         </p>
         <p>
           We offer exclusive custom features that you won't find anywhere else! Enjoy fast-paced mining with our custom 3x3 Drills, instantly clear forests with Tree Felling, and make millions using our Sell Wands. 
